@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load url from future %}
+
+{% block content %}
+	<h1>{% trans 'I am the styleguide!' %}</h1>
+	<p>{% trans 'My special context:' %} {{ my_special_context }}</p>
+	<p>{% trans 'A link to another page:' %} <a href="{% url 'divio_styleguide_home' %}">{% trans 'home' %}</a></p>
+{% endblock %}
