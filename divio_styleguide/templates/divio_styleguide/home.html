@@ -1,9 +1,130 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
 {% load i18n %}
 {% load url from future %}
 
+{% block extrahead %}
+<style>
+.styleguide section { border-bottom:1px solid #ccc; padding-bottom:15px; margin-bottom:15px; }
+</style>
+{% endblock extrahead %}
+
 {% block content %}
-	<h1>{% trans 'I am the styleguide!' %}</h1>
-	<p>{% trans 'My special context:' %} {{ my_special_context }}</p>
-	<p>{% trans 'A link to another page:' %} <a href="{% url 'divio_styleguide_home' %}">{% trans 'home' %}</a></p>
+<div class="container-24 clearfix">
+	<div class="grid-24">
+		<h1>Styleguide</h1>
+	</div>
+
+	<div class="grid-6">
+		<nav class="subnav">
+			<ul id="guidenav">
+				<!-- BASIC SETUP -->
+				<li><a href="#page-structure"><span>Structure &amp; naming</span></a></li>
+				<li><a href="#page-plugin"><span>Code guidelines</span></a></li>
+				<li><a href="#page-plugin"><span>Plugin guidelines</span></a></li>
+
+				<!--
+				<li>{% trans "My special context:" %} {{ my_special_context }}</li>
+				<li>{% trans "A link to another page:" %} <a href="{% url "divio_styleguide_home" %}">{% trans "home" %}</a></li>
+				<li><a href="#">Code Guidelines</a></li>
+				<li><a href="#">Grid overview</a></li>
+				<li><a href="#">Responsive Utilities</a></li>
+				-->
+			</ul>
+		</nav>
+	</div>
+	<div class="grid-18 styleguide">
+
+		<section id="page-structure">
+			<h2>Structure &amp; naming</h2>
+
+			<h3>Structure</h3>
+			<p>This is the general structure inside the static folder.
+				The asterisk <sup>(*)</sup> marks folder named <code>css</code> (scss), <code>img</code> or <code>js</code>.
+				For example base.css or base.js. The substructure is applied to all items named above.</p>
+<pre>
+static/
+├── */
+│   ├── includes/
+│   ├── libs/
+│   ├── plugins/
+│   └── base.ext
+├── fonts/
+└── swf/
+</pre>
+			<p>Compiling and minification is automated. Please consult the readme for further instructions.</p>
+
+			<h4>Naming</h4>
+			<p>All files within <code>static/</code> or <code>templates/</code> should be named after the following guidelines.</p>
+
+			<p><code><strong>namespace</strong>-<strong>module</strong>-<strong>addition</strong>-addition.ext</code></p>
+			<p>The <code>namespace</code> is the <strong>origin</strong> of the file, is unique and always required. In addition,
+				namespaces can be folders to group multiple files and create a better overview.
+				The files inside the folder are excluding the namespace.</p>
+			<p><code>Modules</code> are used as soon as the namespace isn't enough to describe the meaning of the file.
+				They are not unique, optional and can be nested in folders.</p>
+			<p><code>Additions</code> are additional descriptions for the file like direction, color or position.
+				There can be an infinity amout of additions, they are all divided by a dash.</p>
+			<p class="text-notify">Exception: We use the "<code>.</code>"-annotation for javascript files.</p>
+
+			<p>Some examples:</p>
+<pre>
+templates/base.html <span>"base" is the namespace</span>
+templates/base-sidebar-left.html <span>"base" is the namespace, "sidebar" the module and "left" an addition</span>
+img/icon/arrow-left.png <span>"icon" is the namespace and "left" an addition</span>
+img/icon/arrow-left-small.png <span>"icon" is the namespace and ""</span>
+js/jquery.cycle.min.js <span>"jquery" is the namespace, "cycle" the module and "min" the addition</span>
+js/cl.lightbox.js <span>"cl" is the namespace and "lightbox" the module</span>
+</pre>
+		</section>
+
+<!-- ############################################################################################################### -->
+
+<section id="page-plugin">
+	<h2>Code guidelines</h2>
+	<p>For <code>Python</code> we are using the following guidelines: <a href="#">link to guidelines</a></p>
+	<p>For <code>HTML</code>/<code>CSS</code> we are using the following guidelines: <a href="#">link to guidelines</a></p>
+</section>
+
+<!-- ############################################################################################################### -->
+
+<section id="page-plugin">
+	<h2>Plugin guidelines</h2>
+	<p>When developing plugins, the following terms <strong>must</strong> be fullfilled:</p>
+	<ul>
+		<li>W3C HTML validation</li>
+		<li>No JavaScript and Pageload<sup>1</sup> optimization</li>
+		<li>Progressive enhancement<sup>2</sup></li>
+		<li>Retina support for important brand information like logo</li>
+	</ul>
+
+	<p>The following requirements <strong>should</strong> be fullfilled:</p>
+	<ul>
+		<li>Full retina support</li>
+		<li>WCAG 2.0 validation</li>
+	</ul>
+
+	<p class="text-small">
+		1) When loading HTML and JavaScript, jumping of content elements or other disturbances should be avoided.<br />
+		2) Wherever possible use HTML5 or CSS3 technologies and provide proper fallbacks.
+	</p>
+</section>
+
+<!-- ############################################################################################################### -->
+
+<nav class="pagenav">
+	<ol>{% include "includes/menu/pagenav.html" %}</ol>
+</nav>
+
+
+
+
+
+
+
+
+
+
+
+</div>
+</div>
 {% endblock %}
