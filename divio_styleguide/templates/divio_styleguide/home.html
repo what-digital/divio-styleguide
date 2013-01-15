@@ -1,38 +1,294 @@
 {% extends "base.html" %}
-{% load i18n %}
+{% load i18n sekizai_tags %}
 {% load url from future %}
+
+{% block content %}
+{% comment %}
+{% trans "My special context:" %} {{ my_special_context }}
+{% trans "A link to another page:" %} <a href="{% url "divio_styleguide_home" %}">{% trans "home" %}</a>
+{% endcomment %}
 
 {% block extrahead %}
 <style>
+.code { font-size:12px; color:#999; font-family:Consolas, "Liberation Mono", Courier, monospace; }
+.code code { color:#000; border-radius:2px; border:1px solid #eaeaea; background:#f8f8f8; }
+
+.guidenav { position:absolute; right:0; top:0; }
+.guidenav p { margin:0; width:200px; text-align:right; }
+.guidenav ul { list-style-type:none; padding:0; margin:0; }
+.guidenav ul li { text-align:right; }
+.guidenav #guidenav { display:none; }
+.guidenav:hover #guidenav { display:block; }
+
 .styleguide section { border-bottom:1px solid #ccc; padding-bottom:15px; margin-bottom:15px; }
+.highlight { color:#f93; }
 </style>
 {% endblock extrahead %}
 
-{% block content %}
 <div class="container-24 clearfix">
-	<div class="grid-24">
-		<h1>Styleguide</h1>
-	</div>
-
-	<div class="grid-6">
-		<nav class="subnav">
+	<div class="grid-24 relative">
+		<nav class="guidenav">
+			<p id="guidenav-trigger"><a href="#">Show navigation</a></p>
 			<ul id="guidenav">
 				<!-- BASIC SETUP -->
-				<li><a href="#page-structure"><span>Structure &amp; naming</span></a></li>
-				<li><a href="#page-plugin"><span>Code guidelines</span></a></li>
-				<li><a href="#page-plugin"><span>Plugin guidelines</span></a></li>
+				<li><a href="#page-welcome"><span>Welcome</span></a></li>
+				<li>
+					<a href="#"><span>Typography</span></a>
+					<ul>
+						<li><a href="#page-fonts"><span>Fonts, Sizes and Styles</span></a></li>
+						<li><a href="#page-textflow"><span>Textflow</span></a></li>
+						<li><a href="#">Grid overview</a></li>
+						<li><a href="#">Responsive Utilities</a></li>
+					</ul>
+				</li>
+				<li>
+					<a href="#"><span>Components</span></a>
+					<ul>
+						<li><a href="#">Gallery</a></li>
+					</ul>
+				</li>
+				<li><a href="#"><span>Templates</span></a></li>
+				<li>
+					<a href="#"><span>Development</span></a>
+					<ul>
+						<li><a href="#page-structure"><span>Structure &amp; naming</span></a></li>
+						<li><a href="#page-plugin"><span>Code guidelines</span></a></li>
+						<li><a href="#page-plugin"><span>Plugin guidelines</span></a></li>
+					</ul>
+				</li>
 
-				<!--
-				<li>{% trans "My special context:" %} {{ my_special_context }}</li>
-				<li>{% trans "A link to another page:" %} <a href="{% url "divio_styleguide_home" %}">{% trans "home" %}</a></li>
-				<li><a href="#">Code Guidelines</a></li>
-				<li><a href="#">Grid overview</a></li>
-				<li><a href="#">Responsive Utilities</a></li>
-				-->
 			</ul>
 		</nav>
+
+		{% addtoblock "js" %}
+		<script>
+		jQuery(document).ready(function ($) {
+			var active = $('#page-textflow');
+
+			var sections = $('section');
+				sections.hide();
+			var triggers = $('#guidenav li a');
+				triggers.bind('click', function (e) {
+					e.preventDefault();
+
+					var hash = $(this).attr('href');
+					var section = $(hash);
+						sections.hide();
+						section.show();
+				});
+
+			// display active item
+			active.show();
+		});
+		</script>
+		{% endaddtoblock "js" %}
 	</div>
-	<div class="grid-18 styleguide">
+
+	<!-- ########################################################################################################### -->
+
+	<section id="page-welcome">
+		<div class="grid-24">
+			<h1>Online Styleguide</h1>
+			<hr />
+
+			<p>The Online Styleguide is a uniformed compendium for project managers, web publisher, designers or
+				developers of how to maintain, update or further develop a website. It gives an insight of formatting,
+				use of space and components accross the online presence. It is devided into three essential parts.
+			</p>
+		</div>
+		<div class="grid-6"><h2>1. Typography</h2></div>
+		<div class="grid-18">
+			<p>Within typography we define standards such as text sizes, colors, paddings and dynamic behaviours. This
+				can be included inside a plain text-paragraph or more advanced structures such as tables or forms.
+
+				Furthermore we add custom styles that support the layout throughout all templates like leading texts,
+				grid support, helpers or list types.
+
+				We provide a standardized overview of all html functions and essential helpers.</p>
+		</div>
+
+		<div class="grid-6"><h2>2. Components</h2></div>
+		<div class="grid-18">
+			<p>Components are part of a website that are used on multiple occurences. Some examples include page
+				navigations, boxes or teasers. Variations of the same element will be provided through descriptive
+				indications.
+
+				Unlike typography, this section will be updated permanently as components are added or dropped.
+				Besides the live preview we also add code examples to easily encourage copy-and-paste.</p>
+		</div>
+
+		<div class="grid-6"><h2>3. Templates</h2></div>
+		<div class="grid-18">
+			<p>This represents an overview of all requested html pages. Those are marked and referenced to through a
+				unique list-numbering. The templates are fully functional in terms of html, css and javascript but do
+				not include any backend logic.
+
+				Depending on the projects nature, templates might be outdated over time as typography and components
+				advance. They only serve as references to show how they were initially designed.</p>
+		</div>
+
+		<div class="grid-6"><h2>4. Development</h2></div>
+		<div class="grid-18">
+			<p>General development guide.</p>
+		</div>
+	</section>
+
+	<!-- ########################################################################################################### -->
+
+	<section id="page-fonts">
+		<div class="grid-24">
+			<h1>Fonts, Sizes and Styles</h1>
+			<hr />
+		</div>
+
+		<div class="grid-12">
+			<p class="nospace js-fonts"><span class="highlight">{tpl} Regular</span></p>
+			<p class="nospace font-size-20">ABCDEFGHIJKLMNOPQRSTUVWXYZ<br />
+				abcdefghijklmnopqrstuvwxyz<br />
+				1234567890!@#$%^&*()_+</p>
+			<p class="code">regular style: <code>&lt;p&gt;My text&lt;/p&gt;</code></p>
+
+			<p class="nospace js-fonts"><span class="highlight">{tpl} italic</span></p>
+			<p class="nospace font-size-20 pt-sans"><em>ABCDEFGHIJKLMNOPQRSTUVWXYZ<br />
+				abcdefghijklmnopqrstuvwxyz<br />
+				1234567890!@#$%^&*()_+</em></p>
+			<p class="code">italic style: <code>&lt;p&gt;&lt;em&gt;My text&lt;/em&gt;&lt;/p&gt;</code></p>
+
+			<p class="nospace js-fonts"><span class="highlight">{tpl} bold</span></p>
+			<p class="nospace font-size-20 pt-sans"><strong>ABCDEFGHIJKLMNOPQRSTUVWXYZ<br />
+				abcdefghijklmnopqrstuvwxyz<br />
+				1234567890!@#$%^&*()_+</strong></p>
+			<p class="code">bold style: <code>&lt;p&gt;&lt;strong&gt;My text&lt;/strong&gt;&lt;/p&gt;</code></p>
+			{% addtoblock "js" %}
+			<script>
+			jQuery(document).ready(function ($) {
+				var container = $('#page-fonts');
+					container.find('.js-fonts').each(function (index, item) {
+						item = $(item);
+						var target = item.next();
+						var text = item.html();
+						item.html(text.replace('{tpl}', target.css('font-family').split(',')[0]));
+					});
+			});
+			</script>
+			{% endaddtoblock "js" %}
+		</div>
+		<div class="grid-12">
+			<h1 class="nospace">H1 {tpl}</h1>
+			<p class="code">code: <code>&lt;h1&gt;My title&lt;/h6&gt;</code> or <code>class="font-size-32"</code></p>
+			<h2 class="nospace">H2 {tpl}</h2>
+			<p class="code">code: <code>&lt;h2&gt;My title&lt;/h6&gt;</code> or <code>class="font-size-28"</code></p>
+			<h3 class="nospace">H3 {tpl}</h3>
+			<p class="code">code: <code>&lt;h3&gt;My title&lt;/h6&gt;</code> or <code>class="font-size-24"</code></p>
+			<h4 class="nospace">H4 {tpl}</h4>
+			<p class="code">code: <code>&lt;h4&gt;My title&lt;/h6&gt;</code> or <code>class="font-size-20"</code></p>
+			<h5 class="nospace">H5 {tpl}</h5>
+			<p class="code">code: <code>&lt;h5&gt;My title&lt;/h6&gt;</code> or <code>class="font-size-18"</code></p>
+			<h6 class="nospace">H6 {tpl}</h6>
+			<p class="code">code: <code>&lt;h6&gt;My title&lt;/h6&gt;</code> or <code>class="font-size-16"</code></p>
+			{% addtoblock "js" %}
+			<script>
+			jQuery(document).ready(function ($) {
+				var container = $('#page-fonts');
+					container.find('h1, h2, h3, h4, h5, h6').each(function (index, item) {
+						item = $(item);
+						var text = item.html();
+						item.html(text.replace('{tpl}', item.css('font-family').split(',')[0] + ' <span class="highlight">' + item.css('font-size') + '/' + item.css('line-height') + '</span>'));
+					});
+			});
+			</script>
+			{% endaddtoblock "js" %}
+		</div>
+	</section>
+
+	<!-- ########################################################################################################### -->
+
+	<section id="page-textflow">
+		<div class="grid-24">
+			<h1>Textflow</h1>
+			<hr />
+
+			<p class="lead nospace"><span class="highlight">Leadtext</span> Lorem Ipsum is simply dummy text of the printing
+				and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+				when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+			<p class="code">code: <code>&lt;p class="lead"&gt;My text&lt;/p&gt;</code></p>
+
+			<h2 class="nospace">The Lorem Ipsum</h2>
+			<p class="code">code: <code>&lt;h2&gt;My title&lt;/h2&gt;</code></p>
+
+			<div class="grid-12 alpha">
+				<p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of
+					classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin
+					professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words,
+					consectetur.</p>
+				<p class="code">code: <code>&lt;div class="grid-12 alpha"&gt;&lt;p&gt;My text&lt;/p&gt;&lt;/div&gt;</code></p>
+			</div>
+			<div class="grid-12 omega">
+				<p>from a Lorem Ipsum passage, and going through the cites of the word in classical
+					literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33
+					of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC.
+					This book is a treatise on the theory of ethics, very popular during the Renaissance.</p>
+				<p class="code">code: <code>&lt;div class="grid-12 omega"&gt;&lt;p&gt;My text&lt;/p&gt;&lt;/div&gt;</code></p>
+			</div>
+
+
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer semper egestas nunc in volutpat.
+				Fusce adipiscing velit ac eros tempor iaculis. Phasellus venenatis mollis augue, non posuere odio
+				placerat in. Etiam volutpat ultrices lectus. Fusce eu felis erat. Donec congue interdum elit,
+				sed ornare magna convallis lacinia. In hac habitasse platea dictumst. Mauris volutpat consectetur
+				accumsan.Cras diam justo, sodales quis lobortis sed, lobortis vel mauris. Sed a mollis nunc. Quisque semper
+				condimentum lectus, eget laoreet ipsum auctor et. Quisque sagittis luctus augue, id fringilla enim
+				euismod quis. Nullam blandit, elit at euismod rutrum, tortor nibh posuere mauris, in volutpat diam
+				ante ac dui. Sed velit massa, imperdiet placerat tristique et, consectetur a lorem. Praesent aliquet
+				turpis in quam tempor eu pulvinar nibh luctus.</p>
+
+			<p>Vivamus rhoncus arcu sit amet est tristique convallis nec vel eros. Vestibulum euismod luctus velit
+				quis porta. Aliquam varius placerat mauris sed vehicula. Integer porta facilisis sapien, in tempus
+				lorem mattis molestie. Suspendisse potenti. Praesent quis diam non dolor convallis mattis eu id nulla.
+				Proin urna erat, egestas vel consectetur at, accumsan at purus. Donec est risus, facilisis dignissim
+				placerat nec, euismod lacinia nisi. Nam ac sem sed quam sollicitudin condimentum et eu neque. Nunc enim
+				urna, ultricies ac mollis pretium, imperdiet hendrerit massa. Sed eleifend felis sed tellus cursus
+				lacinia. Aenean venenatis aliquet euismod. Nam quis turpis tellus, vitae malesuada neque.</p>
+
+
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer semper egestas nunc in volutpat.
+				Fusce adipiscing velit ac eros tempor iaculis. Phasellus venenatis mollis augue, non posuere odio
+				placerat in. Etiam volutpat ultrices lectus. Fusce eu felis erat. Donec congue interdum elit, sed
+				ornare magna convallis lacinia. In hac habitasse platea dictumst. Mauris volutpat consectetur
+				accumsan.</p>
+
+			<p>Cras diam justo, sodales quis lobortis sed, lobortis vel mauris. Sed a mollis nunc. Quisque semper
+				condimentum lectus, eget laoreet ipsum auctor et. Quisque sagittis luctus augue, id fringilla enim
+				euismod quis. Nullam blandit, elit at euismod rutrum, tortor nibh posuere mauris, in volutpat diam
+				ante ac dui. Sed velit massa, imperdiet placerat tristique et, consectetur a lorem. Praesent aliquet
+				turpis in quam tempor eu pulvinar nibh luctus.</p>
+
+			<p>Vivamus rhoncus arcu sit amet est tristique convallis nec vel eros. Vestibulum euismod luctus velit
+				quis porta. Aliquam varius placerat mauris sed vehicula. Integer porta facilisis sapien, in tempus
+				lorem mattis molestie. Suspendisse potenti. Praesent quis diam non dolor convallis mattis eu id nulla.
+				Proin urna erat, egestas vel consectetur at, accumsan at purus. Donec est risus, facilisis dignissim
+				placerat nec, euismod lacinia nisi. Nam ac sem sed quam sollicitudin condimentum et eu neque. Nunc enim
+				urna, ultricies ac mollis pretium, imperdiet hendrerit massa. Sed eleifend felis sed tellus cursus
+				lacinia. Aenean venenatis aliquet euismod. Nam quis turpis tellus, vitae malesuada neque.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		</div>
+	</section>
+
+
+
 
 		<section id="page-structure">
 			<h2>Structure &amp; naming</h2>
@@ -43,13 +299,13 @@
 				For example base.css or base.js. The substructure is applied to all items named above.</p>
 <pre>
 static/
-├── */
-│   ├── includes/
-│   ├── libs/
-│   ├── plugins/
-│   └── base.ext
-├── fonts/
-└── swf/
+??? */
+?   ??? includes/
+?   ??? libs/
+?   ??? plugins/
+?   ??? base.ext
+??? fonts/
+??? swf/
 </pre>
 			<p>Compiling and minification is automated. Please consult the readme for further instructions.</p>
 
@@ -111,9 +367,11 @@ js/cl.lightbox.js <span>"cl" is the namespace and "lightbox" the module</span>
 
 <!-- ############################################################################################################### -->
 
-<nav class="pagenav">
-	<ol>{% include "includes/menu/pagenav.html" %}</ol>
-</nav>
+<section>
+	<nav class="pagenav">
+		<ol>{% include "includes/menu/pagenav.html" %}</ol>
+	</nav>
+</section>
 
 
 
@@ -126,5 +384,7 @@ js/cl.lightbox.js <span>"cl" is the namespace and "lightbox" the module</span>
 
 
 </div>
-</div>
+
+
+
 {% endblock %}
