@@ -22,6 +22,13 @@
 
 .styleguide section { border-bottom:1px solid #ccc; padding-bottom:15px; margin-bottom:15px; }
 .highlight { color:#f93; }
+
+#page-grid .container-24 { min-height:500px; }
+#page-grid .container-24 p { color:#fff; padding:5px 10px; background:#069; opacity:0.5; height:100px; }
+#page-grid .grid { position:relative; z-index:10; }
+
+.bg-grid { position:absolute; left:0; top:0; z-index:1; width:100%; }
+.bg-grid div { float:left; width:20px; height:500px; margin:0 10px; background:#069; opacity:0.1; }
 </style>
 {% endblock extrahead %}
 
@@ -37,7 +44,7 @@
 					<ul>
 						<li><a href="#page-fonts"><span>Fonts, Sizes and Styles</span></a></li>
 						<li><a href="#page-textflow"><span>Textflow</span></a></li>
-						<li><a href="#">Grid overview</a></li>
+						<li><a href="#page-grid">Grid overview</a></li>
 						<li><a href="#">Responsive Utilities</a></li>
 					</ul>
 				</li>
@@ -63,7 +70,7 @@
 		{% addtoblock "js" %}
 		<script>
 		jQuery(document).ready(function ($) {
-			var active = $('#page-textflow');
+			var active = $('#page-grid');
 
 			var sections = $('section');
 				sections.hide();
@@ -287,8 +294,41 @@
 		</div>
 	</section>
 
+	<!-- ########################################################################################################### -->
 
+	<section id="page-grid">
+		<div class="grid-24">
+			<h1>24 Column 960 Grid Example</h1>
+			<hr />
+		</div>
+		<div class="clear"></div>
+		<div class="container-24 relative clearfix">
+			<div class="bg-grid">{% for index in "iiiiiiiiiiiiiiiiiiiiiiii"|make_list %}<div></div>{% endfor %}</div>
+			<div class="grid">
+				<div class="grid-8"><p>300</p></div>
+				<div class="grid-8"><p>300</p></div>
+				<div class="grid-8"><p>300</p></div>
+				<div class="clear"></div>
 
+				<div class="grid-16">
+					<div class="grid-4 alpha"><p>140</p></div>
+					<div class="grid-4"><p>140</p></div>
+					<div class="grid-4"><p>140</p></div>
+					<div class="grid-4 omega"><p>140</p></div>
+
+					<div class="grid-4 alpha"><p>140</p></div>
+					<div class="grid-4"><p>140</p></div>
+					<div class="grid-4"><p>140</p></div>
+					<div class="grid-4 omega"><p>140</p></div>
+
+					<div class="grid_16 alpha omega"><p>620</p></div>
+				</div>
+				<div class="grid-8"><p>300</p></div>
+				<div class="clear"></div>
+			</div>
+		</div>
+
+	</section>
 
 		<section id="page-structure">
 			<h2>Structure &amp; naming</h2>
