@@ -1,0 +1,61 @@
+{% load i18n sekizai_tags %}
+{% addtoblock "css" %}
+<style>
+#page-index .new, #page-index .ok { color:#fff; font-size:11px; line-height:100%;
+	padding:3px 4px; margin-left:5px; border-radius:3px;
+	display:inline-block; position:relative; top:-1px; }
+#page-index .new { background:#363; }
+#page-index .ok { background:#999; }
+#page-index .templatelist { margin-bottom:25px; }
+#page-index .templatelist p { margin:0; }
+#page-index .devparams a { color:#000; }
+#page-index .devparams span { color:#999; }
+#page-index .padding-top { padding-top:25px; }
+</style>
+{% endaddtoblock "css" %}
+<section id="page-index">
+	<div class="grid-24">
+		<h1>Online Styleguide</h1>
+		<hr />
+		<div class="grid-16 alpha">
+			<p>The Online Styleguide is a uniformed compendium for project managers, web publisher, designers or
+				developers of how to maintain, update or further develop a website. It gives an insight of formatting,
+				use of space and components accross the online presence. It is devided into three essential parts:
+				Typography, Components and Templates.
+		</div>
+		<div class="grid-8 omega">
+			<h6><strong>Development params</strong></h6>
+			<p class="devparams">
+				<a href="?debug=true"><strong>debug=true</strong></a> <span>enables development tools</span>
+				<a href="?mobile=true"><strong>mobile=true</strong></a> <span>enforces mobile switch</span>
+			</p>
+		</div>
+	</div>
+	<div class="clear"></div>
+
+	<div class="grid-8 templatelist">
+		<h2 class="halfspace">Category</h2>
+		{% for index in "12345"|make_list %}
+			<p>1.0{{ index }} <a href="#">Template Name</a> <span class="new">dev</span></p>
+		{% endfor %}
+	</div>
+	<div class="grid-8 templatelist">
+		<h2 class="halfspace">Category</h2>
+		{% for index in "12345"|make_list %}
+			<p>2.0{{ index }} <a href="#">Template Name</a> <span class="ok">14.02</span></p>
+		{% endfor %}
+	</div>
+	<div class="grid-8 templatelist">
+		<h2 class="halfspace">Category</h2>
+		{% for index in "12345"|make_list %}
+			<p>3.0{{ index }} <a href="#">Template Name</a></p>
+		{% endfor %}
+	</div>
+	<div class="clear"></div>
+
+	<p class="padding-top">
+		<span class="new">dev</span> = template in development, untested &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<span class="ok">4.12</span> = template finished, tested &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<span>no flag</span> = template finished, integrated
+	</p>
+</section>
