@@ -1,0 +1,62 @@
+{% load i18n sekizai_tags %}
+{% addtoblock "css" %}
+<style>
+
+</style>
+{% endaddtoblock "css" %}
+{% addtoblock "js" %}
+<script>
+jQuery(document).ready(function ($) {
+
+});
+</script>
+{% endaddtoblock "js" %}
+
+<section id="page-forms">
+	<div class="grid-24">
+		<h1>Fonts, Sizes and Styles</h1>
+		<hr />
+
+		<form action="." method="post" class="frm">
+			<fieldset class="align-horizontal">
+				<legend>Personal information</legend>
+					<ol>
+						<li>
+							<label for="field-gender">Gender</label>
+							<div class="field">
+								<select class="input-select" id="field-gender">
+									<option value="f">Female</option>
+									<option value="m">Male</option>
+								</select>
+							</div>
+						</li>
+						<li>
+							<label for="field-firstname">Firstname <abbr title="required">*</abbr></label>
+							<div class="field"><input type="text" class="input-text" id="field-firstname" required="required" /></div>
+						</li>
+						<li>
+							<label for="field-lastname">Lastname <abbr title="required">*</abbr></label>
+							<div class="field"><input type="text" class="input-text" id="field-lastname" /></div>
+						</li>
+						<li>
+							<label>Birthdate</label>
+							<div class="field">
+								<label><input type="text" class="input-text input-small" placeholder="Day" /></label>
+								<label><input type="text" class="input-text input-small" placeholder="Month" /></label>
+								<label><input type="text" class="input-text input-small" placeholder="Year" /></label>
+							</div>
+						</li>
+					</ol>
+
+
+<!--
+				Username: <input type="text" name="usr_name">
+				Encryption: <keygen name="security">
+-->
+
+
+
+			</fieldset>
+		</form>
+	</div>
+</section>
