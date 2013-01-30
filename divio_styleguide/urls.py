@@ -1,7 +1,7 @@
 from django.conf.urls import patterns, url
-from django.views.generic import TemplateView
-from divio_styleguide.views import HomeView
+from divio_styleguide.views import HomeView, DjangoFormView
 
 urlpatterns = patterns('',
-    url(r'^$', HomeView.as_view(template_name='divio_styleguide/home.html'), name='divio_styleguide_home'),
+    url(r'^$', HomeView.as_view(), name='divio_styleguide_home'),
+    url(r'^django-form/$', DjangoFormView.as_view(), name='divio_styleguide_django_form'),
 )
