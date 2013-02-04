@@ -18,7 +18,7 @@ jQuery(document).ready(function ($) {
 
 <section id="page-forms">
 	<div class="grid-24">
-		<h1>Form Elements</h1>
+		<h1>Forms</h1>
 		<hr />
 
 		<div class="grid-14 alpha">
@@ -36,7 +36,7 @@ jQuery(document).ready(function ($) {
 				</fieldset>
 			</form>
 
-			<hr />
+			<p class="nospace">&nbsp;</p>
 
 			<h2>Input Types</h2>
 			<form action="." method="post" class="frm" oninput="output.value=parseInt(range.value)">
@@ -104,7 +104,7 @@ jQuery(document).ready(function ($) {
 				</fieldset>
 			</form>
 
-			<hr />
+			<p class="nospace">&nbsp;</p>
 
 			<h2>Horizontal Form</h2>
 			<form action="." method="post" class="frm">
@@ -130,7 +130,7 @@ jQuery(document).ready(function ($) {
 				</fieldset>
 			</form>
 
-			<hr />
+			<p class="nospace">&nbsp;</p>
 
 			<h2>Plain Form</h2>
 			<form action="." method="post">
@@ -321,27 +321,32 @@ jQuery(document).ready(function ($) {
 
 		<hr />
 
-		<h2>Practical Examples</h2>
+		<h2>Example</h2>
 		<form action="." method="post" class="frm">
-			<fieldset class="align-horizontal">
+			<fieldset class="frm-horizontal">
 				<legend>Personal information</legend>
-					<ol>
+					<ol class="grid-12 alpha">
+						<li><h4>Your Details</h4></li>
 						<li>
 							<label for="field-gender">Gender</label>
 							<div class="field">
-								<select class="input-select" id="field-gender">
+								<select class="input-select input-block" id="field-gender">
 									<option value="f">Female</option>
 									<option value="m">Male</option>
 								</select>
 							</div>
 						</li>
 						<li>
+							<label for="field-company">Company</label>
+							<div class="field"><input type="text" class="input-text input-block" id="field-company" /></div>
+						</li>
+						<li>
 							<label for="field-firstname">Firstname <abbr title="required">*</abbr></label>
-							<div class="field"><input type="text" class="input-text" id="field-firstname" required="required" /></div>
+							<div class="field"><input type="text" class="input-text input-block" id="field-firstname" required="required" /></div>
 						</li>
 						<li>
 							<label for="field-lastname">Lastname <abbr title="required">*</abbr></label>
-							<div class="field"><input type="text" class="input-text" id="field-lastname" required="required" /></div>
+							<div class="field"><input type="text" class="input-text input-block" id="field-lastname" required="required" /></div>
 						</li>
 						<li>
 							<label>Birthdate</label>
@@ -351,17 +356,24 @@ jQuery(document).ready(function ($) {
 								<label><input type="text" class="input-text input-small" placeholder="Year" /></label>
 							</div>
 						</li>
+					</ol>
+					<ol class="grid-12 omega">
+						<li><h4>Delivery</h4></li>
 						<li>
-							<label>Zip/City</label>
+							<label for="field-address">Address</label>
+							<div class="field"><input type="text" class="input-text input-block" id="field-address" /></div>
+						</li>
+						<li>
+							<label for="field-zip">Zip/City</label>
 							<div class="field">
-								<label><input type="text" class="input-text input-mini" placeholder="Zip" /></label>
+								<label><input type="text" class="input-text input-mini" id="field-zip" placeholder="Zip" /></label>
 								<label><input type="text" class="input-text input-medium" /></label>
 							</div>
 						</li>
 						<li>
 							<label for="field-country">Country</label>
 							<div class="field">
-								<select class="input-select" id="field-country">
+								<select class="input-select input-block" id="field-country">
 									<option value="ch">Switzerland</option>
 									<option value="de">Germany</option>
 									<option value="at">Austria</option>
@@ -370,13 +382,27 @@ jQuery(document).ready(function ($) {
 						</li>
 						<li>
 							<label for="field-phone">Phone Number</label>
-							<div class="field"><input type="tel" class="input-text" id="field-phone" /></div>
+							<div class="field"><input type="tel" class="input-text input-block" id="field-phone" /></div>
 						</li>
 						<li>
 							<label for="field-email">E-mail</label>
-							<div class="field"><input type="email" class="input-text" id="field-email" /></div>
+							<div class="field"><input type="email" class="input-text input-block" id="field-email" /></div>
 						</li>
 					</ol>
+			</fieldset>
+
+			<fieldset>
+				<legend>Additional information</legend>
+				<ol>
+					<li>
+						<label for="field-Message">Message</label>
+						<div class="field"><textarea rows="5" class="input-text input-block" id="field-Message"></textarea></div>
+					</li>
+					<li>
+						<label><input type="submit" class="btn" value="Send form" /></label>
+						<label><input type="reset" class="btn btn-grey" value="Reset form" /></label>
+					</li>
+				</ol>
 			</fieldset>
 		</form>
 	</div>

@@ -10,8 +10,8 @@
 
 {% addtoblock "css" %}
 <style>
-.code { font-size:12px; color:#999; font-family:Consolas, "Liberation Mono", Courier, monospace; }
-.code code { color:#000; border-radius:2px; border:1px solid #eaeaea; background:#f8f8f8; }
+code { font-family:Consolas, "Liberation Mono", Courier, monospace; font-size:12px; color:#333;
+	border-radius:2px; border:1px solid #eaeaea; background:#f8f8f8; }
 
 .guidenav { position:absolute; top:0; right:0; }
 .guidenav .gtrigger { float:right; padding:0; margin:10px 10px 0 25px; text-align:right; }
@@ -62,7 +62,7 @@ jQuery(document).ready(function ($) {
 	var code = $('.code-trigger');
 		code.bind('click', function (e) {
 			e.preventDefault();
-			$('.code').toggle();
+			$('code').toggle();
 		});
 		//code.trigger('click');
 });
@@ -80,6 +80,7 @@ jQuery(document).ready(function ($) {
 			<li><a href="#page-index"><span>Templates</span></a></li>
 			<li><a href="#page-typography"><span>Typography</span></a></li>
 			<li><a href="#page-forms"><span>Forms</span></a></li>
+			<li><a href="#page-helpers"><span>Helpers</span></a></li>
 			<li><a href="#page-grid">Grid overview</a></li>
 				<!--
 			<li><a href="#page-typography"><span>Icons</span></a></li>
@@ -112,6 +113,7 @@ jQuery(document).ready(function ($) {
 	{% include "divio_styleguide/section_index.html" %}
 	{% include "divio_styleguide/section_typography.html" %}
 	{% include "divio_styleguide/section_forms.html" %}
+	{% include "divio_styleguide/section_helpers.html" %}
 	{% include "divio_styleguide/section_grid.html" %}
 
 		<section id="page-structure">

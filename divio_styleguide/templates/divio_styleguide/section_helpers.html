@@ -1,0 +1,95 @@
+{% load i18n sekizai_tags %}
+{% addtoblock "css" %}
+<style>
+.tbl-mcres div { color:#468c44; padding:2px 5px; background:#e0f2d8; }
+.tbl-mcres th { background:#fff; }
+.tbl-mcres thead th span { display:block; color:#999; font-size:80%; }
+
+.tbl-mcres .tblv { color:#468c44; background:#e0f2d8; }
+.tbl-mcres .tblh { color:#ccc; background:#f9f9f9; }
+</style>
+{% endaddtoblock "css" %}
+{% addtoblock "js" %}
+<script>
+jQuery(document).ready(function ($) {
+
+});
+</script>
+{% endaddtoblock "js" %}
+
+<section id="page-helpers">
+	<div class="grid-24">
+		<h1>Helpers</h1>
+		<hr />
+
+		<h2>Responsive Helpers</h2>
+		<table class="tbl-mcres">
+			<colgroup>
+				<col style="width:20%;" />
+				<col style="width:25%;" />
+				<col style="width:25%;" />
+				<col style="width:25%;" />
+			</colgroup>
+			<thead>
+				<tr>
+					<th class="align-bottom">Class</th>
+					<th>Phones <span>520px and below</span></th>
+					<th>Tablet <span>520px to 860px</span></th>
+					<th>Desktop <span>Default</span></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<th><code>.visible-phone</code></th>
+					<td class="tblv">Visible</td>
+					<td class="tblh">Hidden</td>
+					<td class="tblh">Hidden</td>
+				</tr>
+				<tr>
+					<th><code>.visible-tablet</code></th>
+					<td class="tblh">Hidden</td>
+					<td class="tblv">Visible</td>
+					<td class="tblh">Hidden</td>
+				</tr>
+				<tr>
+					<th><code>.visible-desktop</code></th>
+					<td class="tblh">Hidden</td>
+					<td class="tblh">Hidden</td>
+					<td class="tblv">Visible</td>
+				</tr>
+				<tr>
+					<th><code>.hidden-phone</code></th>
+					<td class="tblh">Hidden</td>
+					<td class="tblv">Visible</td>
+					<td class="tblv">Visible</td>
+				</tr>
+				<tr>
+					<th><code>.hidden-tablet</code></th>
+					<td class="tblv">Visible</td>
+					<td class="tblh">Hidden</td>
+					<td class="tblv">Visible</td>
+				</tr>
+				<tr>
+					<th><code>.hidden-desktop</code></th>
+					<td class="tblv">Visible</td>
+					<td class="tblv">Visible</td>
+					<td class="tblh">Hidden</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</section>
+
+
+
+
+<!--
+<strong>Link opening in new window: </strong>
+<a href="http://www.google.com" data-rel="target:blank">Link</a><br />
+<strong>Link opening as popup: </strong>
+<a href="http://www.google.com" class="popup">Open Pop-Up</a><br />
+<strong>E-Mail encryption: </strong>
+<a href="#info" data-rel="google.com" class="mailcrypte">E-Mail</a>
+-->
+
+

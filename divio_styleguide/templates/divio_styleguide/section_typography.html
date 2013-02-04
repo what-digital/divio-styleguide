@@ -1,7 +1,11 @@
 {% load i18n sekizai_tags %}
 {% addtoblock "css" %}
 <style>
-.fakeimage { width:100px; height:100px; text-align:center; background:#ccc; display:inline-block; }
+.fakeimage { width:100px; height:75px; padding:25px 0 0; text-align:center; background:#ccc; display:inline-block; }
+.autocolor { float:left; color:#fff; text-shadow:0 1px 1px #000; text-align:center;
+	width:100px; height:62px; padding:38px 0 0; margin:0 15px 15px 0; border-radius:50px;
+	background:#f00; }
+
 </style>
 {% endaddtoblock "css" %}
 {% addtoblock "js" %}
@@ -14,17 +18,18 @@ jQuery(document).ready(function ($) {
 			var text = item.html();
 			item.html(text.replace('{tpl}', target.css('font-family').split(',')[0]));
 		});
-});
-</script>
-{% endaddtoblock "js" %}
-{% addtoblock "js" %}
-<script>
-jQuery(document).ready(function ($) {
-	var container = $('#page-typography');
+
+		// add htag tpl replacement
 		container.find('h1, h2, h3, h4, h5, h6').each(function (index, item) {
 			item = $(item);
 			var text = item.html();
 			item.html(text.replace('{tpl}', item.css('font-family').split(',')[0] + ' <span class="highlight">' + item.css('font-size') + '/' + item.css('line-height') + '</span>'));
+		});
+
+		// add color replacement
+		container.find('.autocolor').each(function (index, item) {
+			var color = $(item).text();
+			$(item).css('background', color);
 		});
 });
 </script>
@@ -32,8 +37,9 @@ jQuery(document).ready(function ($) {
 
 <section id="page-typography">
 	<div class="grid-24">
-		<h1>Fonts, Sizes and Styles</h1>
+		<h1>Typography</h1>
 		<hr />
+		<h2>Fonts, Sizes and Styles</h2>
 	</div>
 
 	<div class="grid-12">
@@ -41,151 +47,257 @@ jQuery(document).ready(function ($) {
 		<p class="font-size-20">ABCDEFGHIJKLMNOPQRSTUVWXYZ<br />
 			abcdefghijklmnopqrstuvwxyz<br />
 			1234567890!@#$%^&amp;*()_+</p>
-		<p class="code nospace codeoffset">regular style: <code>&lt;p&gt;My text&lt;/p&gt;</code></p>
+		<p class="nospace codeoffset"><code>&lt;p&gt;My text&lt;/p&gt;</code></p>
 
 		<p class="nospace js-fonts"><span class="highlight">{tpl} italic</span></p>
 		<p class="font-size-20 pt-sans"><em>ABCDEFGHIJKLMNOPQRSTUVWXYZ<br />
 			abcdefghijklmnopqrstuvwxyz<br />
 			1234567890!@#$%^&amp;*()_+</em></p>
-		<p class="code nospace codeoffset">italic style: <code>&lt;p&gt;&lt;em&gt;My text&lt;/em&gt;&lt;/p&gt;</code></p>
+		<p class="nospace codeoffset"><code>&lt;p&gt;&lt;em&gt;My text&lt;/em&gt;&lt;/p&gt;</code></p>
 
 		<p class="nospace js-fonts"><span class="highlight">{tpl} bold</span></p>
 		<p class="font-size-20 pt-sans"><strong>ABCDEFGHIJKLMNOPQRSTUVWXYZ<br />
 			abcdefghijklmnopqrstuvwxyz<br />
 			1234567890!@#$%^&amp;*()_+</strong></p>
-		<p class="code nospace codeoffset">bold style: <code>&lt;p&gt;&lt;strong&gt;My text&lt;/strong&gt;&lt;/p&gt;</code></p>
+		<p class="nospace codeoffset"><code>&lt;p&gt;&lt;strong&gt;My text&lt;/strong&gt;&lt;/p&gt;</code></p>
 	</div>
 	<div class="grid-12">
 		<h1 class="nospace">H1 {tpl}</h1>
-		<p class="code">code: <code>&lt;h1&gt;My title&lt;/h6&gt;</code> or <code>class="font-size-32"</code></p>
+		<p><code>&lt;h1&gt;My title&lt;/h6&gt; or class="font-size-32"</code></p>
 		<h2 class="nospace">H2 {tpl}</h2>
-		<p class="code">code: <code>&lt;h2&gt;My title&lt;/h6&gt;</code> or <code>class="font-size-28"</code></p>
+		<p><code>&lt;h2&gt;My title&lt;/h6&gt; or class="font-size-28"</code></p>
 		<h3 class="nospace">H3 {tpl}</h3>
-		<p class="code">code: <code>&lt;h3&gt;My title&lt;/h6&gt;</code> or <code>class="font-size-24"</code></p>
+		<p><code>&lt;h3&gt;My title&lt;/h6&gt; or class="font-size-24"</code></p>
 		<h4 class="nospace">H4 {tpl}</h4>
-		<p class="code">code: <code>&lt;h4&gt;My title&lt;/h6&gt;</code> or <code>class="font-size-20"</code></p>
+		<p><code>&lt;h4&gt;My title&lt;/h6&gt; or class="font-size-20"</code></p>
 		<h5 class="nospace">H5 {tpl}</h5>
-		<p class="code">code: <code>&lt;h5&gt;My title&lt;/h6&gt;</code> or <code>class="font-size-18"</code></p>
+		<p><code>&lt;h5&gt;My title&lt;/h6&gt; or class="font-size-18"</code></p>
 		<h6 class="nospace">H6 {tpl}</h6>
-		<p class="code">code: <code>&lt;h6&gt;My title&lt;/h6&gt;</code> or <code>class="font-size-16"</code></p>
+		<p><code>&lt;h6&gt;My title&lt;/h6&gt; or class="font-size-16"</code></p>
 	</div>
 	<div class="clear"></div>
 
-	<hr />
+	<p class="nospace">&nbsp;</p>
 
 	<div class="grid-24">
-		<h1>Inline Semantics</h1>
-		<hr />
-
+		<h2>Inline Semantics</h2>
 		<div class="grid-8 alpha">
 			<div hidden="hidden" class="testikus">This should be hidden in all browsers, apart from IE6</div>
 			<div class="nospace">The <a href="#">anchor</a> element
-				<br /><span class="code">code: <code>&lt;a href="#"&gt;My text&lt;/a&gt;</code></span></div>
+				<br /><code>&lt;a href="#"&gt;My text&lt;/a&gt;</code></div>
 			<div class="nospace">The <abbr title="abbreviation">abbr</abbr> element
-				<br /><span class="code">code: <code>&lt;abbr title="#"&gt;My text&lt;/abbr&gt;</code></span></div>
+				<br /><code>&lt;abbr title="#"&gt;My text&lt;/abbr&gt;</code></div>
 			<div class="nospace">The <b>bold</b> element
-				<br /><span class="code">code: <code>&lt;b&gt;My text&lt;/b&gt;</code></span></div>
+				<br /><code>&lt;b&gt;My text&lt;/b&gt;</code></div>
 			<div class="nospace">The <cite>cite</cite> element
-				<br /><span class="code">code: <code>&lt;cite&gt;My text&lt;/cite&gt;</code></span></div>
+				<br /><code>&lt;cite&gt;My text&lt;/cite&gt;</code></div>
 			<div class="nospace">The <code>code</code> element
-				<br /><span class="code">code: <code>&lt;code&gt;My text&lt;/code&gt;</code></span></div>
+				<br /><code>&lt;code&gt;My text&lt;/code&gt;</code></div>
 			<div class="nospace">The <del>delete</del> element
-				<br /><span class="code">code: <code>&lt;del&gt;My text&lt;/del&gt;</code></span></div>
+				<br /><code>&lt;del&gt;My text&lt;/del&gt;</code></div>
 			<div class="nospace">The <dfn>definition</dfn> element
-				<br /><span class="code">code: <code>&lt;dfn&gt;My text&lt;/dfn&gt;</code></span></div>
+				<br /><code>&lt;dfn&gt;My text&lt;/dfn&gt;</code></div>
 			<div class="nospace">The <em>emphasis</em> element
-				<br /><span class="code">code: <code>&lt;em&gt;My text&lt;/em&gt;</code></span></div>
+				<br /><code>&lt;em&gt;My text&lt;/em&gt;</code></div>
 		</div>
 		<div class="grid-8">
-			<div class="nospace">The <cite>cite</cite> element
-				<br /><span class="code">code: <code>&lt;cite&gt;My text&lt;/cite&gt;</code></span></div>
 			<div class="nospace">The <i>italic</i> element
-				<br /><span class="code">code: <code>&lt;i&gt;My text&lt;/i&gt;</code></span></div>
+				<br /><code>&lt;i&gt;My text&lt;/i&gt;</code></div>
 			<div class="nospace">The <ins>insert</ins> element
-				<br /><span class="code">code: <code>&lt;ins&gt;My text&lt;/ins&gt;</code></span></div>
+				<br /><code>&lt;ins&gt;My text&lt;/ins&gt;</code></div>
 			<div class="nospace">The <kbd>keyboard</kbd> element
-				<br /><span class="code">code: <code>&lt;kbd&gt;My text&lt;/kbd&gt;</code></span></div>
+				<br /><code>&lt;kbd&gt;My text&lt;/kbd&gt;</code></div>
 			<div class="nospace">The <mark>mark</mark> element
-				<br /><span class="code">code: <code>&lt;mark&gt;My text&lt;/mark&gt;</code></span></div>
+				<br /><code>&lt;mark&gt;My text&lt;/mark&gt;</code></div>
 			<div class="nospace">The <s>strikethrough</s> element
-				<br /><span class="code">code: <code>&lt;s&gt;My text&lt;/s&gt;</code></span></div>
+				<br /><code>&lt;s&gt;My text&lt;/s&gt;</code></div>
 			<div class="nospace">The <samp>sample</samp> element
-				<br /><span class="code">code: <code>&lt;samp&gt;My text&lt;/samp&gt;</code></span></div>
+				<br /><code>&lt;samp&gt;My text&lt;/samp&gt;</code></div>
 			<div class="nospace">The <small>small</small> element
-				<br /><span class="code">code: <code>&lt;small&gt;My text&lt;/small&gt;</code></span></div>
+				<br /><code>&lt;small&gt;My text&lt;/small&gt;</code></div>
+			<div class="nospace">The <span>span</span> element
+				<br /><code>&lt;span&gt;My text&lt;/span&gt;</code></div>
 		</div>
 		<div class="grid-8 omega">
-			<div class="nospace">The <span>span</span> element
-				<br /><span class="code">code: <code>&lt;span&gt;My text&lt;/span&gt;</code></span></div>
 			<div class="nospace">The <strong>strong</strong> element
-				<br /><span class="code">code: <code>&lt;strong&gt;My text&lt;/strong&gt;</code></span></div>
+				<br /><code>&lt;strong&gt;My text&lt;/strong&gt;</code></div>
 			<div class="nospace">The <sub>subscript</sub> element
-				<br /><span class="code">code: <code>&lt;sub&gt;My text&lt;/sub&gt;</code></span></div>
+				<br /><code>&lt;sub&gt;My text&lt;/sub&gt;</code></div>
 			<div class="nospace">The <sup>superscript</sup> element
-				<br /><span class="code">code: <code>&lt;sup&gt;My text&lt;/sup&gt;</code></span></div>
+				<br /><code>&lt;sup&gt;My text&lt;/sup&gt;</code></div>
 			<div class="nospace">The time <time>10:00</time> element
-				<br /><span class="code">code: <code>&lt;time&gt;My text&lt;/time&gt;</code></span></div>
+				<br /><code>&lt;time&gt;My text&lt;/time&gt;</code></div>
 			<div class="nospace">The <u>underline</u> element
-				<br /><span class="code">code: <code>&lt;u&gt;My text&lt;/u&gt;</code></span></div>
+				<br /><code>&lt;u&gt;My text&lt;/u&gt;</code></div>
 			<div class="nospace">The <var>variable</var> element
-				<br /><span class="code">code: <code>&lt;var&gt;My text&lt;/var&gt;</code></span></div>
+				<br /><code>&lt;var&gt;My text&lt;/var&gt;</code></div>
 			<p class="nospace">The <wbr>wordbreak<wbr> element
-				<br /><span class="code">code: <code>&lt;wbr&gt;My text&lt;wbr&gt;</code></span></p>
+				<br /><code>&lt;wbr&gt;My text&lt;wbr&gt;</code></p>
+			<div class="nospace"><address>my address</address>
+				<code>&lt;address&gt;My text&lt;/address&gt;</code></div>
 		</div>
 		<div class="clear"></div>
 
-		<hr />
+		<p>&nbsp;</p>
 
-		<h1>Block Semantics</h1>
-		<hr />
+		<h2>Block Semantics</h2>
+		<div class="grid-8 alpha">
+			<h3>Unordered List</h3>
+			<ul>
+				<li>Lorem ipsum dolor</li>
+				<li>Consectetur adipiscing</li>
+				<li>Integer molestie lorem</li>
+				<li>
+					Facilisis in pretium
+					<ul>
+						<li>Nulla volutpat aliquam</li>
+						<li>Phasellus iaculis</li>
+						<li>Purus sodales</li>
+						<li>Vestibulum laoreet</li>
+						<li>
+							Facilisis in pretium
+							<ul>
+								<li><a href="#">Nulla volutpat aliquam</a></li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+				<li>Faucibus porta lacu</li>
+				<li>Aenean sit amet erat</li>
+				<li>Eget porttitor</li>
+			</ul>
+			<p><code>&lt;ul&gt;&lt;li&gt;My text&lt;/li&gt;&lt;/ul&gt;</code></p>
+		</div>
+		<div class="grid-8">
+			<h3>Ordered List</h3>
+			<ol>
+				<li>Lorem ipsum dolor</li>
+				<li>Consectetur adipiscing</li>
+				<li>Integer molestie lorem</li>
+				<li>
+					Facilisis in pretium
+					<ol>
+						<li>Nulla volutpat aliquam</li>
+						<li>Phasellus iaculis</li>
+						<li>Purus sodales</li>
+						<li>Vestibulum laoreet</li>
+						<li>
+							Facilisis in pretium
+							<ol>
+								<li><a href="#">Nulla volutpat aliquam</a></li>
+							</ol>
+						</li>
+					</ol>
+				</li>
+				<li>Faucibus porta lacu</li>
+				<li>Aenean sit amet erat</li>
+				<li>Eget porttitor</li>
+			</ol>
+			<p><code>&lt;ol&gt;&lt;li&gt;My text&lt;/li&gt;&lt;/ol&gt;</code></p>
+		</div>
+		<div class="grid-8 omega">
+			<h3>Definition List</h3>
+			<dl>
+				<dt>Lorem</dt>
+				<dd>- is simple dummy text used for typo</dd>
+				<dt>Lorem</dt>
+				<dd>- is simple dummy text used for typo</dd>
+				<dt>Lorem</dt>
+				<dd>- is simple dummy text used for typo</dd>
+			</dl>
+			<dl>
+				<dt>Lorem</dt>
+				<dd>- is simple dummy text used for typo</dd>
+				<dt>Lorem</dt>
+				<dd><a href="#">- is simple dummy text used for typo</a></dd>
+			</dl>
+			<p><code>&lt;dl&gt;&lt;dd&gt;My&lt;/dd&gt;&lt;dt&gt;- text&lt;/dt&gt;&lt;/dl&gt;</code></p>
+		</div>
+		<div class="clear"></div>
 
 		<div class="grid-12 alpha">
-			<div class="nospace"><address>my address</address>
-				<span class="code">code: <code>&lt;address&gt;My text&lt;/address&gt;</code></span></div>
+			<h3>Quotes</h3>
+			<blockquote>
+				<p>Government of the people, by the people, for the people, shall not perish from the Earth.
+					<cite>Abraham Lincoln</cite>
+				</p>
+			</blockquote>
+			<p><code>&lt;blockquote&gt;&lt;p&gt;My text &lt;cite&gt;My cite&lt;/cite&gt;&lt;/p&gt;&lt;/blockquote&gt;</code></p>
+
+			<p><q cite="Abraham%20Lincoln">Build a future where people live in harmony with nature.</q> We hope they succeed.</p>
+			<p><code>&lt;p&gt;&lt;q&gt;My text&lt;/q&gt; My cite&lt;/p&gt;</code></p>
 		</div>
-		<div class="grid-12 omega"></div>
+		<div class="grid-12 omega">
+			<h3>Preformatting</h3>
+<pre>
+&lt;div&gt;
+    &lt;p&gt;Sample text here...&lt;/p&gt;
+&lt;/div&gt;
+</pre>
+			<p><code>&lt;pre&gt;My text&lt;/pre&gt;</code></p>
+		</div>
 		<div class="clear"></div>
 
-			<!--
-			<strong>Link opening in new window: </strong>
-			<a href="http://www.google.com" data-rel="target:blank">Link</a><br />
-			<strong>Link opening as popup: </strong>
-			<a href="http://www.google.com" class="popup">Open Pop-Up</a><br />
-			<strong>E-Mail encryption: </strong>
-			<a href="#info" data-rel="google.com" class="mailcrypte">E-Mail</a>
-			-->
+		<h3>Dividers</h3>
+		<hr />
+		<p class="nospace"><code>&lt;hr /&gt;</code></p>
+		<div class="break"></div>
+		<p class="nospace"><code>&lt;div class="break"&gt;&lt;/div&gt;</code></p>
 	</div>
+	<div class="clear"></div>
 
-	<hr />
+	<p class="nospace">&nbsp;</p>
 
 	<div class="grid-24">
-		<h1>Textflow</h1>
-		<hr />
+		<h2>Colors</h2>
+		<div class="grid-12 alpha">
+			<h3>Primary colors</h3>
+			<div class="autocolor">#ff9100</div>
+			<div class="autocolor">#4d4d4d</div>
+		</div>
+		<div class="grid-12 omega">
+			<h3>Framework colors</h3>
+			<div class="autocolor">#006699</div>
+			<div class="autocolor">#d92400</div>
+			<div class="autocolor">#e5d200</div>
+			<div class="autocolor">#00cc00</div>
+
+			<div class="autocolor">#333333</div>
+			<div class="autocolor">#666666</div>
+			<div class="autocolor">#999999</div>
+			<div class="autocolor">#cccccc</div>
+		</div>
+	</div>
+
+	<p>&nbsp;</p>
+
+	<div class="grid-24">
+		<h2>Textflow</h2>
 		<p class="lead"><span class="highlight">Leadtext</span> Lorem Ipsum is simply dummy text of the printing
 			and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
 			when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-		<p class="code">code: <code>&lt;p class="lead"&gt;My text&lt;/p&gt;</code></p>
+		<p><code>&lt;p class="lead"&gt;My text&lt;/p&gt;</code></p>
 
-		<h2>The Lorem Ipsum</h2>
-		<p class="code">code: <code>&lt;h2&gt;My title&lt;/h2&gt;</code></p>
+		<h3>The Lorem Ipsum</h3>
+		<p><code>&lt;h2&gt;My title&lt;/h2&gt;</code></p>
 
 		<div class="grid-12 alpha">
 			<p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of
 				classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin
 				professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words,
 				consectetur.</p>
-			<p class="code">code: <code>&lt;div class="grid-12 alpha"&gt;&lt;p&gt;My text&lt;/p&gt;&lt;/div&gt;</code></p>
+			<p><code>&lt;div class="grid-12 alpha"&gt;&lt;p&gt;My text&lt;/p&gt;&lt;/div&gt;</code></p>
 		</div>
 		<div class="grid-12 omega">
 			<p>from a Lorem Ipsum passage, and going through the cites of the word in classical
 				literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33
 				of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC.
 				This book is a treatise on the theory of ethics, very popular during the Renaissance.</p>
-			<p class="code">code: <code>&lt;div class="grid-12 omega"&gt;&lt;p&gt;My text&lt;/p&gt;&lt;/div&gt;</code></p>
+			<p><code>&lt;div class="grid-12 omega"&gt;&lt;p&gt;My text&lt;/p&gt;&lt;/div&gt;</code></p>
 		</div>
 
-		<p><span class="box-left"><span class="fakeimage">200x200</span></span>
-			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer semper egestas nunc in volutpat.
+		<p class="img-left"><span class="fakeimage">100x100<br /><code>.img-left</code></span></p>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer semper egestas nunc in volutpat.
 			Fusce adipiscing velit ac eros tempor iaculis. Phasellus venenatis mollis augue, non posuere odio
 			placerat in. Etiam volutpat ultrices lectus. Fusce eu felis erat. Donec congue interdum elit,
 			sed ornare magna convallis lacinia. In hac habitasse platea dictumst. Mauris volutpat consectetur
@@ -195,6 +307,7 @@ jQuery(document).ready(function ($) {
 			ante ac dui. Sed velit massa, imperdiet placerat tristique et, consectetur a lorem. Praesent aliquet
 			turpis in quam tempor eu pulvinar nibh luctus.</p>
 
+		<p class="img-right"><span class="fakeimage">100x100<br /><code>.img-left</code></span></p>
 		<p>Lorem Ipsum is simply <strong>dummy text</strong> of the <em>printing</em> and <em>typesetting</em>
 			industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an
 			<a href="#">unknown printer</a> took a galley of type and scrambled it to make a type

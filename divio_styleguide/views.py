@@ -2,7 +2,7 @@ from django import forms
 from django.views.generic import TemplateView, FormView
 
 class HomeView(TemplateView):
-    template_name = 'divio_styleguide/home.html'
+    template_name = 'divio_styleguide/base.html'
 
     def get_context_data(self, **kwargs):
         ctx = super(HomeView, self).get_context_data(**kwargs)
