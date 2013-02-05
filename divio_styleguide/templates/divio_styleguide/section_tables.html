@@ -1,0 +1,117 @@
+{% load i18n sekizai_tags %}
+{% addtoblock "css" %}
+<style>
+
+.frm-inline {} /* form-horizontal */
+.frm-inline .field { display:inline; }
+
+
+</style>
+{% endaddtoblock "css" %}
+{% addtoblock "js" %}
+<script>
+jQuery(document).ready(function ($) {
+
+});
+</script>
+{% endaddtoblock "js" %}
+
+<section id="page-tables">
+	<div class="grid-24">
+		<h1>Tables</h1>
+		<hr />
+
+		<h2>Standard table</h2>
+		<table summary="Schedule for Route 7 going downtown. Service begins at 4:00 AM">
+			<caption>Base table structure (caption)</caption>
+			<colgroup>
+				{% for index in "1234" %}<col style="width:25%;">{% endfor %}
+			</colgroup>
+			<thead>
+				<tr>
+					{% for index in "1234" %}<th scope="col">Head {{ index }}</th>{% endfor %}
+				</tr>
+			</thead>
+			<tfoot>
+				<tr><td colspan="4">Footer spans full size</td></tr>
+			</tfoot>
+			<tbody>
+				{% for index in "12345"|make_list %}
+				<tr>
+					{% for i in "1234"|make_list %}<td>Row {{ index }} Cell {{ i }}</td>{% endfor %}
+				</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+		<p><code>&lt;table>&lt;/table></code></p>
+
+		<h2>Advanced table</h2>
+		<table class="tbl" summary="Schedule for Route 7 going downtown. Service begins at 4:00 AM">
+			<caption>Comprehensive table (caption)</caption>
+			<colgroup>
+				{% for index in "12345" %}<col style="width:20%;">{% endfor %}
+			</colgroup>
+			<thead>
+				<tr>
+					{% for index in "12345" %}<th scope="col">Head {{ index }}</th>{% endfor %}
+				</tr>
+			</thead>
+			<tfoot>
+				<tr><td colspan="5">Footer spans full size</td></tr>
+			</tfoot>
+			<tbody>
+				{% for index in "12345"|make_list %}
+				<tr>
+					{% for i in "12345"|make_list %}
+					{% if forloop.first %}
+					<th scope="col">Head {{ index }} Cell {{ i }}</th>
+					{% else %}
+					<td>Row {{ index }} Cell {{ i }}</td>
+					{% endif %}
+					{% endfor %}
+				</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+		<p><code>&lt;table class="tbl tbl-alternate">&lt;/table></code></p>
+
+		<div class="grid-12 alpha">
+			<h2>Odd/Even</h2>
+			<table class="tbl tbl-alternate" summary="Schedule for Route 7 going downtown. Service begins at 4:00 AM">
+				<thead>
+					<tr>
+						<th scope="col">Head</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for index in "123"|make_list %}
+					<tr>
+						<td>Row {{ index }}</td>
+					</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+			<p><code>&lt;table class="tbl tbl-alternate">&lt;/table></code></p>
+		</div>
+		<div class="grid-12 omega">
+			<h2>Empty</h2>
+			<table class="tbl tbl-empty" summary="Schedule for Route 7 going downtown. Service begins at 4:00 AM">
+				<thead>
+				<tr>
+					<th scope="col">Head</th>
+					<th scope="col">Head</th>
+				</tr>
+				</thead>
+				<tbody>
+				{% for index in "123"|make_list %}
+					<tr>
+						<td>Row {{ index }} Cell 1</td>
+						<td>Row {{ index }} Cell 2</td>
+					</tr>
+				{% endfor %}
+				</tbody>
+			</table>
+			<p><code>&lt;table class="tbl tbl-empty">&lt;/table></code></p>
+		</div>
+	</div>
+</section>

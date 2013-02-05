@@ -31,7 +31,7 @@ code { font-family:Consolas, "Liberation Mono", Courier, monospace; font-size:12
 {% addtoblock "js" %}
 <script>
 jQuery(document).ready(function ($) {
-	var active = $('#page-forms');
+	var active = $('#page-helpers');
 
 	var sections = $('section');
 		sections.hide();
@@ -79,9 +79,10 @@ jQuery(document).ready(function ($) {
 			<!-- BASIC SETUP -->
 			<li><a href="#page-index"><span>Templates</span></a></li>
 			<li><a href="#page-typography"><span>Typography</span></a></li>
+			<li><a href="#page-tables"><span>Tables</span></a></li>
 			<li><a href="#page-forms"><span>Forms</span></a></li>
 			<li><a href="#page-helpers"><span>Helpers</span></a></li>
-			<li><a href="#page-grid">Grid overview</a></li>
+			<li><a href="#page-grid">Grid</a></li>
 				<!--
 			<li><a href="#page-typography"><span>Icons</span></a></li>
 				<ul>
@@ -112,6 +113,7 @@ jQuery(document).ready(function ($) {
 
 	{% include "divio_styleguide/section_index.html" %}
 	{% include "divio_styleguide/section_typography.html" %}
+	{% include "divio_styleguide/section_tables.html" %}
 	{% include "divio_styleguide/section_forms.html" %}
 	{% include "divio_styleguide/section_helpers.html" %}
 	{% include "divio_styleguide/section_grid.html" %}
