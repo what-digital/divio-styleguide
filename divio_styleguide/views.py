@@ -34,5 +34,5 @@ class DjangoForm(forms.Form):
     favourite_activity = forms.ChoiceField(choices=HOBBIES_CHOICES, widget=forms.RadioSelect)
 
 class DjangoFormView(FormView):
-    template_name = 'divio_styleguide/django-form.html'
+    template_name = 'divio_styleguide/django_forms.html'
     form_class = DjangoForm
