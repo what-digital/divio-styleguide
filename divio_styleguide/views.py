@@ -29,9 +29,13 @@ class DjangoForm(forms.Form):
     company = forms.CharField(max_length=128, required=False, help_text='This is some help text for this field.')
     gender = forms.ChoiceField(choices=GENDER_CHOICES)
     date_of_birth = forms.DateField()
-    email = forms.EmailField()
+    email = forms.EmailField(help_text='A confirmation email will be sent to this address.')
     hobbies = forms.MultipleChoiceField(choices=HOBBIES_CHOICES, widget=forms.CheckboxSelectMultiple)
     favourite_activity = forms.ChoiceField(choices=HOBBIES_CHOICES, widget=forms.RadioSelect)
+
+    def clean(self):
+        cd = super(DjangoForm, self).clean()
+        raise forms.ValidationError('This is a non-form error. Something is wrong in the form, please fix.')
 
 class DjangoFormView(FormView):
     template_name = 'divio_styleguide/django_forms.html'
