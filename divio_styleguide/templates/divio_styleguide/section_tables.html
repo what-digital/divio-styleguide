@@ -22,7 +22,7 @@ jQuery(document).ready(function ($) {
 		<hr />
 
 		<h2>Standard table</h2>
-		<table summary="Schedule for Route 7 going downtown. Service begins at 4:00 AM">
+		<table>
 			<caption>Base table structure (caption)</caption>
 			<colgroup>
 				{% for index in "1234" %}<col style="width:25%;">{% endfor %}
@@ -45,8 +45,8 @@ jQuery(document).ready(function ($) {
 		</table>
 		<p><code>&lt;table>&lt;/table></code></p>
 
-		<h2>Advanced table</h2>
-		<table class="tbl" summary="Schedule for Route 7 going downtown. Service begins at 4:00 AM">
+		<h2>Responsive table</h2>
+		<table class="tbl tbl-responsive">
 			<caption>Comprehensive table (caption)</caption>
 			<colgroup>
 				{% for index in "12345" %}<col style="width:20%;">{% endfor %}
@@ -73,11 +73,11 @@ jQuery(document).ready(function ($) {
 				{% endfor %}
 			</tbody>
 		</table>
-		<p><code>&lt;table class="tbl tbl-alternate">&lt;/table></code></p>
+		<p><code>&lt;table class="tbl tbl-responsive">&lt;/table></code></p>
 
 		<div class="grid-12 alpha">
 			<h2>Odd/Even</h2>
-			<table class="tbl tbl-alternate" summary="Schedule for Route 7 going downtown. Service begins at 4:00 AM">
+			<table class="tbl tbl-alternate">
 				<thead>
 					<tr>
 						<th scope="col">Head</th>
@@ -95,7 +95,7 @@ jQuery(document).ready(function ($) {
 		</div>
 		<div class="grid-12 omega">
 			<h2>Empty</h2>
-			<table class="tbl tbl-empty" summary="Schedule for Route 7 going downtown. Service begins at 4:00 AM">
+			<table class="tbl tbl-empty">
 				<thead>
 				<tr>
 					<th scope="col">Head</th>

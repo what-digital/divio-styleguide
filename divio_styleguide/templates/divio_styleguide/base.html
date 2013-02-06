@@ -13,17 +13,17 @@
 code { font-family:Consolas, "Liberation Mono", Courier, monospace; font-size:12px; color:#333;
 	border-radius:2px; border:1px solid #eaeaea; background:#f8f8f8; }
 
-.guidenav { position:absolute; top:0; right:0; }
+.guidenav { position:absolute; top:0; right:0; z-index:99999; font-size:14px; }
 .guidenav .gtrigger { float:right; padding:0; margin:10px 10px 0 25px; text-align:right; }
 .guidenav .gtrigger a { color:#fff; padding:4px 10px; background:#999; border-radius:3px; }
 .guidenav .gtrigger a:hover { text-decoration:none; background:#333; border-radius:0; }
 .guidenav ul { list-style-type:none; padding:0; margin:0; }
-.guidenav > ul { position:absolute; top:35px; right:10px; background:#fff; box-shadow:0 0 5px #999; border-radius:0 0 5px 5px; }
-.guidenav ul li a { display:block; padding:2px 10px; border-bottom:1px solid #ccc; }
-.guidenav ul li a:hover { color:#fff; text-decoration:none; background:#ccc; }
+.guidenav > ul { position:absolute; top:32px; right:10px; background:#fff; box-shadow:0 0 5px #999; border-radius:0 0 5px 5px; }
+.guidenav ul li a { display:block; padding:2px 10px; border-top:1px solid #999; }
+.guidenav ul li a:hover { color:#fff; text-decoration:none; background:#333; }
 .guidenav ul ul a { border-left:1px solid #ccc; }
 
-.styleguide section { border-bottom:1px solid #ccc; padding-bottom:15px; margin-bottom:15px; }
+.styleguide section { border-bottom:5px solid #ccc; padding-bottom:25px; margin-bottom:25px; clear:both; overflow:hidden; }
 .highlight { color:#f93; }
 .codeoffset { position:relative; top:-25px; }
 </style>
@@ -31,31 +31,49 @@ code { font-family:Consolas, "Liberation Mono", Courier, monospace; font-size:12
 {% addtoblock "js" %}
 <script>
 jQuery(document).ready(function ($) {
-	var active = $('#page-helpers');
-
 	var sections = $('section');
 		sections.hide();
 	var triggers = $('#guidenav li a');
 		triggers.bind('click', function (e) {
-			e.preventDefault();
-
-			var hash = $(this).attr('href');
-			var section = $(hash);
-				sections.hide();
-				section.show();
+			show($(this).attr('href'));
 		});
 
-	// display active item
-	active.show();
+	function show(hash) {
+		if(hash === '#page-all') {
+			sections.show();
+		} else {
+			sections.hide();
+			var section = $(hash);
+				section.show();
+		}
+	}
+	if(window.location.hash) {
+		// if an hash is set, load the specific section
+		show(window.location.hash);
+	} else {
+		// show the index page per default
+		show('#page-index');
+	}
 
+	// menu hover
+	var timer = function () {};
 	var navcontainer = $('#guidenav');
 		navcontainer.hide();
 		navcontainer.bind('mouseleave', function () {
 			navcontainer.hide();
 		});
+		navcontainer.bind('mouseenter', function () {
+			clearTimeout(timer);
+		});
 	var nav = $('.guidenav-trigger');
 		nav.bind('mouseenter', function () {
+			clearTimeout(timer);
 			navcontainer.show();
+		});
+		nav.bind('mouseleave', function () {
+			timer = setTimeout(function () {
+				navcontainer.hide();
+			}, 200);
 		});
 
 	// code button
@@ -69,14 +87,15 @@ jQuery(document).ready(function ($) {
 </script>
 {% endaddtoblock "js" %}
 
-<div class="container-24 relative clearfix">
+<div class="container-24 relative clearfix styleguide">
 
 	<nav class="guidenav">
-		<p class="gtrigger guidenav-trigger"><a href="#">Show navigation</a></p>
+		<p class="gtrigger guidenav-trigger"><a href="#">Change Section</a></p>
 		<p class="gtrigger code-trigger"><a href="#">Toggle Code</a></p>
 
 		<ul id="guidenav">
 			<!-- BASIC SETUP -->
+			<li><a href="#page-all"><span>Show all</span></a></li>
 			<li><a href="#page-index"><span>Templates</span></a></li>
 			<li><a href="#page-typography"><span>Typography</span></a></li>
 			<li><a href="#page-tables"><span>Tables</span></a></li>

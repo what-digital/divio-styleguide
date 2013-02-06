@@ -8,7 +8,7 @@
 .tbl-mcres .tblv { color:#468c44; background:#e0f2d8; }
 .tbl-mcres .tblh { color:#ccc; background:#f9f9f9; }
 
-.fakeimage { height:40px; padding:15px 0 0; text-align:center; background:#ccc; display:inline-block; }
+.fakimage { height:40px; padding:15px 0 0; text-align:center; background:#ccc; display:inline-block; }
 .no-js #page-helpers .no-js { display:none; }
 </style>
 {% endaddtoblock "css" %}
@@ -155,17 +155,17 @@ jQuery(document).ready(function ($) {
 			<tr><th colspan="3"><strong>Images</strong></th></tr>
 			<tr>
 				<td><code>.img</code></td>
-				<td><span class="img"><span class="fakeimage">40x40</span></span></td>
+				<td><span class="img"><span class="fakimage">40x40</span></span></td>
 				<td>sets the max width of an image to 100%</td>
 			</tr>
 			<tr>
 				<td><code>.img-left</code></td>
-				<td><span class="img-left"><span class="fakeimage">40x40</span></span></td>
+				<td><span class="img-left"><span class="fakimage">40x40</span></span></td>
 				<td>sets the image-alignment to left and adds padding</td>
 			</tr>
 			<tr>
 				<td><code>.img-right</code></td>
-				<td><span class="img-right"><span class="fakeimage">40x40</span></span></td>
+				<td><span class="img-right"><span class="fakimage">40x40</span></span></td>
 				<td>sets the image-alignment to right and adds padding</td>
 			</tr>
 
@@ -247,6 +247,8 @@ jQuery(document).ready(function ($) {
 			</tbody>
 		</table>
 
+		<p class="nospace">&nbsp;</p>
+
 		<h2>Responsive</h2>
 		<table class="tbl-mcres">
 			<colgroup>
@@ -303,11 +305,21 @@ jQuery(document).ready(function ($) {
 			</tbody>
 		</table>
 
+		<p class="nospace">&nbsp;</p>
+
 		<h1>JavaScript</h1>
-			<strong>Link opening as popup: </strong>
-			<a href="http://www.google.com" class="popup">Open Pop-Up</a><br />
-			<strong>E-Mail encryption: </strong>
-			<a href="#info" data-rel="google.com" class="mailcrypte">E-Mail</a>
-		</p>
+		<div class="grid-12 alpha">
+			<table class="tbl-empty">
+				<tr>
+					<td><strong>Link opening as popup:</strong></td>
+					<td><a href="http://www.google.com" class="popup">Open Pop-Up</a></td>
+				</tr>
+				<tr>
+					<td><strong>E-Mail encryption:</strong></td>
+					<td><a href="#info" data-rel="google.com" class="mailcrypte">E-Mail</a></td>
+				</tr>
+			</table>
+		</div>
+		<div class="grid-12 omega">&nbsp;</div>
 	</div>
 </section>
