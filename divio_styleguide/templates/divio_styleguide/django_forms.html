@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load i18n standard_form %}
+
+{% block content %}
+<div class="container-24 clearfix">
+    <div class="grid-24">
+        <h1>Standard form</h1>
+        <form action="" method="post" class="frm">
+        	<fieldset class="frm-horizontal">
+                {% csrf_token %}
+            	<ol>
+                    {% standard_form form use_required=0 use_placeholder=1 %}
+                    <li><label></label><input type="submit" class="btn" /></li>
+                </ol>
+            </fieldset>
+        </form>
+    </div>
+</div>
+{% endblock content %}
