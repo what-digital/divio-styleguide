@@ -1,0 +1,33 @@
+{% load i18n sekizai_tags %}
+{% addtoblock "css" %}
+<style>
+.iconlist { list-style-type:none; padding:0; margin:0; }
+.iconlist li { padding:0 0 25px; margin:0; float:left; width:25%; }
+</style>
+{% endaddtoblock "css" %}
+{% addtoblock "js" %}
+<script>
+jQuery(document).ready(function ($) {
+
+});
+</script>
+{% endaddtoblock "js" %}
+
+<section id="page-icons">
+	<div class="grid-24">
+		<h1>Icons</h1>
+		<hr />
+
+		<ul class="iconlist">
+			<li>
+				<span class="icon icon-narrow icon-arrow">Arrow Icon</span><br />
+				<code>.icon-narrow icon-arrow</code>
+			</li>
+			<li>
+				<span class="icon icon-pdf">PDF Icon</span><br />
+				<code>.icon-pdf</code>
+			</li>
+		</ul>
+	</div>
+	<div class="clear"></div>
+</section>

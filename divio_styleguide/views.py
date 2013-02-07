@@ -47,6 +47,7 @@ class FormsView(FormView):
 
 
 MESSAGE_CHOICES = (
+    ('', ''),
     ('success', 'success'),
     ('error', 'error'),
     ('info', 'info'),

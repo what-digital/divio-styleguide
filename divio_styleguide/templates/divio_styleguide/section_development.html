@@ -1,0 +1,95 @@
+{% load i18n sekizai_tags %}
+{% addtoblock "css" %}
+<style>
+
+</style>
+{% endaddtoblock "css" %}
+{% addtoblock "js" %}
+<script>
+jQuery(document).ready(function ($) {
+
+});
+</script>
+{% endaddtoblock "js" %}
+
+<section id="page-development">
+	<div class="grid-24">
+		<h1>Development</h1>
+		<hr />
+
+		<div class="grid-12 alpha">
+			<h2>Code guidelines</h2>
+			<p>For <code>Python</code> we are using the following guidelines: <a href="#">link to guidelines</a></p>
+			<p>For <code>HTML</code>/<code>CSS</code> we are using the following guidelines: <a href="#">link to guidelines</a></p>
+		</div>
+		<div class="grid-12 omega">
+			<h2>Plugin guidelines</h2>
+			<p>When developing plugins, the following terms <strong>must</strong> be fullfilled:</p>
+			<ul>
+				<li>W3C HTML validation</li>
+				<li>No JavaScript and Pageload<sup>1</sup> optimization</li>
+				<li>Progressive enhancement<sup>2</sup></li>
+				<li>Retina support for important brand information like logo</li>
+			</ul>
+
+			<p>The following requirements <strong>should</strong> be fullfilled:</p>
+			<ul>
+				<li>Full retina support</li>
+				<li>WCAG 2.0 validation</li>
+			</ul>
+
+			<p class="text-small">
+				<sup>1)</sup> When loading HTML and JavaScript, jumping of content elements or other disturbances should be avoided.<br />
+				<sup>2)</sup> Wherever possible use HTML5 or CSS3 technologies and provide proper fallbacks.
+			</p>
+
+		</div>
+		<div class="clear"></div>
+
+		<h2>File Structure &amp; naming</h2>
+
+		<div class="grid-12 alpha">
+			<h3>Structure</h3>
+			<p>This is the general structure inside the static folder.
+				The asterisk <sup>(*)</sup> marks folder named <code>css</code> (scss), <code>img</code> or <code>js</code>.
+				For example base.css or base.js. The substructure is applied to all items named above.</p>
+<pre>
+static/
+??? */
+?   ??? includes/
+?   ??? libs/
+?   ??? plugins/
+?   ??? base.ext
+??? fonts/
+??? swf/
+</pre>
+			<p>Compiling and minification is automated. Please consult the readme for further instructions.</p>
+		</div>
+		<div class="grid-12 omega">
+			<h3>Naming</h3>
+			<p>All files within <code>static/</code> or <code>templates/</code> should be named after the following guidelines.</p>
+
+			<p><code><strong>namespace</strong>-<strong>module</strong>-<strong>addition</strong>-addition.ext</code></p>
+			<p>The <code>namespace</code> is the <strong>origin</strong> of the file, is unique and always required. In addition,
+				namespaces can be folders to group multiple files and create a better overview.
+				The files inside the folder are excluding the namespace.</p>
+			<p><code>Modules</code> are used as soon as the namespace isn't enough to describe the meaning of the file.
+				They are not unique, optional and can be nested in folders.</p>
+			<p><code>Additions</code> are additional descriptions for the file like direction, color or position.
+				There can be an infinity amout of additions, they are all divided by a dash.</p>
+			<p class="text-notify">Exception: We use the "<code>.</code>"-annotation for javascript files.</p>
+
+			<p>Some examples:</p>
+<pre>
+templates/base.html <span>"base" is the namespace</span>
+templates/base-sidebar-left.html <span>"base" is the namespace, "sidebar" the module and "left" an addition</span>
+img/icon/arrow-left.png <span>"icon" is the namespace and "left" an addition</span>
+img/icon/arrow-left-small.png <span>"icon" is the namespace and ""</span>
+js/jquery.cycle.min.js <span>"jquery" is the namespace, "cycle" the module and "min" the addition</span>
+js/cl.lightbox.js <span>"cl" is the namespace and "lightbox" the module</span>
+</pre>
+		</div>
+		<div class="clear"></div>
+	</div>
+	<div class="clear"></div>
+</section>

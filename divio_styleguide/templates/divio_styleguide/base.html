@@ -13,8 +13,8 @@
 code { font-family:Consolas, "Liberation Mono", Courier, monospace; font-size:12px; color:#333;
 	border-radius:2px; border:1px solid #eaeaea; background:#f8f8f8; }
 
-.guidenav { position:absolute; top:0; right:0; z-index:99999; font-size:14px; }
-.guidenav .gtrigger { float:right; padding:0; margin:10px 10px 0 25px; text-align:right; }
+.guidenav { position:absolute; top:0; right:0; z-index:100; font-size:14px; }
+.guidenav .gtrigger { float:right; padding:0; margin:10px 10px 0 15px; text-align:right; }
 .guidenav .gtrigger a { color:#fff; padding:4px 10px; background:#999; border-radius:3px; }
 .guidenav .gtrigger a:hover { text-decoration:none; background:#333; border-radius:0; }
 .guidenav ul { list-style-type:none; padding:0; margin:0; }
@@ -100,33 +100,11 @@ jQuery(document).ready(function ($) {
 			<li><a href="#page-typography"><span>Typography</span></a></li>
 			<li><a href="#page-tables"><span>Tables</span></a></li>
 			<li><a href="#page-forms"><span>Forms</span></a></li>
+			<li><a href="#page-icons"><span>Icons</span></a></li>
 			<li><a href="#page-helpers"><span>Helpers</span></a></li>
 			<li><a href="#page-grid">Grid</a></li>
-				<!--
-			<li><a href="#page-typography"><span>Icons</span></a></li>
-				<ul>
-					<li><a href="#page-fonts"><span>Fonts, Sizes and Styles</span></a></li>
-					<li><a href="#page-textflow"><span>Textflow</span></a></li>
-					<li><a href="#page-grid">Grid overview</a></li>
-					<li><a href="#">Responsive Utilities</a></li>
-				</ul>
-			</li>
-			<li>
-				<a href="#"><span>Components</span></a>
-				<ul>
-					<li><a href="#">Gallery</a></li>
-				</ul>
-			</li>
-			<li><a href="#"><span>Templates</span></a></li>
-			<li>
-				<a href="#"><span>Development</span></a>
-				<ul>
-					<li><a href="#page-structure"><span>Structure &amp; naming</span></a></li>
-					<li><a href="#page-plugin"><span>Code guidelines</span></a></li>
-					<li><a href="#page-plugin"><span>Plugin guidelines</span></a></li>
-				</ul>
-			</li>-->
-
+			<li><a href="#page-components"><span>Components</span></a></li>
+			<li><a href="#page-development"><span>Development</span></a></li>
 		</ul>
 	</nav>
 
@@ -134,104 +112,11 @@ jQuery(document).ready(function ($) {
 	{% include "divio_styleguide/section_typography.html" %}
 	{% include "divio_styleguide/section_tables.html" %}
 	{% include "divio_styleguide/section_forms.html" %}
+	{% include "divio_styleguide/section_icons.html" %}
 	{% include "divio_styleguide/section_helpers.html" %}
 	{% include "divio_styleguide/section_grid.html" %}
-
-		<section id="page-structure">
-			<h2>Structure &amp; naming</h2>
-
-			<h3>Structure</h3>
-			<p>This is the general structure inside the static folder.
-				The asterisk <sup>(*)</sup> marks folder named <code>css</code> (scss), <code>img</code> or <code>js</code>.
-				For example base.css or base.js. The substructure is applied to all items named above.</p>
-<pre>
-static/
-??? */
-?   ??? includes/
-?   ??? libs/
-?   ??? plugins/
-?   ??? base.ext
-??? fonts/
-??? swf/
-</pre>
-			<p>Compiling and minification is automated. Please consult the readme for further instructions.</p>
-
-			<h4>Naming</h4>
-			<p>All files within <code>static/</code> or <code>templates/</code> should be named after the following guidelines.</p>
-
-			<p><code><strong>namespace</strong>-<strong>module</strong>-<strong>addition</strong>-addition.ext</code></p>
-			<p>The <code>namespace</code> is the <strong>origin</strong> of the file, is unique and always required. In addition,
-				namespaces can be folders to group multiple files and create a better overview.
-				The files inside the folder are excluding the namespace.</p>
-			<p><code>Modules</code> are used as soon as the namespace isn't enough to describe the meaning of the file.
-				They are not unique, optional and can be nested in folders.</p>
-			<p><code>Additions</code> are additional descriptions for the file like direction, color or position.
-				There can be an infinity amout of additions, they are all divided by a dash.</p>
-			<p class="text-notify">Exception: We use the "<code>.</code>"-annotation for javascript files.</p>
-
-			<p>Some examples:</p>
-<pre>
-templates/base.html <span>"base" is the namespace</span>
-templates/base-sidebar-left.html <span>"base" is the namespace, "sidebar" the module and "left" an addition</span>
-img/icon/arrow-left.png <span>"icon" is the namespace and "left" an addition</span>
-img/icon/arrow-left-small.png <span>"icon" is the namespace and ""</span>
-js/jquery.cycle.min.js <span>"jquery" is the namespace, "cycle" the module and "min" the addition</span>
-js/cl.lightbox.js <span>"cl" is the namespace and "lightbox" the module</span>
-</pre>
-		</section>
-
-<!-- ############################################################################################################### -->
-
-<section id="page-codeguide">
-	<h2>Code guidelines</h2>
-	<p>For <code>Python</code> we are using the following guidelines: <a href="#">link to guidelines</a></p>
-	<p>For <code>HTML</code>/<code>CSS</code> we are using the following guidelines: <a href="#">link to guidelines</a></p>
-</section>
-
-<!-- ############################################################################################################### -->
-
-<section id="page-plugin">
-	<h2>Plugin guidelines</h2>
-	<p>When developing plugins, the following terms <strong>must</strong> be fullfilled:</p>
-	<ul>
-		<li>W3C HTML validation</li>
-		<li>No JavaScript and Pageload<sup>1</sup> optimization</li>
-		<li>Progressive enhancement<sup>2</sup></li>
-		<li>Retina support for important brand information like logo</li>
-	</ul>
-
-	<p>The following requirements <strong>should</strong> be fullfilled:</p>
-	<ul>
-		<li>Full retina support</li>
-		<li>WCAG 2.0 validation</li>
-	</ul>
-
-	<p class="text-small">
-		1) When loading HTML and JavaScript, jumping of content elements or other disturbances should be avoided.<br />
-		2) Wherever possible use HTML5 or CSS3 technologies and provide proper fallbacks.
-	</p>
-</section>
-
-<!-- ############################################################################################################### -->
-
-<section>
-	<nav class="pagenav">
-		<ol>{% include "includes/menu/pagenav.html" %}</ol>
-	</nav>
-</section>
-
-
-
-
-
-
-
-
-
-
+	{% include "divio_styleguide/section_components.html" %}
+	{% include "divio_styleguide/section_development.html" %}
 
 </div>
-
-
-
 {% endblock %}

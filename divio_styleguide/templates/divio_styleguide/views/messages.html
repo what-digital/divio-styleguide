@@ -5,12 +5,15 @@
 <div class="container-24 clearfix">
 	<div class="grid-24">
 		<h1>Messages</h1>
-		<form action="" method="post" class="frm">
-            {% csrf_token %}
+		<form action="." method="post" class="frm">
+			{% csrf_token %}
 			<fieldset class="frm-horizontal">
+				{% standard_form form %}
 				<ol>
-					{% standard_form form %}
-					<li><label></label><input type="submit" class="btn" value="Submit" /></li>
+					<li>
+						<label>&nbsp;</label>
+						<div class="field"><input type="submit" class="btn" value="Submit" /></div>
+					</li>
 				</ol>
 			</fieldset>
 		</form>
