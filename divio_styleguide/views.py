@@ -1,4 +1,5 @@
 from django import forms
+from django.contrib import messages
 from django.views.generic import TemplateView, FormView
 
 class HomeView(TemplateView):
@@ -37,6 +38,30 @@ class DjangoForm(forms.Form):
         cd = super(DjangoForm, self).clean()
         raise forms.ValidationError('This is a non-form error. Something is wrong in the form, please fix.')
 
-class DjangoFormView(FormView):
-    template_name = 'divio_styleguide/django_forms.html'
+class FormsView(FormView):
+    template_name = 'divio_styleguide/views/forms.html'
     form_class = DjangoForm
+
+    def form_valid(self, form):
+        return self.get(self.request)
+
+
+MESSAGE_CHOICES = (
+    ('success', 'success'),
+    ('error', 'error'),
+    ('info', 'info'),
+    ('warning', 'warning'),
+    ('debug', 'debug'),
+)
+
+class MessageForm(forms.Form):
+    message = forms.CharField(max_length=512, initial='Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non nunc ut enim ultrices facilisis. Aliquam sem diam, gravida eu iaculis imperdiet, lacinia non eros.')
+    message_type = forms.ChoiceField(choices=MESSAGE_CHOICES)
+
+class MessagesView(FormView):
+    template_name = 'divio_styleguide/views/messages.html'
+    form_class = MessageForm
+
+    def form_valid(self, form):
+        messages.add_message(self.request, messages.SUCCESS, form.cleaned_data.get('message'))
+        return self.get(self.request)
