@@ -3,13 +3,25 @@
 
 {% block content %}
 <div class="container-24 clearfix">
-    <div class="grid-24">
-        <h1>Standard form</h1>
+    <div class="grid-12">
+        <h1>Standard field tag</h1>
         <form action="" method="post" class="frm">
         	<fieldset class="frm-horizontal">
                 {% csrf_token %}
             	<ol>
-                    {% standard_form form use_required=0 use_placeholder=1 %}
+                    <li>{% standard_field form.first_name 'no_required' custom_class='input-block' placeholder='My custom placeholder' %}</li>
+                    <li>{% standard_field form.last_name 'no_required placeholder_from_label' custom_class='input-block' %}</li>
+                    <li>{% standard_field form.email 'no_required no_required_helper no_help_text no_error_text' custom_class='input-block' placeholder='This one has all the available options' label='My label' %}</li>
+                    <li><label></label><input type="submit" class="btn" /></li>
+                </ol>
+            </fieldset>
+        </form>
+        <h1>Standard form tag</h1>
+        <form action="" method="post" class="frm">
+        	<fieldset class="frm-horizontal">
+                {% csrf_token %}
+            	<ol>
+                    {% standard_form form 'no_required' custom_class='input-block' %}
                     <li><label></label><input type="submit" class="btn" /></li>
                 </ol>
             </fieldset>
