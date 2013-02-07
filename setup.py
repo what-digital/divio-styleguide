@@ -26,6 +26,7 @@ setup(
     classifiers=CLASSIFIERS,
     install_requires=[
         'Django>=1.3',
+        'django-standard-form>=1.0.0',
     ],
     packages=find_packages(exclude=[]),
     include_package_data=True,
