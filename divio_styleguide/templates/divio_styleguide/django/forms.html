@@ -19,6 +19,14 @@
 				</ol>
 			</fieldset>
 		</form>
+    </div>
+    <div class="grid-12">
+        <h3>Example with all available options</h3>
+        <code>{% templatetag openblock %} standard_field form.email 'no_required no_required_helper no_help_text no_error_text' custom_class='input-block' placeholder='This one has all the available options' label='My label' {% templatetag closeblock %}</code>
+    </div>
+</div>
+<div class="container-24 clearfix">
+    <div class="grid-12">
 		<h1>Standard form tag</h1>
 		<form action="." method="post" class="frm">
 			<fieldset class="frm-horizontal">
@@ -32,6 +40,10 @@
 				</ol>
 			</fieldset>
 		</form>
-	</div>
+    </div>
+    <div class="grid-12">
+        <h3>Example</h3>
+        <code>{% templatetag openblock %} standard_form form 'no_required' custom_class='input-block' {% templatetag closeblock %}</code>
+    </div>
 </div>
 {% endblock content %}
