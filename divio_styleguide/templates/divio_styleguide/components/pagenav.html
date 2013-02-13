@@ -1,0 +1,11 @@
+{% load i18n %}
+<li class="first"><a href="#">&lsaquo; first</a></li>
+<li class="prev"><a href="#">&laquo; previous</a></li>
+<li class="page active"><span>1</span></li>
+{% for page in "2345"|make_list %}
+<li class="page"><a href="#">{{ page }}</a></li>
+{% endfor %}
+<li class="jumper"><a href="#">...</a></li>
+<li class="page"><a href="#">25</a></li>
+<li class="next"><a href="#">next &raquo;</a></li>
+<li class="last"><a href="#">last &rsaquo;</a></li>
