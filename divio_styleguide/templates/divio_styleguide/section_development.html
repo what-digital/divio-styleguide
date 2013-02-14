@@ -4,76 +4,64 @@
 		<hr />
 
 		<div class="grid-12 alpha">
-			<h2>Code guidelines</h2>
-			<p>For <code>Python</code> we are using the following guidelines: <a href="#">link to guidelines</a></p>
-			<p>For <code>HTML</code>/<code>CSS</code> we are using the following guidelines: <a href="#">link to guidelines</a></p>
+			<h2>Core guidelines</h2>
+			<h3>Python</h3>
+			<p class="halfspace">For <code>Python</code> we are using the <a href="http://www.python.org/dev/peps/pep-0008/" target="_blank">PEP 8</a> style guide.</p>
+			<p class="nospace"><strong>In addition, the following rules apply:</strong></p>
+			<ul>
+				<li>use <strong>4 space</strong> intendation</li>
+			</ul>
+
+			<h3>HTML/CSS</h3>
+			<p class="halfspace">For <code>HTML</code>/<code>CSS</code> we are using the <a href="http://www.w3schools.com/" target="_blank">W3Schools</a>
+				and <a href="http://www.w3.org/2001/sw/BestPractices/" target="_blank">W3C</a> best practices and guidelines.</p>
+			<p class="nospace"><strong>In addition, the following rules apply:</strong></p>
+			<ul>
+				<li>use <strong>tab</strong> intendation</li>
+				<li>use <strong>dashes</strong> (-) for css classes and file names<br /><code><strong>namespace</strong>-<strong>module</strong>-<strong>addition</strong>-addition</code></li>
+				<li>use <strong>underscore</strong> (_) for html file naming<br /><code><strong>namespace</strong>_<strong>module</strong>_<strong>addition</strong>_addition.ext</code></li>
+			</ul>
+
+			<h3>JavaScript</h3>
+			<p>We are using the <a href="http://addyosmani.com/resources/essentialjsdesignpatterns/book/#singletonpatternjavascript" target="_blank">singleton pattern</a>
+				for javascript along with the <a href="https://github.com/FinalAngel/classjs" target="_blank">class.js library</a> and
+				<a href="https://github.com/FinalAngel/classjs-plugins" target="_blank">class.js plugins</a> to create reusable plugins
+				and modules.</p>
+			<p class="nospace"><strong>In addition, the following rules apply:</strong></p>
+			<ul>
+				<li>use <strong>tab</strong> intendation</li>
+				<li>use <strong>dott annotation</strong> (.) for javascript file naming<br /><code><strong>namespace</strong>.<strong>module</strong>.<strong>addition</strong>.addition.ext</code></li>
+			</ul>
 		</div>
 		<div class="grid-12 omega">
 			<h2>Plugin guidelines</h2>
-			<p>When developing plugins, the following terms <strong>must</strong> be fullfilled:</p>
+
+			<h3>Requirements</h3>
+			<p class="halfspace">When developing plugins, the following terms <strong>must</strong> be fullfilled:</p>
 			<ul>
 				<li>W3C HTML validation</li>
-				<li>No JavaScript and Pageload<sup>1</sup> optimization</li>
-				<li>Progressive enhancement<sup>2</sup></li>
+				<li>WCAG 2.0 (A)<sup>1</sup> validation</li>
+				<li>No JavaScript and Pageload<sup>2</sup> optimization</li>
+				<li>Responsive design</li>
+				<li>Progressive enhancement<sup>3</sup></li>
 				<li>Retina support for important brand information like logo</li>
 			</ul>
 
-			<p>The following requirements <strong>should</strong> be fullfilled:</p>
+			<p class="halfspace">The following requirements <strong>could</strong> be fullfilled:</p>
 			<ul>
 				<li>Full retina support</li>
-				<li>WCAG 2.0 validation</li>
+				<li>WCAG 2.0 (AA) validation</li>
 			</ul>
 
 			<p class="text-small">
-				<sup>1)</sup> When loading HTML and JavaScript, jumping of content elements or other disturbances should be avoided.<br />
-				<sup>2)</sup> Wherever possible use HTML5 or CSS3 technologies and provide proper fallbacks.
+				<sup>1)</sup> We support the (A) grading as far as reason and logic permit.<br />
+				<sup>2)</sup> When loading HTML and JavaScript, dynamic elements should load without any disturbances, also prior to onload.<br />
+				<sup>3)</sup> Wherever possible use HTML5 or CSS3 technologies and provide proper fallbacks.
 			</p>
 
-		</div>
-		<div class="clear"></div>
-
-		<h2>File Structure &amp; naming</h2>
-
-		<div class="grid-12 alpha">
-			<h3>Structure</h3>
-			<p>This is the general structure inside the static folder.
-				The asterisk <sup>(*)</sup> marks folder named <code>css</code> (scss), <code>img</code> or <code>js</code>.
-				For example base.css or base.js. The substructure is applied to all items named above.</p>
-<pre>
-static/
-??? */
-?   ??? includes/
-?   ??? libs/
-?   ??? plugins/
-?   ??? base.ext
-??? fonts/
-??? swf/
-</pre>
-			<p>Compiling and minification is automated. Please consult the readme for further instructions.</p>
-		</div>
-		<div class="grid-12 omega">
-			<h3>Naming</h3>
-			<p>All files within <code>static/</code> or <code>templates/</code> should be named after the following guidelines.</p>
-
-			<p><code><strong>namespace</strong>-<strong>module</strong>-<strong>addition</strong>-addition.ext</code></p>
-			<p>The <code>namespace</code> is the <strong>origin</strong> of the file, is unique and always required. In addition,
-				namespaces can be folders to group multiple files and create a better overview.
-				The files inside the folder are excluding the namespace.</p>
-			<p><code>Modules</code> are used as soon as the namespace isn't enough to describe the meaning of the file.
-				They are not unique, optional and can be nested in folders.</p>
-			<p><code>Additions</code> are additional descriptions for the file like direction, color or position.
-				There can be an infinity amout of additions, they are all divided by a dash.</p>
-			<p class="text-notify">Exception: We use the "<code>.</code>"-annotation for javascript files.</p>
-
-			<p>Some examples:</p>
-<pre>
-templates/base.html <span>"base" is the namespace</span>
-templates/base-sidebar-left.html <span>"base" is the namespace, "sidebar" the module and "left" an addition</span>
-img/icon/arrow-left.png <span>"icon" is the namespace and "left" an addition</span>
-img/icon/arrow-left-small.png <span>"icon" is the namespace and ""</span>
-js/jquery.cycle.min.js <span>"jquery" is the namespace, "cycle" the module and "min" the addition</span>
-js/cl.lightbox.js <span>"cl" is the namespace and "lightbox" the module</span>
-</pre>
+			<h3>Code</h3>
+			<p>A plugin should always be wrapped with a class using the <strong>plugin</strong> namespace:<br />
+				<code>&lt;div class="plugin-gallery">...&lt;/div></code></p>
 		</div>
 		<div class="clear"></div>
 	</div>
