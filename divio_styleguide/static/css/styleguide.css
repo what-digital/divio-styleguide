@@ -1,0 +1,106 @@
+/*####################################################################################################################*/
+/* SECTION BASE */
+code { font-family:Consolas, "Liberation Mono", Courier, monospace; font-size:12px; color:#333;
+	border-radius:2px; border:1px solid #eaeaea; background:#f8f8f8; }
+
+.guidenav { position:absolute; top:0; right:0; z-index:100; font-size:14px; }
+.guidenav .gtrigger { float:right; padding:0; margin:10px 10px 0 15px; text-align:right; }
+.guidenav .gtrigger a { color:#fff; padding:4px 10px; background:#999; border-radius:3px; }
+.guidenav .gtrigger a:hover { text-decoration:none; background:#333; border-radius:0; }
+.guidenav ul { list-style-type:none; padding:0; margin:0; }
+.guidenav > ul { position:absolute; top:32px; right:10px; background:#fff; box-shadow:0 0 5px #999; border-radius:0 0 5px 5px; }
+.guidenav ul li a { display:block; padding:2px 10px; border-top:1px solid #999; }
+.guidenav ul li a:hover { color:#fff; text-decoration:none; background:#333; }
+.guidenav ul ul a { border-left:1px solid #ccc; }
+
+/*####################################################################################################################*/
+/* SECTION GRID */
+.styleguide section { border-bottom:5px solid #ccc; padding-bottom:25px; margin-bottom:25px; clear:both; overflow:hidden; }
+.highlight { color:#f93; }
+.codeoffset { position:relative; top:-25px; }
+
+.gblock-grid { min-height:500px; }
+.gblock-grid p { color:#fff; padding:5px 10px; background:#069; opacity:0.5; height:100px; }
+.gblock-grid .grid { position:relative; z-index:10; }
+
+.bggrid { position:absolute; left:0; top:0; z-index:1; width:100%; }
+.bggrid div { float:left; width:20px; height:525px; margin:0 10px; background:#069; opacity:0.1; }
+
+.gblocks { float:left; cursor:pointer; width:120px; height:96px; padding:4px 2px 0; margin:0 25px 25px 0;
+	border:1px solid #ccc; border-radius:5px; }
+.gblocks:hover { border:1px solid #999; box-shadow:0 0 5px #ccc; }
+.gblocks-active { border:1px solid #999; }
+.gblocks-active .gblock { opacity:1; }
+
+.gblock { float:left; height:20px; margin:0 2px 4px; background:#069; opacity:0.5; }
+.gblocks-1 .gba, .gblocks-1 .gbb, .gblocks-1 .gbc { width:36px; }
+.gblocks-1 .gbd { float:right; width:36px; height:68px; }
+.gblocks-1 .gbe, .gblocks-1 .gbf, .gblocks-1 .gbg, .gblocks-1 .gbh { width:16px; }
+.gblocks-1 .gbi, .gblocks-1 .gbj, .gblocks-1 .gbk, .gblocks-1 .gbl { width:16px; }
+.gblocks-1 .gbm { width:76px; }
+
+.gblocks-2 .gba { width:116px; height:50px; }
+.gblocks-2 .gbb { width:36px; height:38px; }
+.gblocks-2 .gbc { width:36px; height:38px; }
+.gblocks-2 .gbd { width:36px; height:38px; }
+
+.gblocks-3 .gba { width:36px; height:92px; }
+.gblocks-3 .gbb { width:36px; height:30px; }
+.gblocks-3 .gbc { width:36px; height:30px; }
+.gblocks-3 .gbd { width:36px; height:30px; }
+.gblocks-3 .gbe { width:36px; height:30px; }
+.gblocks-3 .gbf { width:76px; height:24px; }
+
+@media screen and (min-width: 720px)
+and (max-width: 960px) {
+	.bggrid div { margin:0 5px; }
+}
+
+/*####################################################################################################################*/
+/* SECTION HELPERS */
+.tbl-mcres div { color:#468c44; padding:2px 5px; background:#e0f2d8; }
+.tbl-mcres th { background:#fff; }
+.tbl-mcres thead th span { display:block; color:#999; font-size:80%; }
+
+.tbl-mcres .tblv { color:#468c44; background:#e0f2d8; }
+.tbl-mcres .tblh { color:#ccc; background:#f9f9f9; }
+
+.fakimage { height:40px; padding:15px 0 0; text-align:center; background:#ccc; display:inline-block; }
+.no-js #page-helpers .no-js { display:none; }
+
+/*####################################################################################################################*/
+/* SECTION ICONS */
+.iconlist { list-style-type:none; padding:0; margin:0; }
+.iconlist li { padding:0 0 25px; margin:0; float:left; width:25%; }
+
+/*####################################################################################################################*/
+/* SECTION INDEX */
+#page-index .new, #page-index .ok { color:#fff; font-size:11px; line-height:100%;
+	padding:3px 4px; margin-left:5px; border-radius:3px;
+	display:inline-block; position:relative; top:-1px; }
+#page-index .new { background:#363; }
+#page-index .ok { background:#999; }
+#page-index .templatelist { margin-bottom:25px; }
+#page-index .templatelist p { margin:0; }
+#page-index .devparams a { color:#000; }
+#page-index .devparams span { color:#999; }
+#page-index .padding-top { padding-top:25px; }
+
+/*####################################################################################################################*/
+/* SECTION TYPOGRAPHY */
+.fakeimage { width:100px; height:75px; padding:25px 0 0; text-align:center; background:#ccc; display:inline-block; }
+.autocolor { float:left; color:#fff; text-shadow:0 1px 1px #000; text-align:center;
+	width:100px; height:62px; padding:38px 0 0; margin:0 15px 15px 0; border-radius:50px;
+	background:#f00; }
+
+
+
+
+
+
+
+
+
+
+
+

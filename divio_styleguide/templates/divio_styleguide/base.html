@@ -1,92 +1,7 @@
 {% extends "base.html" %}
-{% load i18n sekizai_tags %}
-{% load url from future %}
+{% load sekizai_tags %}
 
 {% block content %}
-{% comment %}
-{% trans "My special context:" %} {{ my_special_context }}
-{% trans "A link to another page:" %} <a href="{% url "divio_styleguide_home" %}">{% trans "home" %}</a>
-{% endcomment %}
-
-{% addtoblock "css" %}
-<style>
-code { font-family:Consolas, "Liberation Mono", Courier, monospace; font-size:12px; color:#333;
-	border-radius:2px; border:1px solid #eaeaea; background:#f8f8f8; }
-
-.guidenav { position:absolute; top:0; right:0; z-index:100; font-size:14px; }
-.guidenav .gtrigger { float:right; padding:0; margin:10px 10px 0 15px; text-align:right; }
-.guidenav .gtrigger a { color:#fff; padding:4px 10px; background:#999; border-radius:3px; }
-.guidenav .gtrigger a:hover { text-decoration:none; background:#333; border-radius:0; }
-.guidenav ul { list-style-type:none; padding:0; margin:0; }
-.guidenav > ul { position:absolute; top:32px; right:10px; background:#fff; box-shadow:0 0 5px #999; border-radius:0 0 5px 5px; }
-.guidenav ul li a { display:block; padding:2px 10px; border-top:1px solid #999; }
-.guidenav ul li a:hover { color:#fff; text-decoration:none; background:#333; }
-.guidenav ul ul a { border-left:1px solid #ccc; }
-
-.styleguide section { border-bottom:5px solid #ccc; padding-bottom:25px; margin-bottom:25px; clear:both; overflow:hidden; }
-.highlight { color:#f93; }
-.codeoffset { position:relative; top:-25px; }
-</style>
-{% endaddtoblock "css" %}
-{% addtoblock "js" %}
-<script>
-jQuery(document).ready(function ($) {
-	var sections = $('section');
-		sections.hide();
-	var triggers = $('#guidenav li a');
-		triggers.bind('click', function (e) {
-			show($(this).attr('href'));
-		});
-
-	function show(hash) {
-		if(hash === '#page-all') {
-			sections.show();
-		} else {
-			sections.hide();
-			var section = $(hash);
-				section.show();
-		}
-	}
-	if(window.location.hash) {
-		// if an hash is set, load the specific section
-		show(window.location.hash);
-	} else {
-		// show the index page per default
-		show('#page-index');
-	}
-
-	// menu hover
-	var timer = function () {};
-	var navcontainer = $('#guidenav');
-		navcontainer.hide();
-		navcontainer.bind('mouseleave', function () {
-			navcontainer.hide();
-		});
-		navcontainer.bind('mouseenter', function () {
-			clearTimeout(timer);
-		});
-	var nav = $('.guidenav-trigger');
-		nav.bind('mouseenter', function () {
-			clearTimeout(timer);
-			navcontainer.show();
-		});
-		nav.bind('mouseleave', function () {
-			timer = setTimeout(function () {
-				navcontainer.hide();
-			}, 200);
-		});
-
-	// code button
-	var code = $('.code-trigger');
-		code.bind('click', function (e) {
-			e.preventDefault();
-			$('code').toggle();
-		});
-		//code.trigger('click');
-});
-</script>
-{% endaddtoblock "js" %}
-
 <div class="container-24 relative clearfix styleguide">
 
 	<nav class="guidenav">
@@ -119,4 +34,7 @@ jQuery(document).ready(function ($) {
 	{% include "divio_styleguide/section_development.html" %}
 
 </div>
+
+{% addtoblock "css" %}<link rel="stylesheet" href="/static/css/styleguide.css" />{% endaddtoblock %}
+{% addtoblock "js" %}<script src="/static/js/plugins/cl.styleguide.js"></script>{% endaddtoblock %}
 {% endblock %}

@@ -1,457 +1,443 @@
-{% load i18n sekizai_tags %}
-{% addtoblock "css" %}
-<style>
-
-.frm-inline {} /* form-horizontal */
-.frm-inline .field { display:inline; }
-
-
-</style>
-{% endaddtoblock "css" %}
-{% addtoblock "js" %}
-<script>
-jQuery(document).ready(function ($) {
-
-});
-</script>
-{% endaddtoblock "js" %}
-
 <section id="page-forms">
-	<div class="grid-24">
-		<h1>Forms</h1>
-		<hr />
+<div class="grid-24">
+<h1>Forms</h1>
+<hr />
 
-		<div class="grid-14 alpha">
-			<h2>Input Sizes</h2>
-			<form action="." method="post" class="frm">
-				<fieldset>
-					<ol>
-						<li><label><input type="text" class="input-text input-mini" placeholder=".input-mini" /></label></li>
-						<li><label><input type="text" class="input-text input-small" placeholder=".input-small" /></label></li>
-						<li><label><input type="text" class="input-text input-medium" placeholder=".input-medium" /></label></li>
-						<li><label><input type="text" class="input-text" /></label></li>
-						<li><label><input type="text" class="input-text input-large" placeholder=".input-large" /></label></li>
-						<li><label><input type="text" class="input-text input-block" placeholder=".input-block" /></label></li>
-					</ol>
-				</fieldset>
-			</form>
+<div class="grid-14 alpha">
+	<h2>Input Sizes</h2>
+	<form action="." method="post" class="frm">
+		<fieldset>
+			<ol>
+				<li><label><input type="text" class="input-text input-mini" placeholder=".input-mini" /></label></li>
+				<li><label><input type="text" class="input-text input-small" placeholder=".input-small" /></label></li>
+				<li><label><input type="text" class="input-text input-medium" placeholder=".input-medium" /></label></li>
+				<li><label><input type="text" class="input-text" /></label></li>
+				<li><label><input type="text" class="input-text input-large" placeholder=".input-large" /></label></li>
+				<li><label><input type="text" class="input-text input-block" placeholder=".input-block" /></label></li>
+			</ol>
+		</fieldset>
+	</form>
 
-			<p class="nospace"></p>
+	<p class="nospace"></p>
 
-			<h2>Input Types</h2>
-			<form action="." method="post" class="frm" oninput="output.value=parseInt(range.value)">
-				<fieldset>
-					<ol class="grid-7 alpha">
-						<li><label><input type="color" class="input-text" /></label></li>
-						<li><label><input type="date" class="input-text" /></label></li>
-						<li><label><input type="datetime" class="input-text" /></label></li>
-						<li><label><input type="datetime-local" class="input-text" /></label></li>
-						<li><label><input type="email" class="input-text" placeholder="email" /></label></li>
-						<li><label><input type="file" class="input-text" style="vertical-align: middle;" /></label></li>
-						<li><label><input type="hidden" class="input-text" /></label></li>
-						<li><label><input type="month" class="input-text" /></label></li>
-						<li><label><input type="number" class="input-text" placeholder="number" /></label></li>
-						<li><label><input type="password" class="input-text" placeholder="password" /></label></li>
-						<li><label><input type="range" class="input-text" id="range" value="100" /> <output name="output"></output></label></li>
-					</ol>
-					<ol class="grid-7 omega">
-						<li><label><input type="search" class="input-text" placeholder="search" /></label></li>
-						<li><label><input type="tel" class="input-text" placeholder="tel" /></label></li>
-						<li><label><input type="text" class="input-text" placeholder="text" /></label></li>
-						<li><label><input type="time" class="input-text" /></label></li>
-						<li><label><input type="url" class="input-text" placeholder="url" /></label></li>
-						<li><label><input type="week" class="input-text" /></label></li>
-						<li>
-							<label>
-								<input list="browsers" class="input-text" placeholder="datalist" />
-								<datalist id="browsers">
-									<!-- leave option content empty -->
-									<option value="Internet Explorer"></option>
-									<option value="Firefox"></option>
-									<option value="Chrome"></option>
-									<option value="Opera"></option>
-									<option value="Safari"></option>
-								</datalist>
-							</label>
-						</li>
-						<li><textarea rows="5" class="input-text" placeholder="textarea"></textarea></li>
-					</ol>
-				</fieldset>
-			</form>
-		</div>
-		<div class="grid-10 omega">
-			<h2>Vertical Form</h2>
-			<form action="." method="post" class="frm">
-				<fieldset class="frm-vertical">
-					<ol>
-						<li>
-							<label for="field-loginmail">E-mail<abbr title="required">*</abbr></label>
-							<div class="field"><input type="text" class="input-text" id="field-loginmail" required="required" /></div>
-						</li>
-						<li>
-							<label for="field-loginpassword">Password<abbr title="required">*</abbr></label>
-							<div class="field"><input type="password" class="input-text" id="field-loginpassword" required="required" /></div>
-						</li>
-						<li>
-							<label class="empty"></label>
-							<div class="field"><label><input type="checkbox" class="input-radiocheck" /> Remember me</label></div>
-						</li>
-						<li class="button-group">
-							<label class="empty"></label>
-							<div class="field"><label><input type="submit" class="btn" value="Sign In" /></label></div>
-						</li>
-					</ol>
-				</fieldset>
-			</form>
+	<h2>Input Types</h2>
+	<form action="." method="post" class="frm" oninput="output.value=parseInt(range.value)">
+		<fieldset>
+			<ol class="grid-7 alpha">
+				<li><label><input type="color" class="input-text" /></label></li>
+				<li><label><input type="date" class="input-text" /></label></li>
+				<li><label><input type="datetime" class="input-text" /></label></li>
+				<li><label><input type="datetime-local" class="input-text" /></label></li>
+				<li><label><input type="email" class="input-text" placeholder="email" /></label></li>
+				<li><label><input type="file" class="input-text" style="vertical-align: middle;" /></label></li>
+				<li><label><input type="hidden" class="input-text" /></label></li>
+				<li><label><input type="month" class="input-text" /></label></li>
+				<li><label><input type="number" class="input-text" placeholder="number" /></label></li>
+				<li><label><input type="password" class="input-text" placeholder="password" /></label></li>
+				<li><label><input type="range" class="input-text" id="range" value="100" /> <output name="output"></output></label></li>
+			</ol>
+			<ol class="grid-7 omega">
+				<li><label><input type="search" class="input-text" placeholder="search" /></label></li>
+				<li><label><input type="tel" class="input-text" placeholder="tel" /></label></li>
+				<li><label><input type="text" class="input-text" placeholder="text" /></label></li>
+				<li><label><input type="time" class="input-text" /></label></li>
+				<li><label><input type="url" class="input-text" placeholder="url" /></label></li>
+				<li><label><input type="week" class="input-text" /></label></li>
+				<li>
+					<label>
+						<input list="browsers" class="input-text" placeholder="datalist" />
+						<datalist id="browsers">
+							<!-- leave option content empty -->
+							<option value="Internet Explorer"></option>
+							<option value="Firefox"></option>
+							<option value="Chrome"></option>
+							<option value="Opera"></option>
+							<option value="Safari"></option>
+						</datalist>
+					</label>
+				</li>
+				<li><textarea rows="5" class="input-text" placeholder="textarea"></textarea></li>
+			</ol>
+		</fieldset>
+	</form>
+</div>
+<div class="grid-10 omega">
+	<h2>Vertical Form</h2>
+	<form action="." method="post" class="frm">
+		<fieldset class="frm-vertical">
+			<ol>
+				<li>
+					<label for="field-loginmail">E-mail<abbr title="required">*</abbr></label>
+					<div class="field"><input type="text" class="input-text" id="field-loginmail" required="required" /></div>
+				</li>
+				<li>
+					<label for="field-loginpassword">Password<abbr title="required">*</abbr></label>
+					<div class="field"><input type="password" class="input-text" id="field-loginpassword" required="required" /></div>
+				</li>
+				<li>
+					<label class="empty"></label>
+					<div class="field"><label><input type="checkbox" class="input-radiocheck" /> Remember me</label></div>
+				</li>
+				<li class="button-group">
+					<label class="empty"></label>
+					<div class="field"><label><input type="submit" class="btn" value="Sign In" /></label></div>
+				</li>
+			</ol>
+		</fieldset>
+	</form>
 
-			<p class="nospace"></p>
+	<p class="nospace"></p>
 
-			<h2>Horizontal Form</h2>
-			<form action="." method="post" class="frm">
-				<fieldset class="frm-horizontal">
-					<ol>
-						<li>
-							<label for="field-loginmail2">E-mail<abbr title="required">*</abbr></label>
-							<div class="field"><input type="text" class="input-text input-block" id="field-loginmail2" required="required" /></div>
-						</li>
-						<li>
-							<label for="field-loginpassword2">Password<abbr title="required">*</abbr></label>
-							<div class="field"><input type="password" class="input-text input-block" id="field-loginpassword2" required="required" /></div>
-						</li>
-						<li>
-							<label class="empty"></label>
-							<div class="field"><label><input type="checkbox" class="input-radiocheck" /> Remember me</label></div>
-						</li>
-						<li class="button-group">
-							<label class="empty"></label>
-							<div class="field"><label><input type="submit" class="btn" value="Sign In" /></label></div>
-						</li>
-					</ol>
-				</fieldset>
-			</form>
+	<h2>Horizontal Form</h2>
+	<form action="." method="post" class="frm">
+		<fieldset class="frm-horizontal">
+			<ol>
+				<li>
+					<label for="field-loginmail2">E-mail<abbr title="required">*</abbr></label>
+					<div class="field"><input type="text" class="input-text input-block" id="field-loginmail2" required="required" /></div>
+				</li>
+				<li>
+					<label for="field-loginpassword2">Password<abbr title="required">*</abbr></label>
+					<div class="field"><input type="password" class="input-text input-block" id="field-loginpassword2" required="required" /></div>
+				</li>
+				<li>
+					<label class="empty"></label>
+					<div class="field"><label><input type="checkbox" class="input-radiocheck" /> Remember me</label></div>
+				</li>
+				<li class="button-group">
+					<label class="empty"></label>
+					<div class="field"><label><input type="submit" class="btn" value="Sign In" /></label></div>
+				</li>
+			</ol>
+		</fieldset>
+	</form>
 
-			<p class="nospace"></p>
+	<p class="nospace"></p>
 
-			<h2>Plain Form</h2>
-			<form action="." method="post">
-				<fieldset>
-					<ol>
-						<li>
-							<label for="field-textfield">Textfield</label>
-							<div class="field"><input type="text" id="field-textfield" /></div>
-						</li>
-						<li>
-							<label for="field-passfield">Passfield</label>
-							<div class="field"><input type="password" id="field-passfield" /></div>
-						</li>
-						<li>
-							<label></label>
-							<div class="field"><label><input type="checkbox"> Remember me</label></div>
-						</li>
-						<li>
-							<label></label>
-							<div class="field"><label><input type="submit" value="Sign In" /></label></div>
-						</li>
-					</ol>
-				</fieldset>
-			</form>
-		</div>
-		<div class="clear"></div>
+	<h2>Plain Form</h2>
+	<form action="." method="post">
+		<fieldset>
+			<ol>
+				<li>
+					<label for="field-textfield">Textfield</label>
+					<div class="field"><input type="text" id="field-textfield" /></div>
+				</li>
+				<li>
+					<label for="field-passfield">Passfield</label>
+					<div class="field"><input type="password" id="field-passfield" /></div>
+				</li>
+				<li>
+					<label></label>
+					<div class="field"><label><input type="checkbox"> Remember me</label></div>
+				</li>
+				<li>
+					<label></label>
+					<div class="field"><label><input type="submit" value="Sign In" /></label></div>
+				</li>
+			</ol>
+		</fieldset>
+	</form>
+</div>
+<div class="clear"></div>
 
-		<hr />
+<hr />
 
-		<div class="grid-12 alpha">
-			<h2>Radios / Checkboxes</h2>
-			<form action="." method="post" class="frm">
-				<fieldset>
-					<ol>
-						<!-- TODO we need to implement some uniform thing -->
-						<li><label><input type="checkbox" class="input-radiocheck" checked="checked" /> I read and agree to our terms and conditions</label></li>
-						<li><label><input type="radio" class="input-radiocheck" checked="checked" /> I read and agree to our terms and conditions</label></li>
-						<li><label>I read and agree to our terms and conditions <input type="checkbox" class="input-radiocheck" /></label></li>
-						<li><label>I read and agree to our terms and conditions <input type="radio" class="input-radiocheck" /></label></li>
-						<li class="inline"><label><input type="checkbox" class="input-radiocheck" /> 1</label></li>
-						<li class="inline"><label><input type="checkbox" class="input-radiocheck" /> 2</label></li>
-						<li class="inline"><label><input type="checkbox" class="input-radiocheck" /> 3</label></li>
-						<li class="inline"><label><input type="radio" name="poll" class="input-radiocheck" /> A</label></li>
-						<li class="inline"><label><input type="radio" name="poll" class="input-radiocheck" /> B</label></li>
-						<li class="inline"><label><input type="radio" name="poll" class="input-radiocheck" /> C</label></li>
-						<li><label><input type="checkbox" class="input-radiocheck input-radiocheck-aligned" /> I Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard</label></li>
-						<li><label><input type="radio" class="input-radiocheck input-radiocheck-aligned" /> I Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard</label></li>
-						<li><label><input type="radio" name="gender" class="input-radiocheck" /> Female</label></li>
-						<li><label><input type="radio" name="gender" class="input-radiocheck" /> Male</label></li>
-					</ol>
-				</fieldset>
-			</form>
-		</div>
-		<div class="grid-12 omega">
-			<h2>Select</h2>
-			<form action="." method="post" class="frm">
-				<fieldset>
-					<ol>
-						<li>
-							<label>
-								<select class="input-select">
-									<option value="ch">Switzerland</option>
-									<option value="de">Germany</option>
-									<option value="au">Austria</option>
-									<option value="ca">Canada</option>
-									<option value="jp">Japan</option>
-									<option value="us">USA</option>
-								</select> <span>Standard select field</span>
-							</label>
-						</li>
-						<li>
-							<label>
-								<select class="input-select">
-									<optgroup label="Most selected">
-										<option value="ch">Switzerland</option>
-										<option value="de">Germany</option>
-										<option value="au">Austria</option>
-									</optgroup>
-									<optgroup label="Full list">
-										<option value="ca">Canada</option>
-										<option value="jp">Japan</option>
-										<option value="us">USA</option>
-									</optgroup>
-								</select> <span>Optgroup select field</span>
-							</label>
-						</li>
-						<li>
-							<label>
-								<select class="input-select" multiple="multiple" size="5">
-									<option value="ch">Switzerland</option>
-									<option value="de">Germany</option>
-									<option value="au">Austria</option>
-									<option value="ca">Canada</option>
-									<option value="jp">Japan</option>
-									<option value="us">USA</option>
-								</select> <span>Multiple select field</span>
-							</label>
-						</li>
-						<li>
-							<label><keygen name="security" class="input-select" /> Keychain select field</label>
-						</li>
-					</ol>
-				</fieldset>
-			</form>
-		</div>
-		<div class="clear"></div>
+<div class="grid-12 alpha">
+	<h2>Radios / Checkboxes</h2>
+	<form action="." method="post" class="frm">
+		<fieldset>
+			<ol>
+				<!-- TODO we need to implement some uniform thing -->
+				<li><label><input type="checkbox" class="input-radiocheck" checked="checked" /> I read and agree to our terms and conditions</label></li>
+				<li><label><input type="radio" class="input-radiocheck" checked="checked" /> I read and agree to our terms and conditions</label></li>
+				<li><label>I read and agree to our terms and conditions <input type="checkbox" class="input-radiocheck" /></label></li>
+				<li><label>I read and agree to our terms and conditions <input type="radio" class="input-radiocheck" /></label></li>
+				<li class="inline"><label><input type="checkbox" class="input-radiocheck" /> 1</label></li>
+				<li class="inline"><label><input type="checkbox" class="input-radiocheck" /> 2</label></li>
+				<li class="inline"><label><input type="checkbox" class="input-radiocheck" /> 3</label></li>
+				<li class="inline"><label><input type="radio" name="poll" class="input-radiocheck" /> A</label></li>
+				<li class="inline"><label><input type="radio" name="poll" class="input-radiocheck" /> B</label></li>
+				<li class="inline"><label><input type="radio" name="poll" class="input-radiocheck" /> C</label></li>
+				<li><label><input type="checkbox" class="input-radiocheck input-radiocheck-aligned" /> I Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard</label></li>
+				<li><label><input type="radio" class="input-radiocheck input-radiocheck-aligned" /> I Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard</label></li>
+				<li><label><input type="radio" name="gender" class="input-radiocheck" /> Female</label></li>
+				<li><label><input type="radio" name="gender" class="input-radiocheck" /> Male</label></li>
+			</ol>
+		</fieldset>
+	</form>
+</div>
+<div class="grid-12 omega">
+	<h2>Select</h2>
+	<form action="." method="post" class="frm">
+		<fieldset>
+			<ol>
+				<li>
+					<label>
+						<select class="input-select">
+							<option value="ch">Switzerland</option>
+							<option value="de">Germany</option>
+							<option value="au">Austria</option>
+							<option value="ca">Canada</option>
+							<option value="jp">Japan</option>
+							<option value="us">USA</option>
+						</select> <span>Standard select field</span>
+					</label>
+				</li>
+				<li>
+					<label>
+						<select class="input-select">
+							<optgroup label="Most selected">
+								<option value="ch">Switzerland</option>
+								<option value="de">Germany</option>
+								<option value="au">Austria</option>
+							</optgroup>
+							<optgroup label="Full list">
+								<option value="ca">Canada</option>
+								<option value="jp">Japan</option>
+								<option value="us">USA</option>
+							</optgroup>
+						</select> <span>Optgroup select field</span>
+					</label>
+				</li>
+				<li>
+					<label>
+						<select class="input-select" multiple="multiple" size="5">
+							<option value="ch">Switzerland</option>
+							<option value="de">Germany</option>
+							<option value="au">Austria</option>
+							<option value="ca">Canada</option>
+							<option value="jp">Japan</option>
+							<option value="us">USA</option>
+						</select> <span>Multiple select field</span>
+					</label>
+				</li>
+				<li>
+					<label><keygen name="security" class="input-select" /> Keychain select field</label>
+				</li>
+			</ol>
+		</fieldset>
+	</form>
+</div>
+<div class="clear"></div>
 
-		<p class="nospace"></p>
+<p class="nospace"></p>
 
-		<h2>Buttons</h2>
-		<form action="." method="post" class="frm">
-			<fieldset>
-				<ol>
-					<li>
-						<label><a href="#" class="btn">Link</a></label>
-						<label><button class="btn" type="submit">Button</button></label>
-						<label><input type="button" class="btn" value="Input" /></label>
-						<label><input type="submit" class="btn" value="Submit" /></label>
-					</li>
-				</ol>
-				<ol class="grid-5 alpha">
-					<li>
-						<h3>Anchor</h3>
-						<div><label><a href="#" class="btn">.btn</a></label></div>
-						<div><label><a href="#" class="btn btn-grey">.btn-grey</a></label></div>
-						<div><label><a href="#" class="btn btn-small">.btn-small</a></label></div>
-						<div><label><a href="#" class="btn btn-large">.btn-large</a></label></div>
-					</li>
-				</ol>
-				<ol class="grid-5">
-					<li>
-						<h3>Submit</h3>
-						<div><label><input type="submit" class="btn" value=".btn" /></label></div>
-						<div><label><input type="submit" class="btn btn-grey" value=".btn-grey" /></label></div>
-						<div><label><input type="submit" class="btn btn-small" value=".btn-small" /></label></div>
-						<div><label><input type="submit" class="btn btn-large" value=".btn-large" /></label></div>
-						<div><label><input type="submit" class="btn btn-disabled" value=".btn-disabled" disabled="disabled" /></label></div>
-					</li>
-				</ol>
-				<ol class="grid-4 omega">
-					<li>
-						<h3>Button</h3>
-						<div><label><input type="button" class="btn" value=".btn" /></label></div>
-						<div><label><input type="button" class="btn btn-grey" value=".btn-grey" /></label></div>
-						<div><label><input type="button" class="btn btn-small" value=".btn-small" /></label></div>
-						<div><label><input type="button" class="btn btn-large" value=".btn-large" /></label></div>
-						<div><label><input type="button" class="btn btn-disabled" value=".btn-disabled" disabled="disabled" /></label></div>
-					</li>
-				</ol>
-			</fieldset>
-		</form>
+<h2>Buttons</h2>
+<form action="." method="post" class="frm">
+	<fieldset>
+		<ol>
+			<li>
+				<label><a href="#" class="btn">Link</a></label>
+				<label><button class="btn" type="submit">Button</button></label>
+				<label><input type="button" class="btn" value="Input" /></label>
+				<label><input type="submit" class="btn" value="Submit" /></label>
+			</li>
+		</ol>
+		<ol class="grid-5 alpha">
+			<li>
+				<h3>Anchor</h3>
+				<div><label><a href="#" class="btn">.btn</a></label></div>
+				<div><label><a href="#" class="btn btn-grey">.btn-grey</a></label></div>
+				<div><label><a href="#" class="btn btn-small">.btn-small</a></label></div>
+				<div><label><a href="#" class="btn btn-large">.btn-large</a></label></div>
+			</li>
+		</ol>
+		<ol class="grid-5">
+			<li>
+				<h3>Submit</h3>
+				<div><label><input type="submit" class="btn" value=".btn" /></label></div>
+				<div><label><input type="submit" class="btn btn-grey" value=".btn-grey" /></label></div>
+				<div><label><input type="submit" class="btn btn-small" value=".btn-small" /></label></div>
+				<div><label><input type="submit" class="btn btn-large" value=".btn-large" /></label></div>
+				<div><label><input type="submit" class="btn btn-disabled" value=".btn-disabled" disabled="disabled" /></label></div>
+			</li>
+		</ol>
+		<ol class="grid-4 omega">
+			<li>
+				<h3>Button</h3>
+				<div><label><input type="button" class="btn" value=".btn" /></label></div>
+				<div><label><input type="button" class="btn btn-grey" value=".btn-grey" /></label></div>
+				<div><label><input type="button" class="btn btn-small" value=".btn-small" /></label></div>
+				<div><label><input type="button" class="btn btn-large" value=".btn-large" /></label></div>
+				<div><label><input type="button" class="btn btn-disabled" value=".btn-disabled" disabled="disabled" /></label></div>
+			</li>
+		</ol>
+	</fieldset>
+</form>
 
-		<h2>Errors</h2>
-		<form action="." method="post" class="frm">
-			<fieldset>
-				<p class="text-error">The form could not be sent because of the folowing marked errors:</p>
-				<ol>
-					<li>
-						<label for="field-loginmail3">E-mail<abbr title="required">*</abbr></label>
-						<div class="field">
-							<input type="text" class="input-text input-error" id="field-loginmail3" required="required" />
-							<span class="text-error">please enter a valid e-mail address</span>
-						</div>
-					</li>
-					<li>
-						<label for="field-loginpassword3">Password<abbr title="required">*</abbr></label>
-						<div class="field">
-							<input type="password" class="input-text input-error" id="field-loginpassword3" required="required" />
-							<span class="text-error">Please enter a password</span>
-						</div>
-					</li>
-					<li>
-						<label class="empty"></label>
-						<div class="field">
-							<label><input type="checkbox" class="input-radiocheck input-error" /> Terms of service</label>
-							<span class="text-error">Please check this field</span>
-						</div>
-					</li>
-					<li class="button-group">
-						<label class="empty"></label>
-						<div class="field"><label><input type="submit" class="btn" value="Sign In" /></label></div>
-					</li>
-				</ol>
-			</fieldset>
-		</form>
+<h2>Errors</h2>
+<form action="." method="post" class="frm">
+	<fieldset>
+		<p class="text-error">The form could not be sent because of the folowing marked errors:</p>
+		<ol>
+			<li>
+				<label for="field-loginmail3">E-mail<abbr title="required">*</abbr></label>
+				<div class="field">
+					<span class="text-error">please enter a valid e-mail address</span>
+					<input type="text" class="input-text input-error" id="field-loginmail3" required="required" />
+				</div>
+			</li>
+			<li>
+				<label for="field-loginpassword3">Password<abbr title="required">*</abbr></label>
+				<div class="field">
+					<span class="text-error">Please enter a password</span>
+					<input type="password" class="input-text input-error" id="field-loginpassword3" required="required" />
+				</div>
+			</li>
+			<li>
+				<label class="empty"></label>
+				<div class="field">
+					<span class="text-error">Please check this field</span>
+					<label><input type="checkbox" class="input-radiocheck input-error" /> Terms of service</label>
+				</div>
+			</li>
+			<li class="button-group">
+				<label class="empty"></label>
+				<div class="field"><label><input type="submit" class="btn" value="Sign In" /></label></div>
+			</li>
+		</ol>
+	</fieldset>
+</form>
 
-		<p class="nospace"></p>
+<p class="nospace"></p>
 
-		<h2>Messages</h2>
-		<div class="grid-12 alpha">
-			<h3 class="text-success">Success <code>.text-success</code></h3>
-			<ul class="text-success nospace">
-				<li>This is a successlist <a href="#">and a link</a></li>
-				<li>Made with an unordered list</li>
-				<li>And another list entry</li>
-			</ul>
-			<p class="text-success">This is a paragraph.</p>
+<h2>Messages</h2>
+<div class="grid-12 alpha">
+	<h3 class="text-success">Success <code>.text-success</code></h3>
+	<ul class="text-success nospace">
+		<li>This is a successlist <a href="#">and a link</a></li>
+		<li>Made with an unordered list</li>
+		<li>And another list entry</li>
+	</ul>
+	<p class="text-success">This is a paragraph.</p>
 
-			<h3 class="text-error">Error <code>.text-error</code></h3>
-			<ul class="text-error nospace">
-				<li>This is an errorlist <a href="#">and a link</a></li>
-				<li>Made with an unordered list</li>
-				<li>And another list entry</li>
-			</ul>
-			<p class="text-error">This is a paragraph.</p>
-		</div>
-		<div class="grid-12 omega">
-			<h3 class="text-info">Info <code>.text-info</code></h3>
-			<ul class="text-info nospace">
-				<li>This is an infolist <a href="#">and a link</a></li>
-				<li>Made with an unordered list</li>
-				<li>And another list entry</li>
-			</ul>
-			<p class="text-info">This is a paragraph.</p>
+	<h3 class="text-error">Error <code>.text-error</code></h3>
+	<ul class="text-error nospace">
+		<li>This is an errorlist <a href="#">and a link</a></li>
+		<li>Made with an unordered list</li>
+		<li>And another list entry</li>
+	</ul>
+	<p class="text-error">This is a paragraph.</p>
+</div>
+<div class="grid-12 omega">
+	<h3 class="text-info">Info <code>.text-info</code></h3>
+	<ul class="text-info nospace">
+		<li>This is an infolist <a href="#">and a link</a></li>
+		<li>Made with an unordered list</li>
+		<li>And another list entry</li>
+	</ul>
+	<p class="text-info">This is a paragraph.</p>
 
-			<h3 class="text-warning">Warning <code>.text-warning</code></h3>
-			<ul class="text-warning nospace">
-				<li>This is a warninglist <a href="#">and a link</a></li>
-				<li>Made with an unordered list</li>
-				<li>And another list entry</li>
-			</ul>
-			<p class="text-warning">This is a paragraph.</p>
-		</div>
-		<div class="clear"></div>
+	<h3 class="text-warning">Warning <code>.text-warning</code></h3>
+	<ul class="text-warning nospace">
+		<li>This is a warninglist <a href="#">and a link</a></li>
+		<li>Made with an unordered list</li>
+		<li>And another list entry</li>
+	</ul>
+	<p class="text-warning">This is a paragraph.</p>
+</div>
+<div class="clear"></div>
 
-		<p class="nospace"></p>
+<p class="nospace"></p>
 
-		<h2>Example</h2>
-		<form action="." method="post" class="frm">
-			<fieldset class="frm-horizontal">
-				<legend>Personal information</legend>
-					<ol class="grid-12 alpha">
-						<li><h4>Your Details</h4></li>
-						<li>
-							<label for="field-gender">Gender</label>
-							<div class="field">
-								<select class="input-select input-block" id="field-gender">
-									<option value="f">Female</option>
-									<option value="m">Male</option>
-								</select>
-							</div>
-						</li>
-						<li>
-							<label for="field-company">Company</label>
-							<div class="field"><input type="text" class="input-text input-block" id="field-company" /></div>
-						</li>
-						<li>
-							<label for="field-firstname">Firstname<abbr title="required">*</abbr></label>
-							<div class="field"><input type="text" class="input-text input-block" id="field-firstname" required="required" /></div>
-						</li>
-						<li>
-							<label for="field-lastname">Lastname<abbr title="required">*</abbr></label>
-							<div class="field"><input type="text" class="input-text input-block" id="field-lastname" required="required" /></div>
-						</li>
-						<li>
-							<label>Birthdate</label>
-							<div class="field">
-								<label><input type="text" class="input-text input-mini" placeholder="Day" /></label>
-								<label><input type="text" class="input-text input-mini" placeholder="Month" /></label>
-								<label><input type="text" class="input-text input-small" placeholder="Year" /></label>
-							</div>
-						</li>
-					</ol>
-					<ol class="grid-12 omega">
-						<li><h4>Delivery</h4></li>
-						<li>
-							<label for="field-address">Address</label>
-							<div class="field"><input type="text" class="input-text input-block" id="field-address" /></div>
-						</li>
-						<li>
-							<label for="field-zip">Zip/City</label>
-							<div class="field">
-								<label><input type="text" class="input-text input-mini" id="field-zip" placeholder="Zip" /></label>
-								<label><input type="text" class="input-text input-medium" /></label>
-							</div>
-						</li>
-						<li>
-							<label for="field-country">Country</label>
-							<div class="field">
-								<select class="input-select input-block" id="field-country">
-									<option value="ch">Switzerland</option>
-									<option value="de">Germany</option>
-									<option value="at">Austria</option>
-								</select>
-							</div>
-						</li>
-						<li>
-							<label for="field-phone">Phone Number</label>
-							<div class="field"><input type="tel" class="input-text input-block" id="field-phone" /></div>
-						</li>
-						<li>
-							<label for="field-email">E-mail</label>
-							<div class="field"><input type="email" class="input-text input-block" id="field-email" /></div>
-						</li>
-						<li>
-							<label>Categories</label>
-							<div class="field radiocheck-list">
-								<ul>
-									<li><label><input type="checkbox" class="input-radiocheck" /> Reading</label></li>
-									<li><label><input type="checkbox" class="input-radiocheck" /> Reading</label></li>
-									<li><label><input type="checkbox" class="input-radiocheck" /> Reading</label></li>
-									<li><label><input type="checkbox" class="input-radiocheck" /> Reading</label></li>
-								</ul>
-							</div>
-						</li>
-					</ol>
-			</fieldset>
+<h2>Example</h2>
+<form action="." method="post" class="frm">
+	<fieldset class="frm-horizontal">
+		<legend>Personal information</legend>
+		<ol class="grid-12 alpha">
+			<li><h4>Your Details</h4></li>
+			<li>
+				<label for="field-gender">Gender</label>
+				<div class="field">
+					<select class="input-select input-block" id="field-gender">
+						<option value="f">Female</option>
+						<option value="m">Male</option>
+					</select>
+				</div>
+			</li>
+			<li>
+				<label for="field-company">Company</label>
+				<div class="field"><input type="text" class="input-text input-block" id="field-company" /></div>
+			</li>
+			<li>
+				<label for="field-firstname">Firstname<abbr title="required">*</abbr></label>
+				<div class="field"><input type="text" class="input-text input-block" id="field-firstname" required="required" /></div>
+			</li>
+			<li>
+				<label for="field-lastname">Lastname<abbr title="required">*</abbr></label>
+				<div class="field"><input type="text" class="input-text input-block" id="field-lastname" required="required" /></div>
+			</li>
+			<li>
+				<label>Birthdate</label>
+				<div class="field">
+					<label><input type="text" class="input-text input-mini" placeholder="Day" /></label>
+					<label><input type="text" class="input-text input-mini" placeholder="Month" /></label>
+					<label><input type="text" class="input-text input-small" placeholder="Year" /></label>
+				</div>
+			</li>
+		</ol>
+		<ol class="grid-12 omega">
+			<li><h4>Delivery</h4></li>
+			<li>
+				<label for="field-address">Address</label>
+				<div class="field"><input type="text" class="input-text input-block" id="field-address" /></div>
+			</li>
+			<li>
+				<label for="field-zip">Zip/City</label>
+				<div class="field">
+					<label><input type="text" class="input-text input-mini" id="field-zip" placeholder="Zip" /></label>
+					<label><input type="text" class="input-text input-medium" /></label>
+				</div>
+			</li>
+			<li>
+				<label for="field-country">Country</label>
+				<div class="field">
+					<select class="input-select input-block" id="field-country">
+						<option value="ch">Switzerland</option>
+						<option value="de">Germany</option>
+						<option value="at">Austria</option>
+					</select>
+				</div>
+			</li>
+			<li>
+				<label for="field-phone">Phone Number</label>
+				<div class="field"><input type="tel" class="input-text input-block" id="field-phone" /></div>
+			</li>
+			<li>
+				<label for="field-email">E-mail</label>
+				<div class="field">
+					<span class="text-error">Please check your e-mail address</span>
+					<input type="email" class="input-text input-block input-error" id="field-email" />
+				</div>
+			</li>
+			<li>
+				<label>Categories</label>
+				<div class="field radiocheck-list">
+					<span class="text-error">Please select at least one category</span>
+					<ul>
+						<li><label><input type="checkbox" class="input-radiocheck input-error" /> Reading</label></li>
+						<li><label><input type="checkbox" class="input-radiocheck input-error" /> Reading</label></li>
+						<li><label><input type="checkbox" class="input-radiocheck input-error" /> Reading</label></li>
+						<li><label><input type="checkbox" class="input-radiocheck input-error" /> Reading</label></li>
+					</ul>
+				</div>
+			</li>
+		</ol>
+	</fieldset>
 
-			<fieldset>
-				<legend>Additional information</legend>
-				<ol>
-					<li>
-						<label for="field-Message">Message</label>
-						<div class="field"><textarea rows="5" class="input-text input-block" id="field-Message"></textarea></div>
-					</li>
-					<li>
-						<label><input type="submit" class="btn" value="Send form" /></label>
-						<label><input type="reset" class="btn btn-grey" value="Reset form" /></label>
-					</li>
-				</ol>
-			</fieldset>
-		</form>
-	</div>
+	<fieldset>
+		<legend>Additional information</legend>
+		<ol>
+			<li>
+				<label for="field-Message">Message</label>
+				<div class="field"><textarea rows="5" class="input-text input-block" id="field-Message"></textarea></div>
+			</li>
+			<li>
+				<label><input type="submit" class="btn" value="Send form" /></label>
+				<label><input type="reset" class="btn btn-grey" value="Reset form" /></label>
+			</li>
+		</ol>
+	</fieldset>
+</form>
+</div>
 </section>
