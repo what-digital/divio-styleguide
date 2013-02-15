@@ -6,8 +6,7 @@ Online Styleguide
 
 The ``Online Styleguide`` is a uniformed compendium for project managers, web publisher, designers or developers of how
 to maintain, update or further develop a website. It gives an insight of formatting, use of space and components accross
-the online presence. It is devided into three essential parts.
-
+the online presence. It is devided into three essential parts: Typography, Components and Templates.
 
 Typography
 ----------
