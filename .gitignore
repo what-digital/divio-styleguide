@@ -7,3 +7,5 @@ lib/
 *.sqlite
 database.db
 .idea
+
+.DS_Store
