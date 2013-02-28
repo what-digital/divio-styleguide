@@ -5,8 +5,8 @@ Online Styleguide
 (replaces "Master Template")
 
 The ``Online Styleguide`` is a uniformed compendium for project managers, web publisher, designers or developers of how
-to maintain, update or further develop a website. It gives an insight of formatting, use of space and components accross
-the online presence. It is devided into three essential parts: Typography, Components and Templates.
+to maintain, update or further develop a website. It gives an insight of formatting, use of space and components across
+the online presence. It is divided into three essential parts: Typography, Components and Templates.
 
 Typography
 ----------
@@ -23,7 +23,7 @@ We provide a standardized overview of all html functions and essential helpers.
 Components
 ----------
 
-Components are part of a website that are used on multiple occurences. Some examples include page navigations, boxes or
+Components are part of a website that are used on multiple occurrences. Some examples include page navigations, boxes or
 teasers. Variations of the same element will be provided through descriptive indications.
 
 Unlike typography, this section will be updated permanently as components are added or dropped. Besides the live preview
