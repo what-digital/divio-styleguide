@@ -112,7 +112,7 @@ jQuery(document).ready(function($){
 
 			// add color replacement
 			container.find('.autocolor').each(function (index, item) {
-				var color = $(item).text();
+				var color = $(item).contents(':not(span)').text();
 				$(item).css('background', color);
 			});
 		}
