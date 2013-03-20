@@ -16,7 +16,6 @@ code { font-family:Consolas, "Liberation Mono", Courier, monospace; font-size:12
 /*####################################################################################################################*/
 /* SECTION GRID */
 .styleguide section { border-bottom:5px solid #ccc; padding-bottom:25px; margin-bottom:25px; clear:both; overflow:hidden; }
-.highlight { color:#f93; }
 .codeoffset { position:relative; top:-25px; }
 
 .gblock-grid { min-height:500px; }
