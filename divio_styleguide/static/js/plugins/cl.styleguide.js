@@ -16,6 +16,7 @@ jQuery(document).ready(function($){
 			this.base();
 			this.grid();
 			this.typography();
+			this.forms();
 		},
 
 		base: function () {
@@ -114,6 +115,13 @@ jQuery(document).ready(function($){
 			container.find('.autocolor').each(function (index, item) {
 				var color = $(item).contents(':not(span)').text();
 				$(item).css('background', color);
+			});
+		},
+
+		forms: function() {
+			var container = $('#page-forms');
+			container.find('.btn').bind('click', function(e) {
+				e.preventDefault();
 			});
 		}
 
