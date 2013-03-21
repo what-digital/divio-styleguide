@@ -3,8 +3,79 @@
 
 {% block content %}
 <div class="container-24 clearfix">
+	<div class="grid-24">
+        <h1>Standard form tag</h1>
+        <p>Simplest possible way of displaying a form, You can simply <strong>copy-paste</strong> this snippet and you will have a perfect form.</p>
+        <div class="box box-padding">
+<pre class="nospace">
+{% templatetag openblock %} load standard_form {% templatetag closeblock %}
+
+&lt;form action="." method="post" class="frm"&gt;
+    {% templatetag openblock %} csrf_token {% templatetag closeblock %}
+    &lt;fieldset class="frm-horizontal"&gt;
+        {% templatetag openblock %} standard_form form {% templatetag closeblock %}
+        {% templatetag openblock %} standard_submit {% templatetag closeblock %}
+    &lt;/fieldset&gt;
+&lt;/form&gt;
+</pre>
+        </div>
+        <p>&nbsp;</p>
+    </div>
+</div>
+<div class="container-24 clearfix">
+	<div class="grid-24">
+        <h1>Standard field tag</h1>
+        <p>If you have to separate fields into different containers (because they have to be styled differently, for example), use the standard_field tag.</p>
+        <div class="box box-padding">
+<pre class="nospace">
+&lt;form action="." method="post" class="frm"&gt;
+    {% templatetag openblock %} csrf_token {% templatetag closeblock %}
+    &lt;fieldset class="frm-horizontal"&gt;
+        &lt;ol&gt;
+            &lt;li&gt;{% templatetag openblock %} standard_field form.field_name_one {% templatetag closeblock %}&lt;/li&gt;
+        &lt;/ol&gt;
+    &lt;/fieldset&gt;
+    &lt;fieldset class="frm-vertical"&gt;
+        &lt;ol&gt;
+            &lt;li&gt;{% templatetag openblock %} standard_field form.field_name_two {% templatetag closeblock %}&lt;/li&gt;
+        &lt;/ol&gt;
+        {% templatetag openblock %} standard_submit {% templatetag closeblock %}
+    &lt;/fieldset&gt;
+&lt;/form&gt;
+</pre>
+        </div>
+        <p>&nbsp;</p>
+    </div>
+</div>
+<div class="container-24 clearfix">
+	<div class="grid-24">
+        <h1>Standard widget tag</h1>
+        <p>If you are doing something really fancy, you can break down a field even more &ndash; to the bare field widget. This example also includes it's own submit button.</p>
+        <div class="box box-padding">
+<pre class="nospace">
+&lt;form action="." method="post" class="frm"&gt;
+    {% templatetag openblock %} csrf_token {% templatetag closeblock %}
+    &lt;fieldset class="frm-horizontal"&gt;
+        &lt;ol&gt;
+             &lt;li&gt;
+                 &lt;label for="id_&#123;&#123; form.field_name_one.name &#125;&#125;"&gt;My label or other stuff&lt;/label&gt;
+                 &lt;div class="field"&gt;{% templatetag openblock %} standard_widget form.field_name_one {% templatetag closeblock %}&lt;/div&gt;
+             &lt;/li&gt;
+             &lt;li&gt;
+                 &lt;label class="empty"&gt;&lt;/label&gt;
+                 &lt;div class="field"&gt;&lt;input type="submit" class="btn" value="{% templatetag openblock %} trans 'Go' {% templatetag closeblock %}" /&gt;&lt;/div&gt;
+             &lt;/li&gt;
+        &lt;/ol&gt;
+    &lt;/fieldset&gt;
+&lt;/form&gt;
+</pre>
+        </div>
+        <p>&nbsp;</p>
+    </div>
+</div>
+<div class="container-24 clearfix">
 	<div class="grid-12">
-		<h1>Standard field tag</h1>
+		<h1>Full example</h1>
 		<form action="." method="post" class="frm">
 			<fieldset class="frm-horizontal">
 				{% csrf_token %}
@@ -22,28 +93,23 @@
     </div>
     <div class="grid-12">
         <h3>Example with all available options</h3>
-        <code>{% templatetag openblock %} standard_field form.email 'no_required no_required_helper no_help_text no_error_text' custom_class='input-block' placeholder='This one has all the available options' label='My label' {% templatetag closeblock %}</code>
+        <div class="box box-padding">{% templatetag openblock %} standard_field form.email 'no_required no_required_helper no_help_text no_error_text' custom_class='input-block' placeholder='This one has all the available options' label='My label' {% templatetag closeblock %}</div>
     </div>
 </div>
 <div class="container-24 clearfix">
     <div class="grid-12">
-		<h1>Standard form tag</h1>
+		<h1>Another example</h1>
 		<form action="." method="post" class="frm">
 			<fieldset class="frm-horizontal">
 				{% csrf_token %}
 				{% standard_form form "no_required" custom_class="input-block" %}
-				<ol>
-					<li>
-						<label>&nbsp;</label>
-						<div class="field"><input type="submit" class="btn" /></div>
-					</li>
-				</ol>
+                {% standard_submit %}
 			</fieldset>
 		</form>
     </div>
     <div class="grid-12">
-        <h3>Example</h3>
-        <code>{% templatetag openblock %} standard_form form "no_required" custom_class="input-block" {% templatetag closeblock %}</code>
+        <h3>Code</h3>
+        <div class="box box-padding">{% templatetag openblock %} standard_form form "no_required" custom_class="input-block" {% templatetag closeblock %}</div>
     </div>
 </div>
 {% endblock content %}

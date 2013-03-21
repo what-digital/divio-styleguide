@@ -2,6 +2,7 @@ from django import forms
 from django.contrib import messages
 from django.views.generic import TemplateView, FormView
 
+
 class HomeView(TemplateView):
     template_name = 'divio_styleguide/base.html'
 
@@ -9,6 +10,12 @@ class HomeView(TemplateView):
         ctx = super(HomeView, self).get_context_data(**kwargs)
         ctx['my_special_context'] = 'Hello!'
         return ctx
+
+
+class StaticTemplateView(TemplateView):
+
+    def get_template_names(self):
+        return ['divio_styleguide/templates/%s.html' % self.kwargs.get('template')]
 
 
 GENDER_CHOICES = (

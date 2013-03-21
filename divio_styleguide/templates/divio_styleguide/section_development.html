@@ -1,3 +1,4 @@
+{% load url from future %}
 <section id="page-development">
 	<div class="grid-24">
 		<h1>Development</h1>
@@ -11,6 +12,11 @@
 			<ul>
 				<li>use <strong>4 space</strong> intendation</li>
 			</ul>
+			<h3>Django</h3>
+            <ul>
+				<li><a href="{% url 'divio_styleguide_forms' %}">Django forms</a></li>
+				<li><a href="{% url 'divio_styleguide_messages' %}">Django messages</a></li>
+            </ul>
 
 			<h3>HTML/CSS</h3>
 			<p class="halfspace">For <code>HTML</code>/<code>CSS</code> we are using the <a href="http://www.w3schools.com/" target="_blank">W3Schools</a>
