@@ -10,7 +10,7 @@
 <pre class="nospace">
 {% templatetag openblock %} load standard_form {% templatetag closeblock %}
 
-&lt;form action="." method="post" class="frm"&gt;
+&lt;form action="" method="post" class="frm"&gt;
 	{% templatetag openblock %} csrf_token {% templatetag closeblock %}
 	&lt;fieldset class="frm-horizontal"&gt;
 		{% templatetag openblock %} standard_form form {% templatetag closeblock %}
@@ -28,7 +28,7 @@
 		<p>If you have to separate fields into different containers (because they have to be styled differently, for example), use the standard_field tag.</p>
 		<div class="box box-padding">
 <pre class="nospace">
-&lt;form action="." method="post" class="frm"&gt;
+&lt;form action="" method="post" class="frm"&gt;
 	{% templatetag openblock %} csrf_token {% templatetag closeblock %}
 	&lt;fieldset class="frm-horizontal"&gt;
 		&lt;ol&gt;
@@ -53,7 +53,7 @@
 		<p>If you are doing something really fancy, you can break down a field even more &ndash; to the bare field widget. This example also includes it's own submit button.</p>
 		<div class="box box-padding">
 <pre class="nospace">
-&lt;form action="." method="post" class="frm"&gt;
+&lt;form action="" method="post" class="frm"&gt;
 	{% templatetag openblock %} csrf_token {% templatetag closeblock %}
 	&lt;fieldset class="frm-horizontal"&gt;
 		&lt;ol&gt;
@@ -76,7 +76,7 @@
 <div class="container-24 clearfix">
 	<div class="grid-12">
 		<h1>Full example</h1>
-		<form action="." method="post" class="frm">
+		<form action="" method="post" class="frm">
 			<fieldset class="frm-horizontal">
 				{% csrf_token %}
 				<ol>
@@ -99,7 +99,7 @@
 <div class="container-24 clearfix">
 	<div class="grid-12">
 		<h1>Another example</h1>
-		<form action="." method="post" class="frm">
+		<form action="" method="post" class="frm">
 			<fieldset class="frm-horizontal">
 				{% csrf_token %}
 				{% standard_form form "no_required" custom_class="input-block" %}
