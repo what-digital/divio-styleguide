@@ -1,7 +1,6 @@
 /*####################################################################################################################*/
 /* SECTION BASE */
 body { background:#e6e0d8; }
-.mainnav, .langnav, .breadcrumb { display:none; }
 
 code { font-family:Consolas, "Liberation Mono", Courier, monospace; font-size:12px; padding:1px 3px; color:#333;
 	border-radius:2px; border:1px solid #eaeaea; background:#f8f8f8; }
@@ -38,11 +37,6 @@ table code { background:white; }
 .col-padding.col-3 { width:45%; }
 .col-padding.col-4 { width:61.66666%; }
 .col-padding.col-5 { width:78.33333%; }
-
-
-
-
-
 
 .styleguide section { clear:both; overflow:hidden; }
 .styleguide h1 { margin:0; }
@@ -121,15 +115,3 @@ and (max-width: 960px) {
 .autocolor { float:left; color:#fff; text-shadow:0 1px 1px #000; text-align:center;
 	width:80px; line-height:80px; margin:0 15px 15px 0;
 	background:#f00; }
-
-
-
-
-
-
-
-
-
-
-
-
