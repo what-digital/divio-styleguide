@@ -1,77 +1,93 @@
 {% load url from future %}
 <section id="page-development">
-	<div class="grid-24">
+
+<div class="grid-24">
+	<div class="styleguide-head">
 		<h1>Development</h1>
-		<hr />
-
-		<div class="grid-12 alpha">
-			<h2>Core guidelines</h2>
-			<h3>Python</h3>
-			<p class="halfspace">For <code>Python</code> we are using the <a href="http://www.python.org/dev/peps/pep-0008/" target="_blank">PEP 8</a> style guide.</p>
-			<p class="nospace"><strong>In addition, the following rules apply:</strong></p>
-			<ul>
-				<li>use <strong>4 space</strong> intendation</li>
-			</ul>
-			<h3>Django</h3>
-			<ul>
-				<li><a href="{% url 'divio_styleguide_forms' %}">Django forms</a></li>
-				<li><a href="{% url 'divio_styleguide_messages' %}">Django messages</a></li>
-			</ul>
-
-			<h3>HTML/CSS</h3>
-			<p class="halfspace">For <code>HTML</code>/<code>CSS</code> we are using the <a href="http://www.w3schools.com/" target="_blank">W3Schools</a>
-				and <a href="http://www.w3.org/2001/sw/BestPractices/" target="_blank">W3C</a> best practices and guidelines.</p>
-			<p class="nospace"><strong>In addition, the following rules apply:</strong></p>
-			<ul>
-				<li>use <strong>tab</strong> intendation</li>
-				<li>use <strong>dashes</strong> (-) for css classes and file names<br /><code><strong>namespace</strong>-<strong>module</strong>-<strong>addition</strong>-addition</code></li>
-				<li>use <strong>underscore</strong> (_) for html file naming<br /><code><strong>namespace</strong>_<strong>module</strong>_<strong>addition</strong>_addition.ext</code></li>
-				<li>use <strong>double quotes</strong> (") for all html attributes and inside the django template language whenever possible</li>
-			</ul>
-
-			<h3>JavaScript</h3>
-			<p>We are using the <a href="http://addyosmani.com/resources/essentialjsdesignpatterns/book/#singletonpatternjavascript" target="_blank">singleton pattern</a>
-				for javascript along with the <a href="https://github.com/FinalAngel/classjs" target="_blank">class.js library</a> and
-				<a href="https://github.com/FinalAngel/classjs-plugins" target="_blank">class.js plugins</a> to create reusable plugins
-				and modules.</p>
-			<p class="nospace"><strong>In addition, the following rules apply:</strong></p>
-			<ul>
-				<li>use <strong>tab</strong> intendation</li>
-				<li>use <strong>dott annotation</strong> (.) for javascript file naming<br /><code><strong>namespace</strong>.<strong>module</strong>.<strong>addition</strong>.addition.ext</code></li>
-				<li>use <strong>single quotes</strong> (') for all javascript methods and strings whenever possible</li>
-			</ul>
-		</div>
-		<div class="grid-12 omega">
-			<h2>Plugin guidelines</h2>
-
-			<h3>Requirements</h3>
-			<p class="halfspace">When developing plugins, the following terms <strong>must</strong> be fullfilled:</p>
-			<ul>
-				<li>W3C HTML validation</li>
-				<li>WCAG 2.0 (A)<sup>1</sup> validation</li>
-				<li>No JavaScript and Pageload<sup>2</sup> optimization</li>
-				<li>Responsive design</li>
-				<li>Progressive enhancement<sup>3</sup></li>
-				<li>Retina support for important brand information like logo</li>
-			</ul>
-
-			<p class="halfspace">The following requirements <strong>could</strong> be fullfilled:</p>
-			<ul>
-				<li>Full retina support</li>
-				<li>WCAG 2.0 (AA) validation</li>
-			</ul>
-
-			<p class="text-small">
-				<sup>1)</sup> We support the (A) grading as far as reason and logic permit.<br />
-				<sup>2)</sup> When loading HTML and JavaScript, dynamic elements should load without any disturbances, also prior to onload.<br />
-				<sup>3)</sup> Wherever possible use HTML5 or CSS3 technologies and provide proper fallbacks.
-			</p>
-
-			<h3>Code</h3>
-			<p>A plugin should always be wrapped with a class using the <strong>plugin</strong> namespace:<br />
-				<code>&lt;div class="plugin-gallery">...&lt;/div></code></p>
-		</div>
-		<div class="clear"></div>
 	</div>
-	<div class="clear"></div>
+</div>
+
+<div class="grid-12">
+	<div class="styleguide-body">
+		<h2>Core guidelines</h2>
+		<h3>Python</h3>
+		<p class="halfspace">For <code>Python</code> we are using the <a href="http://www.python.org/dev/peps/pep-0008/" target="_blank">PEP 8</a> style guide.</p>
+		<p class="nospace"><strong>In addition, the following rules apply:</strong></p>
+		<ul>
+			<li>use <strong>4 space</strong> intendation</li>
+		</ul>
+		<h3>Django</h3>
+		<ul>
+			<li><a href="{% url 'divio_styleguide_forms' %}">Django forms</a></li>
+			<li><a href="{% url 'divio_styleguide_messages' %}">Django messages</a></li>
+		</ul>
+
+		<h3>HTML/CSS</h3>
+		<p class="halfspace">For <code>HTML</code>/<code>CSS</code> we are using the <a href="http://www.w3schools.com/" target="_blank">W3Schools</a>
+			and <a href="http://www.w3.org/2001/sw/BestPractices/" target="_blank">W3C</a> best practices and guidelines.</p>
+		<p class="nospace"><strong>In addition, the following rules apply:</strong></p>
+		<ul>
+			<li>use <strong>tab</strong> intendation</li>
+			<li>use <strong>dashes</strong> (-) for css classes and file names<br /><code><strong>namespace</strong>-<strong>module</strong>-<strong>addition</strong>-addition</code></li>
+			<li>use <strong>underscore</strong> (_) for html file naming<br /><code><strong>namespace</strong>_<strong>module</strong>_<strong>addition</strong>_addition.ext</code></li>
+			<li>use <strong>double quotes</strong> (") for all html attributes and inside the django template language whenever possible</li>
+		</ul>
+
+		<h3>JavaScript</h3>
+		<p>We are using the <a href="http://addyosmani.com/resources/essentialjsdesignpatterns/book/#singletonpatternjavascript" target="_blank">singleton pattern</a>
+			for javascript along with the <a href="https://github.com/FinalAngel/classjs" target="_blank">class.js library</a> and
+			<a href="https://github.com/FinalAngel/classjs-plugins" target="_blank">class.js plugins</a> to create reusable plugins
+			and modules.</p>
+		<p class="nospace"><strong>In addition, the following rules apply:</strong></p>
+		<ul>
+			<li>use <strong>tab</strong> intendation</li>
+			<li>use <strong>dott annotation</strong> (.) for javascript file naming<br /><code><strong>namespace</strong>.<strong>module</strong>.<strong>addition</strong>.addition.ext</code></li>
+			<li>use <strong>single quotes</strong> (') for all javascript methods and strings whenever possible</li>
+		</ul>
+	</div>
+</div>
+
+<div class="grid-12">
+	<div class="styleguide-body">
+		<h2>Plugin guidelines</h2>
+
+		<h3>Requirements</h3>
+		<p class="halfspace">When developing plugins, the following terms <strong>must</strong> be fullfilled:</p>
+		<ul>
+			<li>W3C HTML validation</li>
+			<li>WCAG 2.0 (A)<sup>1</sup> validation</li>
+			<li>No JavaScript and Pageload<sup>2</sup> optimization</li>
+			<li>Responsive design</li>
+			<li>Progressive enhancement<sup>3</sup></li>
+			<li>Retina support for important brand information like logo</li>
+		</ul>
+
+		<p class="halfspace">The following requirements <strong>could</strong> be fullfilled:</p>
+		<ul>
+			<li>Full retina support</li>
+			<li>WCAG 2.0 (AA) validation</li>
+		</ul>
+
+		<p class="text-small">
+			<sup>1)</sup> We support the (A) grading as far as reason and logic permit.<br />
+			<sup>2)</sup> When loading HTML and JavaScript, dynamic elements should load without any disturbances, also prior to onload.<br />
+			<sup>3)</sup> Wherever possible use HTML5 or CSS3 technologies and provide proper fallbacks.
+		</p>
+
+		<h3>Code</h3>
+		<p>A plugin should always be wrapped with a class using the <strong>plugin</strong> namespace:<br />
+			<code>&lt;div class="plugin-gallery">...&lt;/div></code></p>
+	</div>
+</div>
+<div class="clear"></div>
+
+<div class="grid-24">
+	<div class="styleguide-body">
+		<h2>Further instructions</h2>
+		<p>Ensure that the <strong>X-UA-Compatible headers</strong> are set inside the backend.<br />Example: <code>response.headers['X-UA-Compatible'] = 'IE=edge,chrome=1'</code></p>
+		<p>Use <strong>em</strong> for all dimensional aspects like font-sizes, width and heights, paddings and margins.<br />
+			Use <strong>px</strong> only for background positioning, border-radius and border-width.</p>
+	</div>
+</div>
+
 </section>

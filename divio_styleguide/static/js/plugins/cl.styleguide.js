@@ -24,6 +24,7 @@ jQuery(document).ready(function($){
 				sections.hide();
 			var triggers = $('#guidenav li a');
 				triggers.bind('click', function (e) {
+					e.preventDefault();
 					show($(this).attr('href'));
 				});
 
@@ -34,6 +35,10 @@ jQuery(document).ready(function($){
 					sections.hide();
 					var section = $(hash);
 						section.show();
+				}
+
+				if(window.history && window.history.pushState) {
+					window.history.pushState('Styleguide', 'Category', hash);
 				}
 			}
 			if(window.location.hash) {
@@ -54,7 +59,7 @@ jQuery(document).ready(function($){
 				navcontainer.bind('mouseenter', function () {
 					clearTimeout(timer);
 				});
-			var nav = $('.guidenav-trigger');
+			var nav = $('.guidenav-trigger a');
 				nav.bind('mouseenter', function () {
 					clearTimeout(timer);
 					navcontainer.show();
@@ -64,14 +69,10 @@ jQuery(document).ready(function($){
 						navcontainer.hide();
 					}, 200);
 				});
-
-			// code button
-			var code = $('.code-trigger');
-				code.bind('click', function (e) {
+				nav.bind('click', function (e) {
 					e.preventDefault();
-					$('code').toggle();
+					show($(this).attr('href'));
 				});
-				//code.trigger('click');
 		},
 
 		grid: function () {

@@ -1,30 +1,39 @@
 <section id="page-index">
-	<div class="grid-24">
-		<h1>Online Styleguide</h1>
-		<hr />
-		<div class="grid-16 alpha">
-			<p>The Online Styleguide is a uniformed compendium for project managers, web publisher, designers or
+
+<div class="grid-24">
+	<div class="styleguide-head">
+		<h1>Templates</h1>
+	</div>
+</div>
+
+<div class="grid-24">
+	<div class="styleguide-body">
+		<div class="col-3">
+			<p class="nospace">The Online Styleguide is a uniformed compendium for project managers, web publisher, designers or
 				developers of how to maintain, update or further develop a website. It gives an insight of formatting,
 				use of space and components accross the online presence. It is devided into three essential parts:
 				Typography, Components and Templates.
 		</div>
-		<div class="grid-8 omega">
-			<h6><strong>Development params</strong></h6>
-			<p class="devparams">
-				<a href="?debug=true"><strong>debug=true</strong></a> <span>enables development tools</span>
-				<a href="?classic=true"><strong>classic=true</strong></a> <span>enforces classic website (non-responsive)</span>
+		<div class="col-2 col-padding">
+			<h2 class="font-size-14 nospace"><strong>Development params</strong></h2>
+			<p class="devparams nospace">
+				<a href="?debug=true"><strong>debug=true</strong></a><br /><span>enables development tools</span><br />
+				<a href="?classic=true"><strong>classic=true</strong></a><br /><span>enforces classic switch</span>
 			</p>
 		</div>
 		<div class="clear"></div>
 
-		{% include 'divio_styleguide/index.html' %}
+		<p>&nbsp;</p>
+
+		{% include "divio_styleguide/index.html" %}
 		<div class="clear"></div>
 
 		<p class="padding-top">
 			<span class="new">dev</span> = template in development, untested &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			<span class="ok">4.12.03</span> = date when template finished, tested &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<span class="ok">04.12.03</span> = date when template finished, tested &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 			<span>no flag</span> = template finished, integrated
 		</p>
 	</div>
-	<div class="clear"></div>
+</div>
+
 </section>

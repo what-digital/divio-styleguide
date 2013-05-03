@@ -1,53 +1,39 @@
 <section id="page-tables">
-	<div class="grid-24">
-		<h1>Tables</h1>
-		<hr />
 
+<div class="grid-24">
+	<div class="styleguide-head">
+		<h1>Tables</h1>
+	</div>
+</div>
+
+<div class="grid-24">
+	<div class="styleguide-body">
 		<h2>Standard table</h2>
 		<table>
 			<caption>Base table structure (caption)</caption>
 			<colgroup>
+				{% for col in 1234|make_list %}
 				<col style="width:25%;" />
-				<col style="width:25%;" />
-				<col style="width:25%;" />
-				<col style="width:25%;" />
+				{% endfor %}
 			</colgroup>
 			<thead>
 			<tr>
-				<th scope="col">Head 1</th>
-				<th scope="col">Head 2</th>
-				<th scope="col">Head 3</th>
-				<th scope="col">Head 4</th>
+				{% for th in 1234|make_list %}
+				<th scope="col" id="tbl1-header-{{ th }}">Head {{ th }}</th>
+				{% endfor %}
 			</tr>
 			</thead>
 			<tfoot>
-			<tr><td colspan="4">Footer spans full size</td></tr>
+			<tr><td colspan="4" headers="tbl1-header-1">Footer example</td></tr>
 			</tfoot>
 			<tbody>
+			{% for row in 1234|make_list %}
 			<tr>
-				<td>Row 1 Cell 1</td>
-				<td>Row 1 Cell 2</td>
-				<td>Row 1 Cell 3</td>
-				<td>Row 1 Cell 4</td>
+				{% for col in 1234|make_list %}
+				<td headers="tbl1-header-{{ col }}">Row {{ row }} Cell {{ col }}</td>
+				{% endfor %}
 			</tr>
-			<tr>
-				<td>Row 2 Cell 1</td>
-				<td>Row 2 Cell 2</td>
-				<td>Row 2 Cell 3</td>
-				<td>Row 2 Cell 4</td>
-			</tr>
-			<tr>
-				<td>Row 3 Cell 1</td>
-				<td>Row 3 Cell 2</td>
-				<td>Row 3 Cell 3</td>
-				<td>Row 3 Cell 4</td>
-			</tr>
-			<tr>
-				<td>Row 4 Cell 1</td>
-				<td>Row 4 Cell 2</td>
-				<td>Row 4 Cell 3</td>
-				<td>Row 4 Cell 4</td>
-			</tr>
+			{% endfor %}
 			</tbody>
 		</table>
 		<p><code>&lt;table>&lt;/table></code></p>
@@ -56,105 +42,80 @@
 		<table class="tbl tbl-responsive">
 			<caption>Comprehensive table (caption)</caption>
 			<colgroup>
+				{% for col in 12345|make_list %}
 				<col style="width:20%;" />
-				<col style="width:20%;" />
-				<col style="width:20%;" />
-				<col style="width:20%;" />
-				<col style="width:20%;" />
+				{% endfor %}
 			</colgroup>
 			<thead>
 			<tr>
-				<th scope="col">Head 1</th>
-				<th scope="col">Head 2</th>
-				<th scope="col">Head 3</th>
-				<th scope="col">Head 4</th>
-				<th scope="col">Head 5</th>
+				{% for th in 12345|make_list %}
+				<th scope="col" id="tbl2-header-{{ th }}">Head {{ th }}</th>
+				{% endfor %}
 			</tr>
 			</thead>
 			<tfoot>
-			<tr><td colspan="5">Footer spans full size</td></tr>
+			<tr><td colspan="5" headers="tbl2-header-1">Footer example</td></tr>
 			</tfoot>
 			<tbody>
+			{% for row in 12345|make_list %}
 			<tr>
-				<th scope="col">Head 1 Cell 1</th>
-				<td>Row 1 Cell 2</td>
-				<td>Row 1 Cell 3</td>
-				<td>Row 1 Cell 4</td>
-				<td>Row 1 Cell 5</td>
+				{% for col in 12345|make_list %}
+				{% if forloop.first %}<th scope="col">Head {{ row }} Cell {{ col }}</th>{% else %}
+				<td headers="tbl2-header-{{ col }}">Row {{ row }} Cell {{ col }}</td>{% endif %}
+				{% endfor %}
 			</tr>
-			<tr>
-				<th scope="col">Head 2 Cell 1</th>
-				<td>Row 2 Cell 2</td>
-				<td>Row 2 Cell 3</td>
-				<td>Row 2 Cell 4</td>
-				<td>Row 2 Cell 5</td>
-			</tr>
-			<tr>
-				<th scope="col">Head 3 Cell 1</th>
-				<td>Row 3 Cell 2</td>
-				<td>Row 3 Cell 3</td>
-				<td>Row 3 Cell 4</td>
-				<td>Row 3 Cell 5</td>
-			</tr>
-			<tr>
-				<th scope="col">Head 4 Cell 1</th>
-				<td>Row 4 Cell 2</td>
-				<td>Row 4 Cell 3</td>
-				<td>Row 4 Cell 4</td>
-				<td>Row 4 Cell 5</td>
-			</tr>
-			<tr>
-				<th scope="col">Head 5 Cell 1</th>
-				<td>Row 5 Cell 2</td>
-				<td>Row 5 Cell 3</td>
-				<td>Row 5 Cell 4</td>
-				<td>Row 5 Cell 5</td>
-			</tr>
+			{% endfor %}
 			</tbody>
 		</table>
 		<p><code>&lt;table class="tbl tbl-responsive">&lt;/table></code></p>
-
-		<div class="grid-12 alpha">
-			<h2>Odd/Even</h2>
-			<table class="tbl tbl-alternate">
-				<thead>
-				<tr>
-					<th scope="col">Head</th>
-				</tr>
-				</thead>
-				<tbody>
-				<tr><td>Row 1</td></tr>
-				<tr><td>Row 2</td></tr>
-				<tr><td>Row 3</td></tr>
-				</tbody>
-			</table>
-			<p><code>&lt;table class="tbl tbl-alternate">&lt;/table></code></p>
-		</div>
-		<div class="grid-12 omega">
-			<h2>Empty</h2>
-			<table class="tbl tbl-empty">
-				<thead>
-				<tr>
-					<th scope="col">Head</th>
-					<th scope="col">Head</th>
-				</tr>
-				</thead>
-				<tbody>
-				<tr>
-					<td>Row 1 Cell 1</td>
-					<td>Row 1 Cell 2</td>
-				</tr>
-				<tr>
-					<td>Row 2 Cell 1</td>
-					<td>Row 2 Cell 2</td>
-				</tr>
-				<tr>
-					<td>Row 3 Cell 1</td>
-					<td>Row 3 Cell 2</td>
-				</tr>
-				</tbody>
-			</table>
-			<p><code>&lt;table class="tbl tbl-empty">&lt;/table></code></p>
-		</div>
 	</div>
+</div>
+
+<div class="grid-12">
+	<div class="styleguide-body">
+		<h2>Odd/Even</h2>
+		<table class="tbl tbl-alternate">
+			<thead>
+			<tr>
+				<th scope="col">Head</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr><td>Row 1</td></tr>
+			<tr><td>Row 2</td></tr>
+			<tr><td>Row 3</td></tr>
+			</tbody>
+		</table>
+		<p><code>&lt;table class="tbl tbl-alternate">&lt;/table></code></p>
+	</div>
+</div>
+<div class="grid-12">
+	<div class="styleguide-body">
+		<h2>Empty</h2>
+		<table class="tbl tbl-empty">
+			<thead>
+			<tr>
+				<th scope="col">Head</th>
+				<th scope="col">Head</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr>
+				<td>Row 1 Cell 1</td>
+				<td>Row 1 Cell 2</td>
+			</tr>
+			<tr>
+				<td>Row 2 Cell 1</td>
+				<td>Row 2 Cell 2</td>
+			</tr>
+			<tr>
+				<td>Row 3 Cell 1</td>
+				<td>Row 3 Cell 2</td>
+			</tr>
+			</tbody>
+		</table>
+		<p><code>&lt;table class="tbl tbl-empty">&lt;/table></code></p>
+	</div>
+</div>
+
 </section>
