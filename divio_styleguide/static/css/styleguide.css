@@ -24,7 +24,8 @@ table code { background:white; }
 	background-color:#3a3d41; background:linear-gradient(#3a3d41, #303337); }
 .styleguide-head h1 { font-size:24px; line-height:24px; color:#fff; font-weight:200; }
 
-.styleguide-body { padding:15px 15px; margin:0 0 20px; border-radius:3px; background:#fff; }
+.styleguide-body { padding:15px 15px; margin:0 0 20px; border-radius:3px; background:#fff;
+	box-shadow: 0 0.125em 0.125em rgba(0,0,0,0.15); }
 
 .col-1 { float:left; width:16.66666%; }
 .col-2 { float:left; width:33.33333%; }
