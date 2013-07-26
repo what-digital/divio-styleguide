@@ -46,4 +46,4 @@ Installation
 
 - ``pip install divio-styleguide``
 - add ``divio_styleguide`` to your ``INSTALLED_APPS``
-- install the "Divio Style Guide" app hook
+- install the "Divio Style Guide" app hook or include ``divio_styleguide.urls`` in ``urls.py``
