@@ -1,4 +1,4 @@
-from django.conf.urls import patterns, url
+from django.conf.urls.defaults import patterns, url
 from divio_styleguide.views import HomeView, FormsView, MessagesView, StaticTemplateView
 
 urlpatterns = patterns('',
