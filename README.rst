@@ -2,11 +2,35 @@
 Online Styleguide
 =================
 
-(replaces "Master Template")
 
-The ``Online Styleguide`` is a uniformed compendium for project managers, web publisher, designers or developers of how
-to maintain, update or further develop a website. It gives an insight of formatting, use of space and components across
-the online presence. It is divided into three essential parts: Typography, Components and Templates.
+Installation
+------------
+
+#. ensure you have an installed virtualenv
+#. run ``. env bin activate`` or ``venv``
+#. run ``pip install divio-styleguide``
+#. add ``divio_styleguide`` to your ``INSTALLED_APPS``
+#. install the "Divio Style Guide" app hook or include ``divio_styleguide.urls`` in ``urls.py``
+
+
+Usage
+------------
+
+* Use the ``index.html`` to add new templates
+* Create your html files within ``divio_styleguide/templates`` and link them within ``index.html``
+* Modify additional files such as colors, icons or components
+
+
+Templates
+---------
+
+This represents an overview of all requested html pages. Those are marked and referenced to through a unique
+list-numbering. The templates are fully functional in terms of html, css and javascript but do not include any
+backend logic.
+
+Depending on the projects nature, templates might be outdated over time as typography and components advance. They only
+serve as references to show how they were initially designed.
+
 
 Typography
 ----------
@@ -28,22 +52,3 @@ teasers. Variations of the same element will be provided through descriptive ind
 
 Unlike typography, this section will be updated permanently as components are added or dropped. Besides the live preview
 we also add code examples to easily encourage copy-and-paste.
-
-
-Templates
----------
-
-This represents an overview of all requested html pages. Those are marked and referenced to through a unique
-list-numbering. The templates are fully functional in terms of html, css and javascript but do not include any
-backend logic.
-
-Depending on the projects nature, templates might be outdated over time as typography and components advance. They only
-serve as references to show how they were initially designed.
-
-
-Installation
-------------
-
-- ``pip install divio-styleguide``
-- add ``divio_styleguide`` to your ``INSTALLED_APPS``
-- install the "Divio Style Guide" app hook or include ``divio_styleguide.urls`` in ``urls.py``
