@@ -108,7 +108,6 @@ $styleguide-border: 		#ddd !default;
 	li a { display:block; padding:5px 10px; border-bottom:1px solid #eee; }
 }
 
-
 // end of mobile
 }
 
@@ -156,14 +155,3 @@ $styleguide-border: 		#ddd !default;
 and (max-width: 960px) {
 	.bggrid div { margin:0 5px; }
 }
-
-/*####################################################################################################################*/
-/* SECTION HELPERS */
-
-
-.fakimage { height:40px; padding:15px 0 0; text-align:center; background:#ccc; display:inline-block; }
-.no-js #page-helpers .no-js { display:none; }
-
-/*####################################################################################################################*/
-/* SECTION TYPOGRAPHY */
-.fakeimage { width:100px; height:75px; padding:25px 0 0; text-align:center; background:#ccc; display:inline-block; }
