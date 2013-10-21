@@ -29,7 +29,6 @@ $styleguide-border: 		#ddd !default;
 	.emphasis pre code { padding:3px 5px; margin-right:10px; }
 
 	// helpers
-	.btn-disabled { @include opacity(0.5); }
 	.spacer { height:20px; }
 	.highlight { color:#f93; }
 
