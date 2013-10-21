@@ -1,0 +1,180 @@
+@charset "utf-8";
+/*!
+ * @author:	Divio AG
+ * @copyright:	http://www.divio.ch
+ */
+
+//######################################################################################################################
+// #STYLEGUIDE#
+@import "compass/css3", "compass/utilities";
+
+$styleguide-color-hint:		#ccc !default;
+$styleguide-color-ready:	#999 !default;
+$styleguide-color-dev:		#363 !default;
+$styleguide-color-outdated:	#c00 !default;
+$styleguide-background: 	#3a3d41 !default;
+$styleguide-border: 		#ddd !default;
+
+$responsive-tablet:			740px !default;
+$responsive-desktop:		980px !default;
+
+@media all {
+//######################################################################################################################
+// #STYLEGUIDE#
+
+.styleguide {
+	pre code { color:#333; font-size:13px; line-height:19px; padding:6px 10px;
+		border:1px solid $styleguide-border; background:lighten($styleguide-border, 10%);
+		@include border-radius(2px); }
+	.code-offset { margin-right:10px; }
+	.emphasis pre code { padding:3px 5px; margin-right:10px; }
+
+	// helpers
+	.btn-disabled { @include opacity(0.5); }
+	.spacer { height:20px; }
+	.highlight { color:#f93; }
+
+	// status
+	.dev, .ready, .outdated { color:white; font-size:11px; line-height:100%;
+		padding:3px 4px; position:relative; top:-1px;
+		@include border-radius (3px);
+		@include inline-block(); }
+	.dev { background:$styleguide-color-dev; }
+	.ready { background:$styleguide-color-ready; }
+	.outdated { background:$styleguide-color-outdated; }
+
+	// mini grid
+	.col { float:left; }
+	.width-3 { width:33.3333%; }
+	.width-5 { width:50%; }
+
+	// sidemenu
+	.categories a { text-decoration:none; &:hover { text-decoration:underline; } }
+
+	// templates
+	.templatelist p { padding:0; margin:0; }
+
+	// iconlist
+	.iconlist { list-style-type:none; padding:0; margin:0; }
+	.iconlist li { float:left; width:12.5%; text-align:center;
+		padding:10px; margin:0 -1px -1px 0; height:70px; border:1px solid $styleguide-border; }
+	.iconlist span { display:block; }
+	.iconlist li:hover { background:lighten($styleguide-border, 10%); }
+
+	// emphasis
+}
+
+// #STYLEGUIDE/navigation#
+.styleguide-nav { margin:0 0 20px; @include box-shadow(0 1px 0 #ddd); @include border-radius(3px);
+	ul { list-style-type:none; font-size:0px; line-height:0; padding:0; margin:0;
+		background-color:$styleguide-background;
+		background:linear-gradient($styleguide-background, darken($styleguide-background, 10%));
+		@include border-radius(3px); }
+	li { padding:0; @include inline-block(); }
+	li:first-child a { @include border-radius(3px 0 0 3px); }
+
+	a { color:white; font-size:14px; line-height:14px; text-decoration:none; padding:16px 25px;
+		@include inline-block();
+		@include transition(background, 300ms); }
+	a:hover { background:darken($styleguide-background, 50%); }
+	// active state
+	.active a { background:darken($styleguide-background, 10%); @include box-shadow(inset 0 0 10px black); }
+}
+
+// #STYLEGUIDE/section#
+.styleguide-section { padding-left:5%; margin-left:20%; border-left:1px solid $styleguide-color-hint;
+	position:relative; display:none; min-height:500px; }
+.styleguide-body { padding:10px 0; clear:both; overflow:visible; }
+
+// #STYLEGUIDE/hints#
+.styleguide-hint { position:absolute; left:-25%; width:25%; top:0;
+	font-size:12px; line-height:16px;
+	h3 { font-size:12px; line-height:16px; padding:5px 10px; margin:0 0 15px;
+		background:lighten($styleguide-color-hint, 10%); @include box-shadow(inset 0 1px 2px $styleguide-color-hint); }
+	p { padding:0 10px; margin:0 0 10px; }
+
+	ul { list-style-type:none; padding:0; margin:-14px 0 0; }
+	li { padding:0; }
+	li a { display:block; padding:5px 10px; border-bottom:1px solid #eee; }
+}
+
+// end of mobile
+}
+
+@media (min-width: $responsive-tablet) {
+//######################################################################################################################
+// #TABLET#
+
+// end of tablet
+}
+
+@media (min-width: $responsive-desktop) {
+//######################################################################################################################
+// #DESKTOP#
+
+// end of desktop
+}
+
+
+
+
+
+/*####################################################################################################################*/
+/* SECTION GRID */
+
+
+.gblock-grid { min-height:500px; position:relative; left:-35%; background:white; margin-top:20px; }
+.gblock-grid p { color:#fff; padding:5px 10px; background:#069; opacity:0.5; height:100px; }
+.gblock-grid .grid { position:relative; z-index:10; }
+
+.bggrid { position:absolute; left:0; top:0; z-index:1; width:100%; }
+.bggrid div { float:left; width:20px; height:525px; margin:0 10px; background:#069; opacity:0.1; }
+
+.gblocks { float:left; cursor:pointer; width:120px; height:96px; padding:4px 2px 0; margin:0 25px 25px 0;
+	border:1px solid #ccc; border-radius:5px; }
+.gblocks:hover { border:1px solid #999; box-shadow:0 0 5px #ccc; }
+.gblocks-active { border:1px solid #999; }
+.gblocks-active .gblock { opacity:1; }
+
+.gblock { float:left; height:20px; margin:0 2px 4px; background:#069; opacity:0.5; }
+.gblocks-1 .gba, .gblocks-1 .gbb, .gblocks-1 .gbc { width:36px; }
+.gblocks-1 .gbd { float:right; width:36px; height:68px; }
+.gblocks-1 .gbe, .gblocks-1 .gbf, .gblocks-1 .gbg, .gblocks-1 .gbh { width:16px; }
+.gblocks-1 .gbi, .gblocks-1 .gbj, .gblocks-1 .gbk, .gblocks-1 .gbl { width:16px; }
+.gblocks-1 .gbm { width:76px; }
+
+.gblocks-2 .gba { width:116px; height:50px; }
+.gblocks-2 .gbb { width:36px; height:38px; }
+.gblocks-2 .gbc { width:36px; height:38px; }
+.gblocks-2 .gbd { width:36px; height:38px; }
+
+.gblocks-3 .gba { width:36px; height:92px; }
+.gblocks-3 .gbb { width:36px; height:30px; }
+.gblocks-3 .gbc { width:36px; height:30px; }
+.gblocks-3 .gbd { width:36px; height:30px; }
+.gblocks-3 .gbe { width:36px; height:30px; }
+.gblocks-3 .gbf { width:76px; height:24px; }
+
+@media screen and (min-width: 720px)
+and (max-width: 960px) {
+	.bggrid div { margin:0 5px; }
+}
+
+/*####################################################################################################################*/
+/* SECTION HELPERS */
+.tbl-mcres div { color:#468c44; padding:2px 5px; background:#e0f2d8; }
+.tbl-mcres th { background:#fff; }
+.tbl-mcres thead th span { display:block; color:#999; font-size:80%; }
+
+.tbl-mcres .tblv { color:#468c44; background:#e0f2d8; }
+.tbl-mcres .tblh { color:#ccc; background:#f9f9f9; }
+
+.fakimage { height:40px; padding:15px 0 0; text-align:center; background:#ccc; display:inline-block; }
+.no-js #page-helpers .no-js { display:none; }
+
+/*####################################################################################################################*/
+/* SECTION TYPOGRAPHY */
+.fakeimage { width:100px; height:75px; padding:25px 0 0; text-align:center; background:#ccc; display:inline-block; }
+.autocolor { float:left; color:#fff; text-shadow:0 1px 1px #000; text-align:center;
+	width:80px; line-height:80px; margin:0 15px 15px 0;
+	background:#f00; }

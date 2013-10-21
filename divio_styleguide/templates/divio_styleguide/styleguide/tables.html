@@ -1,0 +1,67 @@
+<p>Tables us the base class <code>.table</code> for default styling. If not supplied,
+	the default <a href="http://necolas.github.io/normalize.css/" target="_blank">normalize.css</a> behaviours will be used.
+	To make a table responsive, you need to add an outer container with the additional class
+	<code>.table-responsive</code> to forces scrollbars when a table gets to small.</p>
+
+<h2 id="part-table-standard">Standard Table</h2>
+<div class="table-responsive">
+	<table class="table">
+		<caption>Base table structure (caption)</caption>
+		<colgroup>
+			{% for col in 1234|make_list %}
+			<col style="width:25%;" />
+			{% endfor %}
+		</colgroup>
+		<thead>
+		<tr>
+			{% for th in 1234|make_list %}
+			<th scope="col" id="table-1-header-{{ th }}">Head {{ th }}</th>
+			{% endfor %}
+		</tr>
+		</thead>
+		<tfoot>
+		<tr><td colspan="4" headers="table-1-header-1">Footer example</td></tr>
+		</tfoot>
+		<tbody>
+		{% for row in 1234|make_list %}
+		<tr>
+			{% for col in 1234|make_list %}
+			<td headers="table-1-header-{{ col }}">Row {{ row }} Cell {{ col }}</td>
+			{% endfor %}
+		</tr>
+		{% endfor %}
+		</tbody>
+	</table>
+</div>
+<p class="code"><code>&lt;table class="table table-responsive">&lt;/table></code></p>
+
+<hr />
+
+<h2 id="part-table-empty">Empty Table</h2>
+<table class="table table-empty">
+	<thead>
+	<tr>
+		<th scope="col">Head 1</th>
+		<th scope="col">Head 2</th>
+		<th scope="col">Head 3</th>
+		<th scope="col">Head 4</th>
+	</tr>
+	</thead>
+	<tbody>
+		<tr><td>Row 1 Cell 1</td><td>Row 1 Cell 2</td><td>Row 1 Cell 3</td><td>Row 1 Cell 4</td></tr>
+		<tr><td>Row 2 Cell 1</td><td>Row 2 Cell 2</td><td>Row 2 Cell 3</td><td>Row 2 Cell 4</td></tr>
+		<tr><td>Row 3 Cell 1</td><td>Row 3 Cell 2</td><td>Row 3 Cell 3</td><td>Row 3 Cell 4</td></tr>
+	</tbody>
+</table>
+<p class="code"><code>&lt;table class="table table-empty">&lt;/table></code></p>
+
+{# this renders the information panel on the left #}
+<div class="styleguide-hint">
+	{% include "divio_styleguide/includes/codeview.html" %}
+
+	<h3>Categories</h3>
+	<ul class="categories">
+		<li><a href="#part-table-standard">Standard Table</a></li>
+		<li><a href="#part-table-empty">Empty Table</a></li>
+	</ul>
+</div>

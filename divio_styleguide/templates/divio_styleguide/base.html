@@ -1,37 +1,25 @@
-{% extends "base.html" %}
-{% load sekizai_tags %}
+{% extends "fullwidth.html" %}
+{% load static sekizai_tags %}
 
 {% block content %}
-<div class="container-24 relative clearfix styleguide">
-
-	<nav class="guidenav">
-		<p class="guidenav-trigger"><a href="#page-all">Online Styleguide</a></p>
-
-		<ul id="guidenav" hidden="hidden">
-			<li><a href="#page-index">Templates</a></li>
-			<li><a href="#page-typography">Typography</a></li>
-			<li><a href="#page-tables">Tables</a></li>
-			<li><a href="#page-forms">Forms</a></li>
-			<li><a href="#page-icons">Icons</a></li>
-			<li><a href="#page-helpers">Helpers</a></li>
-			<li><a href="#page-grid">Grid</a></li>
-			<li><a href="#page-components">Components</a></li>
-			<li><a href="#page-development">Development</a></li>
-		</ul>
-	</nav>
-
-	{% include "divio_styleguide/section_index.html" %}
-	{% include "divio_styleguide/section_typography.html" %}
-	{% include "divio_styleguide/section_tables.html" %}
-	{% include "divio_styleguide/section_forms.html" %}
-	{% include "divio_styleguide/section_icons.html" %}
-	{% include "divio_styleguide/section_helpers.html" %}
-	{% include "divio_styleguide/section_grid.html" %}
-	{% include "divio_styleguide/section_components.html" %}
-	{% include "divio_styleguide/section_development.html" %}
-
+<div class="styleguide">
+	{% include "divio_styleguide/includes/navigation.html" %}
+	{% include "divio_styleguide/includes/sections.html" %}
 </div>
 
-{% addtoblock "css" %}<link rel="stylesheet" href="/static/css/styleguide.css" />{% endaddtoblock %}
-{% addtoblock "js" %}<script src="/static/js/plugins/cl.styleguide.js"></script>{% endaddtoblock %}
+{% addtoblock "css" %}<link rel="stylesheet" href="{% static 'css/styleguide.css' %}" />{% endaddtoblock %}
+{% addtoblock "css" %}<link rel="stylesheet" href="{% static 'css/highlight.github.css' %}" />{% endaddtoblock %}
+{% addtoblock "js" %}<script src="{% static 'js/highlight.min.js' %}"></script>{% endaddtoblock %}
+{% addtoblock "js" %}<script src="{% static 'js/holder.min.js' %}"></script>{% endaddtoblock %}
+{% addtoblock "js" %}<script src="{% static 'js/cl.styleguide.js' %}"></script>{% endaddtoblock %}
+{% addtoblock "js" %}
+<script>
+jQuery(document).ready(function($) {
+	// load syntax highlighter
+	hljs.initHighlightingOnLoad();
+	// load styleguide functions
+	new Cl.Styleguide();
+});
+</script>
+{% endaddtoblock %}
 {% endblock %}
