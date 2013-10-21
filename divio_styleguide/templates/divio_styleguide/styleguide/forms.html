@@ -1,68 +1,59 @@
-<h2 id="part-basic">Basic</h2>
+<p>Forms us the base class <code>.form</code> for default styling. If not supplied,
+	the default <a href="http://necolas.github.io/normalize.css/" target="_blank">normalize.css</a> behaviours will be used.
+	</p>
+
+<h2 id="part-form-structure">Structure</h2>
+<p>Our forms use a basic structure which is applied for all cases.
+	We are using placeholders within the styleguide to keep the examples clean.</p>
+<pre class="code"><code>&lt;form action="." method="post" class="form" role="form">
+    &lt;fieldset>
+        &lt;ol>
+            &lt;li> {placeholder} &lt;/li>
+            &lt;li> {placeholder} &lt;/li>
+            &lt;li> {placeholder} &lt;/li>
+        &lt;/ol>
+    &lt;/fieldset>
+&lt;/form>
+</code></pre>
+
+<hr />
+
+<h2 id="part-form-alignment">Alignment</h2>
 <form action="." method="post" class="form" role="form">
 	<fieldset class="col width-5">
 		<legend>Sizes</legend>
 		<ol>
-			<li class="form-group">
-				<label><input type="text" class="input-text input-mini" placeholder="input-mini" /></label>
-			</li>
-			<li>
-				<label><input type="text" class="input-text input-small" placeholder="input-small" /></label>
-			</li>
-			<li>
-				<label><input type="text" class="input-text input-medium" placeholder="input-medium" /></label>
-			</li>
-			<li>
-				<label><input type="text" class="input-text" /></label>
-			</li>
-			<li>
-				<label><input type="text" class="input-text input-large" placeholder="input-large" /></label>
-			</li>
-			<li style="width:90%;">
-				<label><input type="text" class="input-text input-block" placeholder="input-block" /></label>
-			</li>
+			<li><label><input type="text" class="input-text input-mini" placeholder="input-mini" /></label></li>
+			<li><label><input type="text" class="input-text input-small" placeholder="input-small" /></label></li>
+			<li><label><input type="text" class="input-text input-medium" placeholder="input-medium" /></label></li>
+			<li><label><input type="text" class="input-text" /></label></li>
+			<li><label><input type="text" class="input-text input-large" placeholder="input-large" /></label></li>
+			<li style="width:90%;"><label><input type="text" class="input-text input-block" placeholder="input-block" /></label></li>
 		</ol>
 	</fieldset>
 	<fieldset class="col width-5">
 		<legend>Positioning</legend>
 		<ol>
-			<li>
-				<label><input type="checkbox" class="input-radiocheck uniform" checked="checked" /> I read and agree to our terms and conditions</label>
-			</li>
-			<li>
-				<label>I read and agree to our terms and conditions <input type="radio" class="input-radiocheck uniform" checked="checked" /></label>
-			</li>
-			<li class="inline">
-				<label><input type="checkbox" class="input-radiocheck uniform" /> 1</label>
-			</li>
-			<li class="inline">
-				<label><input type="checkbox" class="input-radiocheck uniform" /> 2</label>
-			</li>
-			<li class="inline">
-				<label><input type="checkbox" class="input-radiocheck uniform" /> 3</label>
-			</li>
-			<li class="inline">
-				<label><input type="radio" class="input-radiocheck uniform" /> A</label>
-			</li>
-			<li class="inline">
-				<label><input type="radio" class="input-radiocheck uniform" /> B</label>
-			</li>
-			<li class="inline">
-				<label><input type="radio" class="input-radiocheck uniform" /> C</label>
-			</li>
-			<li>
-				<label class="input-radiocheck-aligned"><input type="checkbox" class="input-radiocheck uniform" /> I Lorem Ipsum is simply dummy text of the printing and typesetting industry.</label>
-			</li>
-			<li>
-				<label class="input-radiocheck-aligned"><input type="radio" class="input-radiocheck uniform" /> I Lorem Ipsum is simply dummy text of the printing and typesetting industry.</label>
-			</li>
+			<li><label><input type="checkbox" class="input-radiocheck uniform" checked="checked" /> I read and agree to our terms and conditions</label></li>
+			<li><label>I read and agree to our terms and conditions <input type="radio" class="input-radiocheck uniform" checked="checked" /></label></li>
+			<li class="inline"><label><input type="checkbox" class="input-radiocheck uniform" /> 1</label></li>
+			<li class="inline"><label><input type="checkbox" class="input-radiocheck uniform" /> 2</label></li>
+			<li class="inline"><label><input type="checkbox" class="input-radiocheck uniform" /> 3</label></li>
+			<li class="inline"><label><input type="radio" class="input-radiocheck uniform" /> A</label></li>
+			<li class="inline"><label><input type="radio" class="input-radiocheck uniform" /> B</label></li>
+			<li class="inline"><label><input type="radio" class="input-radiocheck uniform" /> C</label></li>
+			<li><label class="input-radiocheck-aligned"><input type="checkbox" class="input-radiocheck uniform" /> I Lorem Ipsum is simply dummy text of the printing and typesetting industry.</label></li>
+			<li><label class="input-radiocheck-aligned"><input type="radio" class="input-radiocheck uniform" /> I Lorem Ipsum is simply dummy text of the printing and typesetting industry.</label></li>
 		</ol>
 	</fieldset>
 </form>
+<pre class="code"><code>&lt;label>&lt;input type="text" class="input-text input-medium" />&lt;/label>
+&lt;label>&lt;input type="checkbox" class="input-radiocheck" /> text&lt;/label>
+</code></pre>
 
 <hr />
 
-<h2 id="part-types">Types</h2>
+<h2 id="part-form-types">Types</h2>
 <form action="." method="post" class="form" role="form">
 	<fieldset class="col width-5">
 		<legend>Supported</legend>
@@ -126,7 +117,7 @@
 
 <hr />
 
-<h2 id="part-vertical-form">Vertical Form <code>.frm-vertical</code></h2>
+<h2 id="part-form-vertical">Vertical Form</h2>
 <form action="." method="post" class="form" role="form">
 	<fieldset class="form-vertical">
 		<ol>
@@ -149,10 +140,16 @@
 		</ol>
 	</fieldset>
 </form>
+<pre class="code"><code>&lt;form action="." method="post" class="form" role="form">
+    &lt;fieldset class="form-vertical">
+        ...
+    &lt;/fieldset>
+&lt;/form>
+</code></pre>
 
 <hr />
 
-<h2 id="part-horizontal-form">Horizontal Form <code>.frm-horizontal</code></h2>
+<h2 id="part-form-horizontal">Horizontal Form</h2>
 <form action="." method="post" class="form" role="form">
 	<fieldset class="form-horizontal">
 		<ol>
@@ -175,6 +172,12 @@
 		</ol>
 	</fieldset>
 </form>
+<pre class="code"><code>&lt;form action="." method="post" class="form" role="form">
+    &lt;fieldset class="form-horizontal">
+        ...
+    &lt;/fieldset>
+&lt;/form>
+</code></pre>
 
 <hr />
 
@@ -224,40 +227,48 @@
 		</ol>
 	</fieldset>
 </form>
+<pre class="code"><code>&lt;input type="submit" class="btn" value="Input" />
+&lt;button class="btn">Button&lt;/button>
+&lt;a href="#" class="btn">Link&lt;/a>
+</code></pre>
 
-<h2>Messages <code>.messages</code></h2>
+<hr />
+
+<h2 id="part-messages">Messages</h2>
 <div class="col width-5">
-	<div class="messages message-success">
-		<span class="icon icon-success"></span>
-		<h3 class="text-success">True <code>.message-success</code></h3>
+	<div class="messages text-success">
 		<p>This is a success message</p>
 	</div>
 
-	<div class="messages message-error">
-		<span class="icon icon-error"></span>
-		<h3 class="text-error">True <code>.message-error</code></h3>
+	<div class="messages text-error">
 		<p>This is an error message</p>
 	</div>
 
-	<div class="messages message-muted">
-		<span class="icon icon-muted"></span>
-		<h3 class="text-muted">True <code>.message-muted</code></h3>
+	<div class="messages text-muted">
 		<p>This is an muted message</p>
 	</div>
 </div>
 <div class="col width-5">
-	<div class="messages message-info">
-		<span class="icon icon-info"></span>
-		<h3 class="text-info">True <code>.message-info</code></h3>
+	<div class="messages text-info">
 		<p>This is an info message</p>
 	</div>
 
-	<div class="messages message-warning">
-		<span class="icon icon-warning"></span>
-		<h3 class="text-warning">True <code>.message-warning</code></h3>
+	<div class="messages text-warning">
 		<p>This is a warning message</p>
 	</div>
 </div>
+<div class="clear"></div>
+<pre class="code"><code>&lt;div class="messages text-success">
+    &lt;p> ... &lt;/p>
+&lt;/div>
+</code></pre>
+<p>Add the text classes <code>.text-muted</code>, <code>text-success</code>, <code>text-info</code>,
+	<code>text-warning</code> and <code>text-error</code> for custom styles.</p>
+
+<hr />
+
+<h2 id="part-form-utilities">Utilities</h2>
+<p class="nospace"><code>.inline</code> – used on li's to style content as inline</p>
 
 {# this renders the information panel on the left #}
 <div class="styleguide-hint">
@@ -265,11 +276,13 @@
 
 	<h3>Categories</h3>
 	<ul class="categories">
-		<li><a href="#part-basic">Basic</a></li>
-		<li><a href="#part-types">Types</a></li>
-		<li><a href="#part-vertical-form">Vertical Form</a></li>
-		<li><a href="#part-horizontal-form">Horizontal Form</a></li>
+		<li><a href="#part-form-structure">Structure</a></li>
+		<li><a href="#part-form-alignment">Alignment</a></li>
+		<li><a href="#part-form-types">Types</a></li>
+		<li><a href="#part-form-vertical">Vertical Form</a></li>
+		<li><a href="#part-form-horizontal">Horizontal Form</a></li>
 		<li><a href="#part-buttons">Buttons</a></li>
 		<li><a href="#part-messages">Messages</a></li>
+		<li><a href="#part-form-utilities">Utilities</a></li>
 	</ul>
 </div>
