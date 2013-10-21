@@ -14,7 +14,6 @@ Cl.Styleguide = new Class({
 	initialize: function () {
 		this.styleguide = $('.styleguide');
 
-
 		// handles all navigational needs
 		this.navigation();
 		this.hint();
@@ -92,11 +91,11 @@ Cl.Styleguide = new Class({
 			buttons.on('click', function (e) {
 				e.preventDefault();
 				if($(this).hasClass('btn-disabled')) {
-					buttons.removeClass('btn-disabled').text('enable code view');
-					styleguide.find('.code').hide();
-				} else {
-					buttons.addClass('btn-disabled').text('disable code view');
+					buttons.removeClass('btn-disabled').text('disable code view');
 					styleguide.find('.code').show();
+				} else {
+					buttons.addClass('btn-disabled').text('enable code view');
+					styleguide.find('.code').hide();
 				}
 			});
 	},
@@ -121,9 +120,20 @@ Cl.Styleguide = new Class({
 
 		// add color replacement
 		container.find('.autocolor').each(function (index, item) {
-			var color = $(item).contents(':not(span)').text();
-			$(item).css('background', color);
+			var color = $(item).text();
+			if(color === '#') color = rgb2hex($(item).css('color'));
+			$(item).css('background', color).css('color', 'white').text(color);
 		});
+
+		// function to convert hex format to a rgb color
+		function rgb2hex(rgb) {
+			rgb = rgb.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
+			function hex(x) {
+				return ('0' + parseInt(x).toString(16)).slice(-2);
+			}
+			return '#' + hex(rgb[1]) + hex(rgb[2]) + hex(rgb[3]);
+		}
+
 	},
 
 	grid: function () {

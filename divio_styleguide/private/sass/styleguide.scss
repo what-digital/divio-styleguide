@@ -8,15 +8,14 @@
 // #STYLEGUIDE#
 @import "compass/css3", "compass/utilities";
 
-$styleguide-color-hint:		#ccc !default;
 $styleguide-color-ready:	#999 !default;
 $styleguide-color-dev:		#363 !default;
 $styleguide-color-outdated:	#c00 !default;
+
+// might be replaced
+$styleguide-color-hint:		#ccc !default;
 $styleguide-background: 	#3a3d41 !default;
 $styleguide-border: 		#ddd !default;
-
-$responsive-tablet:			740px !default;
-$responsive-desktop:		980px !default;
 
 @media all {
 //######################################################################################################################
@@ -61,7 +60,9 @@ $responsive-desktop:		980px !default;
 	.iconlist span { display:block; }
 	.iconlist li:hover { background:lighten($styleguide-border, 10%); }
 
-	// emphasis
+	// colors
+	.autocolor { float:left; text-align:center; text-shadow:0 1px 1px black;
+		line-height:60px; width:100px; margin:0 15px 15px 0; }
 }
 
 // #STYLEGUIDE/navigation#
@@ -98,21 +99,8 @@ $responsive-desktop:		980px !default;
 	li a { display:block; padding:5px 10px; border-bottom:1px solid #eee; }
 }
 
+
 // end of mobile
-}
-
-@media (min-width: $responsive-tablet) {
-//######################################################################################################################
-// #TABLET#
-
-// end of tablet
-}
-
-@media (min-width: $responsive-desktop) {
-//######################################################################################################################
-// #DESKTOP#
-
-// end of desktop
 }
 
 
@@ -175,6 +163,3 @@ and (max-width: 960px) {
 /*####################################################################################################################*/
 /* SECTION TYPOGRAPHY */
 .fakeimage { width:100px; height:75px; padding:25px 0 0; text-align:center; background:#ccc; display:inline-block; }
-.autocolor { float:left; color:#fff; text-shadow:0 1px 1px #000; text-align:center;
-	width:80px; line-height:80px; margin:0 15px 15px 0;
-	background:#f00; }
