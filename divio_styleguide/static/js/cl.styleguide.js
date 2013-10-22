@@ -19,12 +19,8 @@ Cl.Styleguide = new Class({
 		this.hint();
 		// section typography
 		this.typography();
-
 		this.grid();
 		this.forms();
-
-		// hide code per default
-		// this.styleguide.find('.code').hide();
 	},
 
 	navigation: function () {
@@ -83,10 +79,14 @@ Cl.Styleguide = new Class({
 			hint = $('.styleguide-hint:visible');
 
 			if(pos - $(window).scrollTop() < offset) {
-				hint.css('top', ($(window).scrollTop() - pos + offset));
+				if($('.styleguide-body:visible').outerHeight(true) - ($(window).scrollTop() + pos - 60) >= 0) {
+					hint.css('top', ($(window).scrollTop() - pos + offset));
+				}
 			} else {
 				hint.css('top', 0);
 			}
+
+			console.log();
 		});
 
 		// handle code view
