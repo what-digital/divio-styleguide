@@ -76,6 +76,9 @@ Cl.Styleguide = new Class({
 		var offset = 10;
 
 		$(window).on('scroll', function () {
+			// cancel in ie8 and below
+			if(!document.createElement('canvas').getContext) return false;
+
 			hint = $('.styleguide-hint:visible');
 
 			if(pos - $(window).scrollTop() < offset) {
@@ -125,16 +128,20 @@ Cl.Styleguide = new Class({
 		container.find('.autocolor').each(function (index, item) {
 			var color = $(item).text();
 			if(color === '#') color = rgb2hex($(item).css('color'));
+			console.log(color);
 			$(item).css('background', color).css('color', 'white').text(color);
 		});
 
 		// function to convert hex format to a rgb color
 		function rgb2hex(rgb) {
-			rgb = rgb.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
+			code = rgb.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
+			// cancel if null
+			if(code === null) return rgb;
+			// helpers
 			function hex(x) {
 				return ('0' + parseInt(x).toString(16)).slice(-2);
 			}
-			return '#' + hex(rgb[1]) + hex(rgb[2]) + hex(rgb[3]);
+			return '#' + hex(code[1]) + hex(code[2]) + hex(code[3]);
 		}
 
 	},
