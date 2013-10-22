@@ -127,7 +127,6 @@ $styleguide-border: 		#ddd !default;
 
 // #STYLEGUIDE/section#
 .styleguide-section { position:relative; display:none; min-height:500px; }
-.styleguide-section-flat { padding-left:0; margin-left:0; border-left:none; }
 .styleguide-body { padding:0; clear:both; overflow:visible; }
 
 // #STYLEGUIDE/hints#
@@ -150,6 +149,7 @@ $styleguide-border: 		#ddd !default;
 // #TABLET#
 
 .styleguide-section { padding-left:5%; margin-left:20%; border-left:1px solid $styleguide-color-hint; }
+.styleguide-section-flat { padding-left:0; margin-left:0; border-left:none; }
 .styleguide-hint { display:block; }
 .styleguide-nav a { padding:16px 25px; }
 .styleguide {
