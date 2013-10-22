@@ -56,6 +56,9 @@ Cl.Styleguide = new Class({
 			if(window.history && window.history.pushState) {
 				window.history.pushState('Styleguide', 'Category', hash);
 			}
+
+			// update grid
+			$(window).trigger('resize.grid');
 		}
 
 		// initial loading
@@ -137,23 +140,32 @@ Cl.Styleguide = new Class({
 	},
 
 	grid: function () {
-		var triggers = $('#page-grid .gblocks');
+		var grid = $('#page-grid');
+		var containers = grid.find('.grid-template .column > span');
+		var triggers = grid.find('.grid-block');
 			triggers.bind('click', function () {
-				triggers.removeClass('gblocks-active');
-				$(this).addClass('gblocks-active');
+				triggers.removeClass('grid-block-active');
+				$(this).addClass('grid-block-active');
 
-				$('.grid-v').hide();
-				$('.grid-v-' + (triggers.index(this) + 1)).fadeIn(300);
+				$('.grid-template').hide().eq(triggers.index(this)).fadeIn(300);
+				$(window).trigger('resize.grid');
 			});
-			// activate first grid
-			triggers.eq(0).trigger('click');
+		$(window).on('resize.grid', function () {
+			containers.each(function () {
+				$(this).text($(this).parent().width());
+			});
+		});
 
-		// autoset code classes
-		var codes = $('#page-grid .code');
-			codes.each(function (index, item) {
-				var cls = $(item).parent().parent().attr('class');
-				$(item).find('code').text(cls);
-			});
+		// activate first grid
+		triggers.eq(0).trigger('click');
+
+		// adds control for grid
+		grid.find('.btn-fullview, .btn-fullview-revert').on('click', function (e) {
+			e.preventDefault();
+			grid.toggleClass('styleguide-section-flat');
+			grid.find('.styleguide-hint').toggle();
+			grid.find('.btn-fullview-revert').parent().toggle();
+		});
 	},
 
 	forms: function() {

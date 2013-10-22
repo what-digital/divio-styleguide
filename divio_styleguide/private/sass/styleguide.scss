@@ -29,10 +29,6 @@ $styleguide-border: 		#ddd !default;
 	.code-offset { margin-right:10px; }
 	.emphasis pre code { padding:3px 5px; margin-right:10px; }
 
-	// helpers
-	.spacer { height:20px; }
-	.highlight { color:#f93; }
-
 	// status
 	.dev, .ready, .outdated { color:white; font-size:11px; line-height:100%;
 		padding:3px 4px; position:relative; top:-1px;
@@ -73,6 +69,48 @@ $styleguide-border: 		#ddd !default;
 		.tblv { color:#468c44; background:#e0f2d8; }
 		.tblh { color:#ccc; background:#f9f9f9; }
 	}
+
+	// grid
+	.grid-block { float:left; cursor:pointer;
+		width:120px; height:96px; padding:4px 2px 0; margin:0 25px 25px 0;
+		border:1px solid #ccc; @include border-radius(3px);
+		&:hover { border:1px solid #999; @include box-shadow(0 0 5px #ccc); @include transition(all, 300ms); }
+		.gblock { float:left; height:20px; margin:0 2px 4px; background:#069; @include opacity(0.5); }
+	}
+	.grid-block-active { border:1px solid #999; }
+	.grid-block-active .gblock { opacity:1; }
+
+	.grid-block-1 {
+		.gba, .gbb, .gbc { width:36px; }
+		.gbd { float:right; width:36px; height:68px; }
+		.gbe, .gbf, .gbg, .gbh { width:16px; }
+		.gbi, .gbj, .gbk, .gbl { width:16px; }
+		.gbm { width:76px; }
+	}
+	.grid-block-2 {
+		.gba { width:116px; height:50px; }
+		.gbb { width:36px; height:38px; }
+		.gbc { width:36px; height:38px; }
+		.gbd { width:36px; height:38px; }
+	}
+	.grid-block-3 {
+		.gba { width:36px; height:92px; }
+		.gbb { width:36px; height:30px; }
+		.gbc { width:36px; height:30px; }
+		.gbd { width:36px; height:30px; }
+		.gbe { width:36px; height:30px; }
+		.gbf { width:76px; height:24px; }
+	}
+
+	.row-ghost { position:absolute; left:0; top:0; width:100%; height:500px; }
+	.row-ghost .column { background:#069; @include opacity(0.1); }
+	.row-ghost .column > div { background:white; height:500px; }
+
+	.grid-template {
+		span { display:block; color:white;
+			padding:5px 10px; margin:0 0 20px; background:#069;
+			@include opacity(0.5); height:100px; }
+	}
 }
 
 // #STYLEGUIDE/navigation#
@@ -95,7 +133,8 @@ $styleguide-border: 		#ddd !default;
 // #STYLEGUIDE/section#
 .styleguide-section { padding-left:5%; margin-left:20%; border-left:1px solid $styleguide-color-hint;
 	position:relative; display:none; min-height:500px; }
-.styleguide-body { padding:10px 0; clear:both; overflow:visible; }
+.styleguide-section-flat { padding-left:0; margin-left:0; border-left:none; }
+.styleguide-body { padding:0; clear:both; overflow:visible; }
 
 // #STYLEGUIDE/hints#
 .styleguide-hint { position:absolute; left:-25%; width:25%; top:0;
@@ -110,49 +149,4 @@ $styleguide-border: 		#ddd !default;
 }
 
 // end of mobile
-}
-
-
-
-
-
-/*####################################################################################################################*/
-/* SECTION GRID */
-
-
-.gblock-grid { min-height:500px; position:relative; left:-35%; background:white; margin-top:20px; }
-.gblock-grid p { color:#fff; padding:5px 10px; background:#069; opacity:0.5; height:100px; }
-.gblock-grid .grid { position:relative; z-index:10; }
-
-.bggrid { position:absolute; left:0; top:0; z-index:1; width:100%; }
-.bggrid div { float:left; width:20px; height:525px; margin:0 10px; background:#069; opacity:0.1; }
-
-.gblocks { float:left; cursor:pointer; width:120px; height:96px; padding:4px 2px 0; margin:0 25px 25px 0;
-	border:1px solid #ccc; border-radius:5px; }
-.gblocks:hover { border:1px solid #999; box-shadow:0 0 5px #ccc; }
-.gblocks-active { border:1px solid #999; }
-.gblocks-active .gblock { opacity:1; }
-
-.gblock { float:left; height:20px; margin:0 2px 4px; background:#069; opacity:0.5; }
-.gblocks-1 .gba, .gblocks-1 .gbb, .gblocks-1 .gbc { width:36px; }
-.gblocks-1 .gbd { float:right; width:36px; height:68px; }
-.gblocks-1 .gbe, .gblocks-1 .gbf, .gblocks-1 .gbg, .gblocks-1 .gbh { width:16px; }
-.gblocks-1 .gbi, .gblocks-1 .gbj, .gblocks-1 .gbk, .gblocks-1 .gbl { width:16px; }
-.gblocks-1 .gbm { width:76px; }
-
-.gblocks-2 .gba { width:116px; height:50px; }
-.gblocks-2 .gbb { width:36px; height:38px; }
-.gblocks-2 .gbc { width:36px; height:38px; }
-.gblocks-2 .gbd { width:36px; height:38px; }
-
-.gblocks-3 .gba { width:36px; height:92px; }
-.gblocks-3 .gbb { width:36px; height:30px; }
-.gblocks-3 .gbc { width:36px; height:30px; }
-.gblocks-3 .gbd { width:36px; height:30px; }
-.gblocks-3 .gbe { width:36px; height:30px; }
-.gblocks-3 .gbf { width:76px; height:24px; }
-
-@media screen and (min-width: 720px)
-and (max-width: 960px) {
-	.bggrid div { margin:0 5px; }
 }
