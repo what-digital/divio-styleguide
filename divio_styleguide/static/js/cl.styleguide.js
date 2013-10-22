@@ -88,8 +88,6 @@ Cl.Styleguide = new Class({
 			} else {
 				hint.css('top', 0);
 			}
-
-			console.log();
 		});
 
 		// handle code view
@@ -128,7 +126,6 @@ Cl.Styleguide = new Class({
 		container.find('.autocolor').each(function (index, item) {
 			var color = $(item).text();
 			if(color === '#') color = rgb2hex($(item).css('color'));
-			console.log(color);
 			$(item).css('background', color).css('color', 'white').text(color);
 		});
 
