@@ -38,11 +38,6 @@ $styleguide-border: 		#ddd !default;
 	.ready { background:$styleguide-color-ready; }
 	.outdated { background:$styleguide-color-outdated; }
 
-	// mini grid
-	.col { float:left; }
-	.width-3 { width:33.3333%; }
-	.width-5 { width:50%; }
-
 	// sidemenu
 	.categories a { text-decoration:none; &:hover { text-decoration:underline; } }
 
@@ -51,7 +46,7 @@ $styleguide-border: 		#ddd !default;
 
 	// iconlist
 	.iconlist { list-style-type:none; padding:0; margin:0; }
-	.iconlist li { float:left; width:12.5%; text-align:center;
+	.iconlist li { float:left; width:25%; text-align:center;
 		padding:10px; margin:0 -1px -1px 0; height:70px; border:1px solid $styleguide-border; }
 	.iconlist span { display:block; }
 	.iconlist li:hover { background:lighten($styleguide-border, 10%); }
@@ -122,7 +117,7 @@ $styleguide-border: 		#ddd !default;
 	li { padding:0; @include inline-block(); }
 	li:first-child a { @include border-radius(3px 0 0 3px); }
 
-	a { color:white; font-size:14px; line-height:14px; text-decoration:none; padding:16px 25px;
+	a { color:white; font-size:14px; line-height:14px; text-decoration:none; padding:10px 15px;
 		@include inline-block();
 		@include transition(background, 300ms); }
 	a:hover { background:darken($styleguide-background, 50%); }
@@ -131,13 +126,12 @@ $styleguide-border: 		#ddd !default;
 }
 
 // #STYLEGUIDE/section#
-.styleguide-section { padding-left:5%; margin-left:20%; border-left:1px solid $styleguide-color-hint;
-	position:relative; display:none; min-height:500px; }
+.styleguide-section { position:relative; display:none; min-height:500px; }
 .styleguide-section-flat { padding-left:0; margin-left:0; border-left:none; }
 .styleguide-body { padding:0; clear:both; overflow:visible; }
 
 // #STYLEGUIDE/hints#
-.styleguide-hint { position:absolute; left:-25%; width:25%; top:0;
+.styleguide-hint { display:none; position:absolute; left:-25%; width:25%; top:0;
 	font-size:12px; line-height:16px;
 	h3 { font-size:12px; line-height:16px; padding:5px 10px; margin:0 0 15px;
 		background:lighten($styleguide-color-hint, 10%); @include box-shadow(inset 0 1px 2px $styleguide-color-hint); }
@@ -149,4 +143,21 @@ $styleguide-border: 		#ddd !default;
 }
 
 // end of mobile
+}
+
+@media (min-width: 740px) {
+//######################################################################################################################
+// #TABLET#
+
+.styleguide-section { padding-left:5%; margin-left:20%; border-left:1px solid $styleguide-color-hint; }
+.styleguide-hint { display:block; }
+.styleguide-nav a { padding:16px 25px; }
+.styleguide {
+	.col { float:left; }
+	.width-3 { width:33.3333%; }
+	.width-5 { width:50%; }
+	.iconlist li { width:12.5%; }
+}
+
+// end of tablet
 }

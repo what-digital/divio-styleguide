@@ -165,6 +165,7 @@ Cl.Styleguide = new Class({
 			grid.toggleClass('styleguide-section-flat');
 			grid.find('.styleguide-hint').toggle();
 			grid.find('.btn-fullview-revert').parent().toggle();
+			$(window).trigger('resize.grid');
 		});
 	},
 
