@@ -2,7 +2,7 @@
 Divio Styleguide
 ================
 
-1.2.0
+2.0.0
 -----
 - added changelog
 - changed css into sass
