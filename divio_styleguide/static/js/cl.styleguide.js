@@ -50,6 +50,7 @@ Cl.Styleguide = new Class({
 				section.show();
 
 			if(window.history && window.history.pushState) {
+				if(hash === '#page-index') hash = '#';
 				window.history.pushState('Styleguide', 'Category', hash);
 			}
 
