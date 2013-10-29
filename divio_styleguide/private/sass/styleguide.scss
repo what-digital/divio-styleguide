@@ -138,8 +138,10 @@ $styleguide-border: 		#ddd !default;
 	p { padding:0 10px; margin:0 0 10px; }
 
 	ul { list-style-type:none; padding:0; margin:-14px 0 0; }
+	ul ul { margin-top:0; margin-bottom:10px; padding-left:15px; }
 	li { padding:0; }
 	li a { display:block; padding:5px 10px; border-bottom:1px solid #eee; }
+	li li a { color:#666; }
 }
 
 // end of mobile
