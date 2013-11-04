@@ -1,0 +1,42 @@
+<h1 id="part-module-default">Default</h1>
+<hr />
+
+<h2 id="part-module-pagenav">Pagination</h2>
+
+<nav class="pagenav">
+	<ol>{% include "divio_styleguide/modules/pagenav.html" %}</ol>
+</nav>
+<pre class="code"><code>&lt;nav class="pagenav">
+    &lt;ul>
+       &lt;li> ... &lt;/li>
+    &lt;/ul>
+&lt;/nav></code></pre>
+
+<hr />
+
+<h2 id="part-module-boxes">Boxes</h2>
+<div class="box box-padding">
+	<h3>Box</h3>
+	<hr />
+	<p>Text here</p>
+</div>
+<pre class="code"><code>&lt;div class="box">
+    &lt;p>Text here&lt;/p>
+&lt;/div>
+</code></pre>
+
+{# this renders the information panel on the left #}
+<div class="styleguide-hint">
+	{% include "divio_styleguide/includes/codeview.html" %}
+
+	<h3>Categories</h3>
+	<ul class="categories">
+		<li>
+			<a href="#part-module-default">Default</a>
+			<ul>
+				<li><a href="#part-module-pagenav">Pagination</a></li>
+				<li><a href="#part-module-boxes">Boxes</a></li>
+			</ul>
+		</li>
+	</ul>
+</div>

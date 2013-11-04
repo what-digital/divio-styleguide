@@ -1,0 +1,119 @@
+<p>We are using the <strong>Foundation 4</strong> grid system as our base. In addition, a <strong>24-column</strong> setup is the default setting with a
+	<strong>20px gutter</strong>. The block grid is not included per default. A full documentation can be found on
+	<a href="http://foundation.zurb.com/docs/components/grid.html" target="_blank">http://foundation.zurb.com/</a>.
+	<span hidden="hidden"><br /><span class="icon icon-arrow-left"></span> <a href="#" class="btn-fullview-revert">Switch back</a> and show the column.</span>
+</p>
+<div class="space"></div>
+
+<!-- options -->
+<div class="grid-block grid-block-1 grid-block-active">
+	<div class="gblock gba"></div><div class="gblock gbb"></div><div class="gblock gbc"></div><div class="gblock gbd"></div><div class="gblock gbe"></div><div class="gblock gbf"></div><div class="gblock gbg"></div><div class="gblock gbh"></div><div class="gblock gbi"></div><div class="gblock gbj"></div><div class="gblock gbk"></div><div class="gblock gbl"></div><div class="gblock gbm"></div>
+</div>
+<div class="grid-block grid-block-2">
+	<div class="gblock gba"></div><div class="gblock gbb"></div><div class="gblock gbc"></div><div class="gblock gbd"></div>
+</div>
+<div class="grid-block grid-block-3">
+	<div class="gblock gba"></div><div class="gblock gbb"></div><div class="gblock gbc"></div><div class="gblock gbd"></div><div class="gblock gbe"></div><div class="gblock gbf"></div>
+</div>
+<div class="clear"></div>
+
+<div class="grid-container relative">
+<!-- overlay grid -->
+<div class="row-ghost">
+	<div class="row">
+		{% for row in 123456789012123456789012|make_list %}
+		<div class="large-1 column"><div>&nbsp;</div></div>
+		{% endfor %}
+	</div>
+</div>
+
+<div class="grid-template">
+<!-- first template -->
+<div class="row">
+	<div class="small-8 large-8 column"><span>x</span></div>
+	<div class="small-8 large-8 column"><span>x</span></div>
+	<div class="small-8 large-8 column"><span>x</span></div>
+</div>
+<div class="row">
+	<div class="large-16 column">
+		<div class="row">
+			<div class="large-6 column"><span>x</span></div>
+			<div class="large-6 column"><span>x</span></div>
+			<div class="large-6 column"><span>x</span></div>
+			<div class="large-6 column"><span>x</span></div>
+			<div class="large-6 column"><span>x</span></div>
+			<div class="large-6 column"><span>x</span></div>
+			<div class="large-6 column"><span>x</span></div>
+			<div class="large-6 column"><span>x</span></div>
+		</div>
+		<div class="row">
+			<div class="large-24 column"><span>x</span></div>
+		</div>
+	</div>
+	<div class="large-8 column"><span style="height:360px;">x</span></div>
+</div>
+<!-- first template -->
+</div>
+
+<div class="grid-template">
+<!-- second template -->
+<div class="row">
+	<div class="small-centered large-24 column"><span style="height:360px;">x</span></div>
+	<div class="large-8 column"><span>x</span></div>
+	<div class="large-8 column"><span>x</span></div>
+	<div class="large-8 column"><span>x</span></div>
+</div>
+<!-- second template -->
+</div>
+
+<div class="grid-template">
+<!-- third template -->
+<div class="row">
+	<div class="large-16 push-8 column">
+		<div class="row">
+			<div class="large-12 column"><span>x</span></div>
+			<div class="large-12 column"><span>x</span></div>
+			<div class="large-12 column"><span>x</span></div>
+			<div class="large-12 column"><span>x</span></div>
+			<div class="large-24 column"><span style="height:230px;">x</span></div>
+		</div>
+	</div>
+	<div class="large-8 pull-16 column"><span style="height:490px;">x</span></div>
+</div>
+<!-- third template -->
+</div>
+</div>
+
+<pre class="code"><code>&lt;div class="row"&gt;
+    &lt;div class="small-8 large-8 column">&lt;/div>
+    &lt;div class="small-8 large-8 column">&lt;/div>
+    &lt;div class="small-8 large-8 column">&lt;/div>
+&lt;/div>
+&lt;div class="row">
+    &lt;div class="large-16 column">
+        &lt;div class="row">
+            &lt;div class="large-6 column">&lt;/div>
+            &lt;div class="large-6 column">&lt;/div>
+            &lt;div class="large-6 column">&lt;/div>
+            &lt;div class="large-6 column">&lt;/div>
+            &lt;div class="large-6 column">&lt;/div>
+            &lt;div class="large-6 column">&lt;/div>
+            &lt;div class="large-6 column">&lt;/div>
+            &lt;div class="large-6 column">&lt;/div>
+        &lt;/div>
+        &lt;div class="row">
+            &lt;div class="large-24 column">&lt;/div>
+        &lt;/div>
+    &lt;/div>
+    &lt;div class="large-8 column">&lt;/div>
+&lt;/div>
+</code></pre>
+
+{# this renders the information panel on the left #}
+<div class="styleguide-hint">
+	{% include "divio_styleguide/includes/codeview.html" %}
+
+	<h3>Grid Options</h3>
+	<p><a href="#" class="btn btn-fullview">show full grid</a></p>
+	<div class="space"></div>
+</div>

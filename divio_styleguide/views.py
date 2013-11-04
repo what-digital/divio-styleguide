@@ -46,7 +46,7 @@ class DjangoForm(forms.Form):
         raise forms.ValidationError('This is a non-form error. Something is wrong in the form, please fix.')
 
 class FormsView(FormView):
-    template_name = 'divio_styleguide/django/forms.html'
+    template_name = 'divio_styleguide/includes/django/forms.html'
     form_class = DjangoForm
 
     def form_valid(self, form):
@@ -67,7 +67,7 @@ class MessageForm(forms.Form):
     message_type = forms.ChoiceField(choices=MESSAGE_CHOICES)
 
 class MessagesView(FormView):
-    template_name = 'divio_styleguide/django/messages.html'
+    template_name = 'divio_styleguide/includes/django/messages.html'
     form_class = MessageForm
 
     def form_valid(self, form):
