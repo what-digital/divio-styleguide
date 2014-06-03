@@ -1,0 +1,17 @@
+{
+	"name": "Divio Style Guide App",
+	"description": "",
+	"version": "2.0.2",
+	"url": "https://github.com/divio/divio-styleguide",
+	"package-name": "divio-styleguide",
+	"installed-apps": [
+		"divio_styleguide"
+	],
+	"author": {
+		"name": "Divio AG",
+		"url": "https://www.divio.ch"
+	},
+	"license": {
+		"name": "All rights reserved, Divio AG"
+	}	
+}
