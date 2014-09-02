@@ -14,11 +14,11 @@ Installation
 
 
 Usage
-------------
+-----
 
-* Use the ``index.html`` to add new templates
-* Create your html files within ``divio_styleguide/templates`` and link them within ``index.html``
-* Modify additional files such as colors, icons or components
+Use the html templates within ``divio_styleguide/styleguide/`` to overwrite or add specific features. Try not to modify
+the original templates within *includes* or the *base.html* file itself. Add additional components into the *components*
+folder.
 
 
 Templates
