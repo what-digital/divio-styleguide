@@ -2,6 +2,10 @@
 Divio Styleguide
 ================
 
+3.0.0
+-----
+- update entire package for bootstrap 3
+
 2.0.0
 -----
 - added changelog

@@ -3,23 +3,9 @@
 
 {% block content %}
 <div class="styleguide">
-	{% include "divio_styleguide/includes/navigation.html" %}
-	{% include "divio_styleguide/includes/sections.html" %}
+    {% include "divio_styleguide/styleguide/includes/navigation.html" %}
+    {% include "divio_styleguide/styleguide/includes/sections.html" %}
 </div>
 
-{% addtoblock "css" %}<link rel="stylesheet" href="{% static 'css/styleguide.css' %}" />{% endaddtoblock %}
-{% addtoblock "css" %}<link rel="stylesheet" href="{% static 'css/highlight.github.css' %}" />{% endaddtoblock %}
-{% addtoblock "js" %}<script src="{% static 'js/highlight.min.js' %}"></script>{% endaddtoblock %}
-{% addtoblock "js" %}<script src="{% static 'js/holder.min.js' %}"></script>{% endaddtoblock %}
-{% addtoblock "js" %}<script src="{% static 'js/cl.styleguide.js' %}"></script>{% endaddtoblock %}
-{% addtoblock "js" %}
-<script>
-jQuery(document).ready(function($) {
-	// load syntax highlighter
-	hljs.initHighlightingOnLoad();
-	// load styleguide functions
-	new Cl.Styleguide();
-});
-</script>
-{% endaddtoblock %}
+{% include "divio_styleguide/styleguide/includes/interaction.html" %}
 {% endblock %}
