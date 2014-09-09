@@ -17,10 +17,10 @@
 {% addtoblock "js" %}<script src="{% static 'js/addons/jquery.select2.min.js' %}"></script>{% endaddtoblock %}
 {% addtoblock "js" %}
 <script>
+/* global StyleguideIcons */
 jQuery(document).ready(function () {
     // ensure namespace is available
     window.Cl = window.Cl || {};
-
     Cl.Styleguide = {
 
         init: function () {
@@ -48,18 +48,18 @@ jQuery(document).ready(function () {
                 // handle containers
                 that.container.find('> section').hide();
                 hash = $(this).attr('href').replace('#', '');
-                container = that.container.find('> section[data-id="'+hash+'"]');
+                container = that.container.find('> section[data-id="' + hash + '"]');
                 container.show();
 
                 // update history
-                if(window.history) {
+                if (window.history) {
                     history.replaceState('styleguide', hash, '#' + hash);
                 }
             });
 
             // setup first element
-            if(window.history && history.state === 'styleguide' || window.history && window.location.hash) {
-                lists.find('a[href="'+window.location.hash+'"]').trigger('click');
+            if (window.history && history.state === 'styleguide' || window.history && window.location.hash) {
+                lists.find('a[href="' + window.location.hash + '"]').trigger('click');
             } else {
                 triggers.eq(0).trigger('click');
             }
@@ -70,9 +70,9 @@ jQuery(document).ready(function () {
             var container = this.container.find('.iconlist-render');
             var icons = StyleguideIcons;
             for (var key in icons) {
-                output += '<h3>'+key+'</h3><div class="row">';
+                output += '<h3>' + key + '</h3><div class="row">';
                 for (var i = 0; i < icons[key].length; i++) {
-                    output += '<div class="col-lg-6 col-md-8 col-sm-12"><p><span class="icon icon-lg icon-fw '+icons[key][i]+'"></span> <code>'+icons[key][i]+'</code></p></div>';
+                    output += '<div class="col-lg-6 col-md-8 col-sm-12"><p><span class="icon icon-lg icon-fw ' + icons[key][i] + '"></span> <code>' + icons[key][i] + '</code></p></div>';
                 }
                 output += '</div>';
             }
@@ -83,7 +83,7 @@ jQuery(document).ready(function () {
             var tpl = '<div class="btn btn-primary btn-xs code-button">Copy</div>';
             var button = $(tpl).on('click', function () {
                 var html = $(this).parent().html();
-                    html = cleanSource(html);
+                html = cleanSource(html);
                 $('.code-modal pre').text(html);
                 $('.code-modal').modal();
             });
@@ -94,14 +94,14 @@ jQuery(document).ready(function () {
             $('.code-container').hover(function () {
                 $(this).append(button);
                 button.show();
-            }, function(){
+            }, function () {
                 button.hide();
             });
 
             function cleanSource(html) {
                 var lines = html.split(/\n/);
-                    lines.shift();
-                    lines.splice(-1, 1);
+                lines.shift();
+                lines.splice(-1, 1);
                 var indentSize = lines[0].length - lines[0].trim().length;
                 var re = new RegExp(' {' + indentSize + '}');
 
@@ -111,14 +111,14 @@ jQuery(document).ready(function () {
                     }
                     return line;
                 });
-                lines = lines.join("\n");
+                lines = lines.join('\n');
                 return lines;
             }
         },
 
         forms: function () {
             // add select2 if available
-            if(jQuery.fn.select2) {
+            if (jQuery.fn.select2) {
                 $('#field-select2').select2();
             }
         }
