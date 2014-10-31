@@ -862,18 +862,19 @@
             <h4>Controls</h4>
             <div class="code-container">
                 <form action="." class="form" role="form">
-                    <div class="form-group has-success">
-                        <label class="control-label" for="inputSuccess">Input with success</label>
-                        <input type="text" class="form-control" id="inputSuccess" />
+                    <div class="form-group has-success has-feedback">
+                        <label class="control-label" for="inputIcon">Input with success <span class="text-muted">with icon</span></label>
+                        <input type="text" class="form-control" id="inputIcon" />
+                        <span class="icon icon-check form-control-feedback"></span>
                     </div>
 
                     <div class="form-group has-warning">
-                        <label class="control-label" for="inputWarning">Input with warning</label>
+                        <label class="control-label" for="inputWarning">Input with warning <span class="text-muted">without icon</span></label>
                         <input type="text" class="form-control" id="inputWarning" />
                     </div>
 
                     <div class="form-group has-error">
-                        <label class="control-label" for="inputError">Input with error</label>
+                        <label class="control-label" for="inputError">Input with error <span class="text-muted">without icon</span></label>
                         <input type="text" class="form-control" id="inputError" />
                     </div>
                 </form>
@@ -904,40 +905,88 @@
             <h3>Input Groups</h3>
             <p>We simply allow the extension of buttons or icons within form controls. It is also possible to combine
                 these elements with other components such as drop-down's or select2.</p>
+            <p>Do not mix form groups or grid column classes directly with input groups. Instead,
+                nest the input group inside of the form group or grid-related element.</p>
             <p>More about validation can be found within the <a href="http://getbootstrap.com/components/#input-groups">Bootstrap</a> documentation.</p>
         </div>
-        <div class="col-md-14 col-linebreak code-container">
+        <div class="col-md-14 col-linebreak">
             <form action="." class="form" role="form">
-                <div class="form-group input-group">
-                    <span class="input-group-addon">@</span>
-                    <label for="field-group-1" class="sr-only">Accessibility text</label>
-                    <input type="text" class="form-control" id="field-group-1" placeholder="Username" />
+                <div class="code-container">
+                    <div class="form-group">
+                        <label for="field-group-1" class="sr-only">Accessibility text</label>
+                        <div class="input-group">
+                            <span class="input-group-addon">@</span>
+                            <input type="text" class="form-control" id="field-group-1" placeholder="Username" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="field-group-3" class="sr-only">Accessibility text</label>
+                        <div class="input-group">
+                            <span class="input-group-addon"><span class="icon icon-search"></span></span>
+                            <input type="text" class="form-control" id="field-group-3" placeholder="Font icon" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="field-group-2" class="sr-only">Accessibility text</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="field-group-2" />
+                            <span class="input-group-addon">.00</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="field-group-4" class="sr-only">Accessibility text</label>
+                        <div class="input-group">
+                            <span class="input-group-addon">$</span>
+                            <input type="text" class="form-control" id="field-group-4" />
+                            <span class="input-group-addon">.00</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="field-group-5" class="sr-only">Accessibility text</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="field-group-5" />
+                            <span class="input-group-btn"><button class="btn btn-default" type="button"><span class="icon icon-search"></span></button></span>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="form-group input-group">
-                    <span class="input-group-addon"><span class="icon icon-search"></span></span>
-                    <label for="field-group-3" class="sr-only">Accessibility text</label>
-                    <input type="text" class="form-control" id="field-group-3" placeholder="Font icon" />
-                </div>
+                <h4>Sizing</h4>
+                <fieldset class="form-inline">
+                    <div class="code-container">
+                        <div class="form-group">
+                            <label for="input-combo-large" class="sr-only">Large</label>
+                            <input type="text" class="form-control input-lg" id="input-combo-large" placeholder="input-large">
+                            <label><select class="form-control input-lg"><option>Dropdown</option></select></label>
+                            <button type="submit" class="btn btn-default btn-lg">Button</button>
+                        </div>
 
-                <div class="form-group input-group">
-                    <label for="field-group-2" class="sr-only">Accessibility text</label>
-                    <input type="text" class="form-control" id="field-group-2" />
-                    <span class="input-group-addon">.00</span>
-                </div>
+                        <div class="spacer"></div>
 
-                <div class="form-group input-group">
-                    <span class="input-group-addon">$</span>
-                    <label for="field-group-4" class="sr-only">Accessibility text</label>
-                    <input type="text" class="form-control" id="field-group-4" />
-                    <span class="input-group-addon">.00</span>
-                </div>
+                        <div class="form-group">
+                            <label for="input-combo-default" class="sr-only">Default</label>
+                            <input type="text" class="form-control" id="input-combo-default" placeholder="input-default">
+                            <label><select class="form-control"><option>Dropdown</option></select></label>
+                            <button type="submit" class="btn btn-default">Button</button>
+                        </div>
 
-                <div class="form-group input-group">
-                    <label for="field-group-5" class="sr-only">Accessibility text</label>
-                    <input type="text" class="form-control" id="field-group-5" />
-                    <span class="input-group-btn"><button class="btn btn-default" type="button"><span class="icon icon-search"></span></button></span>
-                </div>
+                        <div class="spacer"></div>
+
+                        <div class="form-group">
+                            <label for="input-combo-small" class="sr-only">Small</label>
+                            <input type="text" class="form-control input-sm" id="input-combo-small" placeholder="input-small">
+                            <label><select class="form-control input-sm"><option>Dropdown</option></select></label>
+                            <button type="submit" class="btn btn-default btn-sm">Button</button>
+                        </div>
+
+                        <div class="spacer"></div>
+
+                        <p>There is no <code>input-xs</code> option available as of Bootstrap 3.</p>
+                    </div>
+                </fieldset>
             </form>
         </div>
     </div>
