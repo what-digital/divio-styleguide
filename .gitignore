@@ -16,6 +16,7 @@
 
 /tmp
 /env
+/dist
 
 /src/settings_local*.py
 /requirements_local*.txt

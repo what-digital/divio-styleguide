@@ -2,6 +2,39 @@
 Divio Styleguide
 ================
 
+3.1.0
+-----
+- adapt to bootstrap 3.3.0
+- added additional fixes for accessibility
+- added fixes for coding guidelines
+- added dist/ folder to gitignore
+- added readonly example
+- added active form elements
+- fixed additional issues reported by bootlint
+- fixed typos
+
+3.0.4
+-----
+- update media object from pull-left to media-left
+- removed not required classes
+- remove glyphicon references
+- ensure markup passes bootlint
+
+3.0.3
+-----
+- added input group sizing example
+- added form-control-feedback example
+- fixed an issue where input-groups markup was wrong
+
+3.0.2
+-----
+- fixed an issue with IE9 rendering on window.history
+
+3.0.1
+-----
+- added line height fixes within the markup
+- optimized markup
+
 3.0.0
 -----
 - update entire package for bootstrap 3
