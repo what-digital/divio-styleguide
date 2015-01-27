@@ -2,6 +2,10 @@
 Divio Styleguide
 ================
 
+3.1.1
+-----
+- fixed incorrect markup order for media-right objects
+
 3.1.0
 -----
 - adapt to bootstrap 3.3.0
