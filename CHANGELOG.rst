@@ -2,6 +2,12 @@
 Divio Styleguide
 ================
 
+3.1.2
+-----
+- fixed an issue with the icon example
+- fixed placeholder typos
+- fixed an issue with disabled form controls
+
 3.1.1
 -----
 - fixed incorrect markup order for media-right objects
