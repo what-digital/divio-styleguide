@@ -294,7 +294,7 @@
     <h2>Iconography</h2>
     <p class="lead">Generate font icons using the <a href="http://fontastic.me/">fontastic.me</a>
         service. The following icons are available throughout your website. Implement them using
-        <code>&lt;span class="icon icon-{name}"&gt;&lt;span&gt;</code> and replace {name} with the icon name.
+        <code>&lt;span class="icon icon-{name}"&gt;&lt;/span&gt;</code> and replace {name} with the icon name.
         Additional utilities can be used as described underneath. All Icons are compatible with Bootstrap.</p>
 
     <div class="row">
@@ -848,12 +848,12 @@
 
                     <div class="form-group">
                         <label for="field-read-only">Readonly input</label>
-                        <input type="text" class="form-control" id="field-read-only" placeholder="Radonly input" readonly="readonly" />
+                        <input type="text" class="form-control" id="field-read-only" placeholder="Readonly input" readonly="readonly" />
                     </div>
 
                     <div class="form-group">
                         <label for="field-disabled-select">Disabled select menu</label>
-                        <select class="form-control" id="field-disabled-select">
+                        <select class="form-control" id="field-disabled-select" disabled="disabled">
                             <option>Disabled select</option>
                         </select>
                     </div>
