@@ -1,7 +1,6 @@
 {
 	"name": "Divio Styleguide",
 	"description": "Automatic generated styleguide using your Bootstrap settings",
-	"version": "3.1.1",
 	"url": "https://github.com/divio/divio-styleguide",
 	"package-name": "divio-styleguide",
 	"installed-apps": [
@@ -13,5 +12,5 @@
 	},
 	"license": {
 		"name": "All rights reserved, Divio AG"
-	}	
+	}
 }
