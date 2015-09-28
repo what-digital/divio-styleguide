@@ -8,7 +8,7 @@
                 <h4 class="modal-title">Source Code</h4>
             </div>
             <div class="modal-body">
-                <pre></pre>
+                <pre contenteditable></pre>
             </div>
         </div>
     </div>
@@ -82,7 +82,9 @@ jQuery(document).ready(function () {
         copy: function () {
             var tpl = '<div class="btn btn-primary btn-xs code-button">Copy</div>';
             var button = $(tpl).on('click', function () {
-                var html = $(this).parent().html();
+                var html = $(this).parent().clone()
+                    .find('.code-button').remove().end()
+                    .html();
                 html = cleanSource(html);
                 $('.code-modal pre').text(html);
                 $('.code-modal').modal();
@@ -99,20 +101,9 @@ jQuery(document).ready(function () {
             });
 
             function cleanSource(html) {
-                var lines = html.split(/\n/);
-                lines.shift();
-                lines.splice(-1, 1);
-                var indentSize = lines[0].length - lines[0].trim().length;
-                var re = new RegExp(' {' + indentSize + '}');
-
-                lines = lines.map(function (line) {
-                    if (line.match(re)) {
-                        line = line.substring(indentSize);
-                    }
-                    return line;
+                return html_beautify(html, {
+                    preserve_newlines: false
                 });
-                lines = lines.join('\n');
-                return lines;
             }
         },
 
