@@ -2,6 +2,13 @@
 Divio Styleguide
 ================
 
+3.1.3
+-----
+- adjust imports to add forward compatibility with django CMS 3.2+
+- update markup for media component
+- easier markup copying
+- change the way markup is retrieved (fixes a bug where styleguide was used with html minifier)
+
 3.1.2
 -----
 - fixed an issue with the icon example
