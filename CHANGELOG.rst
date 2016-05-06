@@ -2,6 +2,11 @@
 Divio Styleguide
 ================
 
+2.0.3 (2016-05-06)
+------------------
+
+ - Fix Django CMS 3.2 support
+
 2.0.0
 -----
 - added changelog
