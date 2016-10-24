@@ -2,6 +2,13 @@
 Divio Styleguide
 ================
 
+Unreleased
+----------
+
+- Added text colors to complement color swatches
+
+
+
 3.1.3
 -----
 - adjust imports to add forward compatibility with django CMS 3.2+
