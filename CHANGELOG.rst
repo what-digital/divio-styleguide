@@ -2,12 +2,10 @@
 Divio Styleguide
 ================
 
-Unreleased
-----------
-
+3.2.0
+-----
 - Added text colors to complement color swatches
-
-
+- Added compatibility for Django 1.9 and dropped for Django < 1.7
 
 3.1.3
 -----
