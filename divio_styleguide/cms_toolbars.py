@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-from django.core.urlresolvers import reverse, NoReverseMatch
 from django.utils.translation import ugettext_lazy as _
 
 try:
@@ -7,6 +6,11 @@ try:
 except ImportError:
     # CMS < 3.2 import has different location
     from cms.cms_toolbar import ADMIN_MENU_IDENTIFIER, ADMINISTRATION_BREAK
+try:
+    from django.urls import reverse, NoReverseMatch
+except ImportError:
+    # Django < 1.10 import has different location
+    from django.core.urlresolvers import reverse, NoReverseMatch
 from cms.toolbar.items import Break
 from cms.toolbar_pool import toolbar_pool
 from cms.toolbar_base import CMSToolbar
